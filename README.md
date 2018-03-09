@@ -32,7 +32,7 @@ We're releasing this SDK early to gain feedback from the developer community abo
 our iOS SDKs. Please file feedback about missing features or bugs over at our [issue tracker](https://github.com/spotify/ios-app-remote-sdk/issues).
 Make sure you search existing issues before creating new ones.
 
-[Open bug tickets](https://github.com/spotify/ios-app-remote-sdk/labels/bug) | [Open feature requests](https://github.com/spotify/ios-app-remote-sdk/labels/feature%20request) 
+[Open bug tickets](https://github.com/spotify/ios-app-remote-sdk/labels/bug) | [Open feature requests](https://github.com/spotify/ios-app-remote-sdk/labels/feature%20request)
 
 ## Requirements
 The Spotify App Remote framework requires a deployment target of iOS 8 or higher. The
@@ -108,7 +108,7 @@ Note that by using Spotify developer tools, you accept our [Developer Terms of U
 
 ### Included Open Source Libraries
 
-* [MPMessagePack](https://github.com/gabriel/MPMessagex`Pack)
+* [MPMessagePack](https://github.com/gabriel/MPMessagePack)
 
 # Tutorial
 This tutorial leads you step-by-step through the creation of a simple app that uses the Spotify App Remote to play an audio track and subscribe to player state.
@@ -166,7 +166,7 @@ self.appRemote = [[SPTAppRemote alloc] initWithConnectionParameters:params
                                                            logLevel:SPTAppRemoteLogLevelDebug];
 ```
 
-3. Initiate the authentication flow
+3. Initiate the authentication flow (for other ways to detect if Spotify is installed, as well as attributing installs, please see our [Content Linking Guide](https://beta.developer.spotify.com/documentation/general/guides/content-linking-guide/)).
 ```objective-c
 // Note: A blank string will play the user's last song
 BOOL spotifyInstalled = [self.appRemote authorizeAndPlayURI:@"spotify:track:69bp2EbF7Q2rqc5N3ylezZ"];
