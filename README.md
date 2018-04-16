@@ -43,7 +43,7 @@ following architectures are supported: `armv7`, `armv7s` and `arm64` for devices
 ## Models
 * `SPTAppRemoteAlbum`
 * `SPTAppRemoteArtist`
-* `SPTAppRemoteLibaryState`
+* `SPTAppRemoteLibraryState`
 * `SPTAppRemotePlaybackRestrictions`
 * `SPTAppRemotePlaybackOptions`
 * `SPTAppRemotePlayerState`
