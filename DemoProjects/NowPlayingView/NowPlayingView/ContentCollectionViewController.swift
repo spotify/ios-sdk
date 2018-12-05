@@ -29,7 +29,7 @@ class ContentCollectionViewController : UICollectionViewController, UICollection
                 self.collectionView?.reloadData()
             }
         } else {
-            appRemote.contentAPI?.fetchRecommendedContentItems(for: .default) { (items, error) in
+            appRemote.contentAPI?.fetchRootContentItems(forType: SPTAppRemoteContentTypeDefault) { (items, error) in
                 if let contentItems = items as? [SPTAppRemoteContentItem] {
                     self.contentItems = contentItems
                 }

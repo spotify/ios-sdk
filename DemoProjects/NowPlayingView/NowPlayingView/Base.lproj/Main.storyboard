@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YFO-Y1-WYf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YFO-Y1-WYf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -43,6 +41,13 @@
                                     <action selector="didPressPlayPauseButton:" destination="zJM-qG-Bbi" eventType="touchUpInside" id="7yj-rI-zr1"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLa-TF-pjD">
+                                <rect key="frame" x="172.5" y="158.5" width="30" height="30"/>
+                                <state key="normal" title="1.0x"/>
+                                <connections>
+                                    <action selector="didPressChangePodcastPlaybackSpeedButton:" destination="zJM-qG-Bbi" eventType="touchUpInside" id="Acn-xN-e6J"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Dz-1I-gjk">
                                 <rect key="frame" x="251.5" y="114.5" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
@@ -65,7 +70,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="Yyg-5b-8gs">
-                                <rect key="frame" x="95" y="413.5" width="186.5" height="186.5"/>
+                                <rect key="frame" x="94" y="413" width="187" height="187"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Yyg-5b-8gs" secondAttribute="height" multiplier="1:1" id="Qls-sy-c8v"/>
                                 </constraints>
@@ -83,14 +88,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pk8-Gq-7sv">
-                                <rect key="frame" x="172.5" y="245" width="30" height="30"/>
+                                <rect key="frame" x="172.5" y="245.5" width="30" height="30"/>
                                 <state key="normal" title="Get"/>
                                 <connections>
                                     <action selector="didPressGetCapabilitiesButton:" destination="zJM-qG-Bbi" eventType="touchUpInside" id="4xq-bG-aWX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3G-wA-JJq">
-                                <rect key="frame" x="233" y="245" width="69" height="30"/>
+                                <rect key="frame" x="233" y="245.5" width="69" height="30"/>
                                 <state key="normal" title="Subscribe"/>
                                 <connections>
                                     <action selector="didPressCapabilitiesSubscriptionButton:" destination="zJM-qG-Bbi" eventType="touchUpInside" id="w0h-nM-xYf"/>
@@ -109,7 +114,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Shuffle mode" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxM-Ud-hcN">
-                                <rect key="frame" x="76" y="320.5" width="76" height="14.5"/>
+                                <rect key="frame" x="76" y="320" width="76" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -122,19 +127,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U87-v2-xCq">
-                                <rect key="frame" x="103" y="349" width="49" height="18"/>
+                                <rect key="frame" x="103" y="348.5" width="49" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Repeat mode" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKt-hg-oES">
-                                <rect key="frame" x="77" y="369.5" width="75" height="14.5"/>
+                                <rect key="frame" x="77" y="368.5" width="75" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qc4-4t-Url">
-                                <rect key="frame" x="164" y="343" width="47" height="30"/>
+                                <rect key="frame" x="164" y="342.5" width="47" height="30"/>
                                 <state key="normal" title="Toggle"/>
                                 <connections>
                                     <action selector="didPressToggleRepeatModeButton:" destination="zJM-qG-Bbi" eventType="touchUpInside" id="tyI-oC-2jY"/>
@@ -154,10 +159,34 @@
                                     <action selector="didPressEnqueueTrackButton:" destination="zJM-qG-Bbi" eventType="touchUpInside" id="bpn-Rr-U0s"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HsX-fx-HXS" userLabel="Back15">
+                                <rect key="frame" x="87.5" y="109.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7T7-pR-oh7"/>
+                                    <constraint firstAttribute="width" constant="40" id="kIr-Q2-AuK"/>
+                                </constraints>
+                                <state key="normal" image="skipback15"/>
+                                <connections>
+                                    <action selector="didPressSkipBackward15Button:" destination="zJM-qG-Bbi" eventType="touchUpInside" id="x6b-1n-Ooc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yki-Jd-CZo" userLabel="Forward15">
+                                <rect key="frame" x="247.5" y="109.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Wb0-42-fMb"/>
+                                    <constraint firstAttribute="width" constant="40" id="nFh-aF-O9u"/>
+                                </constraints>
+                                <state key="normal" image="skipforward15"/>
+                                <connections>
+                                    <action selector="didPressSkipForward15Button:" destination="zJM-qG-Bbi" eventType="touchUpInside" id="tbZ-CJ-VpG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pLa-TF-pjD" firstAttribute="centerY" secondItem="mKi-M6-Bpq" secondAttribute="centerY" id="0OB-wM-sj6"/>
                             <constraint firstItem="Odc-N8-LDo" firstAttribute="centerX" secondItem="v6q-Mo-xNc" secondAttribute="centerX" id="0wJ-t6-4Zq"/>
+                            <constraint firstItem="yki-Jd-CZo" firstAttribute="centerY" secondItem="8Dz-1I-gjk" secondAttribute="centerY" id="2yW-0f-GB2"/>
                             <constraint firstItem="Qc4-4t-Url" firstAttribute="baseline" secondItem="U87-v2-xCq" secondAttribute="baseline" id="6n5-od-Rg1"/>
                             <constraint firstItem="A9I-ga-uov" firstAttribute="trailing" secondItem="9jd-oj-npe" secondAttribute="trailing" id="6q9-fi-Ybp"/>
                             <constraint firstItem="KCu-h2-jId" firstAttribute="top" secondItem="mKi-M6-Bpq" secondAttribute="bottom" constant="14" id="9Ez-r2-icw"/>
@@ -166,9 +195,12 @@
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Yyg-5b-8gs" secondAttribute="trailing" id="C4Q-1H-Xnm"/>
                             <constraint firstItem="Rgd-64-vVm" firstAttribute="centerX" secondItem="v6q-Mo-xNc" secondAttribute="centerX" id="C4Q-it-1fz"/>
                             <constraint firstItem="FJS-AJ-BPP" firstAttribute="baseline" secondItem="9AB-7b-9eh" secondAttribute="baseline" id="Ega-Wp-lXc"/>
+                            <constraint firstItem="yki-Jd-CZo" firstAttribute="centerX" secondItem="8Dz-1I-gjk" secondAttribute="centerX" id="EjZ-YW-YcI"/>
                             <constraint firstItem="8Dz-1I-gjk" firstAttribute="centerX" secondItem="v6q-Mo-xNc" secondAttribute="centerX" constant="80" id="FdA-SI-n0s"/>
+                            <constraint firstItem="HsX-fx-HXS" firstAttribute="centerY" secondItem="7mT-Sj-PAA" secondAttribute="centerY" id="GG9-Wd-Nkh"/>
                             <constraint firstItem="U87-v2-xCq" firstAttribute="top" secondItem="dxM-Ud-hcN" secondAttribute="bottom" constant="14" id="HUI-pd-Qbe"/>
                             <constraint firstItem="Odc-N8-LDo" firstAttribute="top" secondItem="8hR-Le-hOe" secondAttribute="bottom" constant="16" id="JA9-UC-dkm"/>
+                            <constraint firstItem="aHM-yC-G0I" firstAttribute="centerY" secondItem="mKi-M6-Bpq" secondAttribute="centerY" id="NfT-j1-9uP"/>
                             <constraint firstItem="Yyg-5b-8gs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v6q-Mo-xNc" secondAttribute="leadingMargin" id="Oob-Iy-PfA"/>
                             <constraint firstItem="A9I-ga-uov" firstAttribute="leading" secondItem="v6q-Mo-xNc" secondAttribute="leadingMargin" id="T3i-an-uP2"/>
                             <constraint firstItem="d8W-lP-ibW" firstAttribute="centerX" secondItem="v6q-Mo-xNc" secondAttribute="centerX" id="TJX-iy-juI"/>
@@ -186,8 +218,10 @@
                             <constraint firstItem="9jd-oj-npe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v6q-Mo-xNc" secondAttribute="leading" constant="20" symbolic="YES" id="dQj-nQ-WVh"/>
                             <constraint firstItem="wig-cp-jI9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Yyg-5b-8gs" secondAttribute="bottom" constant="18" id="dml-mh-JPf"/>
                             <constraint firstItem="aHM-yC-G0I" firstAttribute="centerX" secondItem="v6q-Mo-xNc" secondAttribute="centerX" constant="80" id="f5y-j0-Fop"/>
+                            <constraint firstItem="HsX-fx-HXS" firstAttribute="centerX" secondItem="7mT-Sj-PAA" secondAttribute="centerX" id="gHC-0h-M6n"/>
                             <constraint firstItem="Yyg-5b-8gs" firstAttribute="top" secondItem="AKt-hg-oES" secondAttribute="bottom" priority="100" constant="16" id="gXi-K9-tR6"/>
                             <constraint firstItem="d8W-lP-ibW" firstAttribute="top" secondItem="7mT-Sj-PAA" secondAttribute="top" id="hLN-Zl-Aeh"/>
+                            <constraint firstItem="pLa-TF-pjD" firstAttribute="centerX" secondItem="d8W-lP-ibW" secondAttribute="centerX" id="her-IS-adt"/>
                             <constraint firstItem="mKi-M6-Bpq" firstAttribute="top" secondItem="7mT-Sj-PAA" secondAttribute="bottom" constant="14" id="hgk-yp-JRO"/>
                             <constraint firstItem="Rgd-64-vVm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KCu-h2-jId" secondAttribute="trailing" constant="15" id="iYj-yY-p6l"/>
                             <constraint firstItem="AKt-hg-oES" firstAttribute="top" secondItem="U87-v2-xCq" secondAttribute="bottom" constant="2" id="k5F-ax-lwc"/>
@@ -221,9 +255,12 @@
                         <outlet property="onDemandCapabilitiesLabel" destination="A9I-ga-uov" id="axL-i4-Bye"/>
                         <outlet property="playPauseButton" destination="d8W-lP-ibW" id="7P6-NP-Mqb"/>
                         <outlet property="playerStateSubscriptionButton" destination="Aon-sz-vRx" id="Jmw-vU-o8e"/>
+                        <outlet property="podcastSpeedButton" destination="pLa-TF-pjD" id="NL5-fm-gyx"/>
                         <outlet property="prevButton" destination="7mT-Sj-PAA" id="Q0B-rp-6XI"/>
                         <outlet property="repeatModeLabel" destination="AKt-hg-oES" id="uLq-Ee-Wc0"/>
                         <outlet property="shuffleModeLabel" destination="dxM-Ud-hcN" id="Xj8-CV-jIj"/>
+                        <outlet property="skipBackward15Button" destination="HsX-fx-HXS" id="L8V-vE-3JM"/>
+                        <outlet property="skipForward15Button" destination="yki-Jd-CZo" id="OIf-8N-DTx"/>
                         <outlet property="toggleRepeatModeButton" destination="Qc4-4t-Url" id="bJd-yd-4Rk"/>
                         <outlet property="toggleShuffleButton" destination="FJS-AJ-BPP" id="Kpd-Ju-PNq"/>
                         <outlet property="trackNameLabel" destination="Odc-N8-LDo" id="caJ-1e-kwJ"/>
@@ -237,6 +274,9 @@
                         <outletCollection property="buttons" destination="Qc4-4t-Url" collectionClass="NSMutableArray" id="mlt-GQ-vkf"/>
                         <outletCollection property="buttons" destination="mKi-M6-Bpq" collectionClass="NSMutableArray" id="HgW-rP-zOY"/>
                         <outletCollection property="buttons" destination="aHM-yC-G0I" collectionClass="NSMutableArray" id="r2A-oy-cSM"/>
+                        <outletCollection property="buttons" destination="HsX-fx-HXS" collectionClass="NSMutableArray" id="RRR-ZE-FaR"/>
+                        <outletCollection property="buttons" destination="yki-Jd-CZo" collectionClass="NSMutableArray" id="bl0-uS-Q3G"/>
+                        <outletCollection property="buttons" destination="pLa-TF-pjD" collectionClass="NSMutableArray" id="gFC-IQ-q0E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERd-q6-NRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -367,4 +407,8 @@
             <point key="canvasLocation" x="962" y="2265"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="skipback15" width="31" height="25"/>
+        <image name="skipforward15" width="29" height="25"/>
+    </resources>
 </document>

@@ -29,6 +29,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// The playback options currently in effect.
 @property (nonatomic, readonly) id<SPTAppRemotePlaybackOptions> playbackOptions;
 
+/// The title of the currently playing context (e.g. the name of the playlist).
+@property (nonatomic, readonly) NSString *contextTitle;
+
+/// The URI of the currently playing context (e.g. the URI of the playlist).
+@property (nonatomic, readonly) NSURL *contextURI;
+
 @end
 
 NS_ASSUME_NONNULL_END

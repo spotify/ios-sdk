@@ -66,6 +66,12 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/enqueueTrackUri:callback:">- enqueueTrackUri:callback:</option>
+		
+		<option value="//api/name/getAvailablePodcastPlaybackSpeeds:">- getAvailablePodcastPlaybackSpeeds:</option>
+		
+		<option value="//api/name/getCurrentPodcastPlaybackSpeed:">- getCurrentPodcastPlaybackSpeed:</option>
+		
 		<option value="//api/name/getPlayerState:">- getPlayerState:</option>
 		
 		<option value="//api/name/pause:">- pause:</option>
@@ -76,7 +82,13 @@
 		
 		<option value="//api/name/resume:">- resume:</option>
 		
+		<option value="//api/name/seekBackward15Seconds:">- seekBackward15Seconds:</option>
+		
+		<option value="//api/name/seekForward15Seconds:">- seekForward15Seconds:</option>
+		
 		<option value="//api/name/seekToPosition:callback:">- seekToPosition:callback:</option>
+		
+		<option value="//api/name/setPodcastPlaybackSpeed:callback:">- setPodcastPlaybackSpeed:callback:</option>
 		
 		<option value="//api/name/setRepeatMode:callback:">- setRepeatMode:callback:</option>
 		
@@ -611,6 +623,116 @@ On error <code>result</code> will be <code>nil</code> and <code>error</code> set
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/seekForward15Seconds:" title="seekForward15Seconds:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/seekForward15Seconds:">&ndash;&nbsp;seekForward15Seconds:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Asks the Spotify player to seek forward 15 seconds.
+Note: You should only use this method if isEpisode = YES for the currently playing track</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)seekForward15Seconds:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>On success <code>result</code> will be <code>YES</code>.
+On error <code>result</code> will be <code>nil</code> and <code>error</code> set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemotePlayerAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/seekBackward15Seconds:" title="seekBackward15Seconds:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/seekBackward15Seconds:">&ndash;&nbsp;seekBackward15Seconds:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Asks the Spotify player to seek backward 15 seconds.
+Note: You should only use this method if isEpisode = YES for the currently playing track</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)seekBackward15Seconds:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>On success <code>result</code> will be <code>YES</code>.
+On error <code>result</code> will be <code>nil</code> and <code>error</code> set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemotePlayerAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/setShuffle:callback:" title="setShuffle:callback:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/setShuffle:callback:">&ndash;&nbsp;setShuffle:callback:</a></code>
 <span class="task-item-suffix">required method</span></h3>
@@ -896,6 +1018,245 @@ On error <code>result</code> will be <code>nil</code> and error set</p></td>
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/enqueueTrackUri:callback:" title="enqueueTrackUri:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enqueueTrackUri:callback:">&ndash;&nbsp;enqueueTrackUri:callback:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds a track to the user&rsquo;s currently playing queue</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)enqueueTrackUri:(NSString *)<em>trackUri</em> callback:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>trackUri</code></th>
+						<td><p>The track URI to add to the queue</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>On success <code>result</code> will be <code>YES</code>
+On error <code>result</code> will be <code>nil</code> and error set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemotePlayerAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getAvailablePodcastPlaybackSpeeds:" title="getAvailablePodcastPlaybackSpeeds:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getAvailablePodcastPlaybackSpeeds:">&ndash;&nbsp;getAvailablePodcastPlaybackSpeeds:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Asks the Spotify player for available podcast playback speeds</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getAvailablePodcastPlaybackSpeeds:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>On success <code>result</code> will be an <code>NSArray</code> of <a href="../Protocols/SPTAppRemotePodcastPlaybackSpeed.html"><code>SPTAppRemotePodcastPlaybackSpeed</code></a> objects
+On error <code>result</code> will be <code>nil</code> and <code>error</code> set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemotePlayerAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCurrentPodcastPlaybackSpeed:" title="getCurrentPodcastPlaybackSpeed:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCurrentPodcastPlaybackSpeed:">&ndash;&nbsp;getCurrentPodcastPlaybackSpeed:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Asks the Spotify player for the current podcast playback speed</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getCurrentPodcastPlaybackSpeed:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>On success <code>result</code> will be a <a href="../Protocols/SPTAppRemotePodcastPlaybackSpeed.html"><code>SPTAppRemotePodcastPlaybackSpeed</code></a>
+On error <code>result</code> will be <code>nil</code> and <code>error</code> set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> Podcast playback speed is seperate from other contents' playback speed. This value is only used for podcasts</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemotePlayerAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setPodcastPlaybackSpeed:callback:" title="setPodcastPlaybackSpeed:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setPodcastPlaybackSpeed:callback:">&ndash;&nbsp;setPodcastPlaybackSpeed:callback:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the current podcast playback speed</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setPodcastPlaybackSpeed:(nonnull id&lt;SPTAppRemotePodcastPlaybackSpeed&gt;)<em>speed</em> callback:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>speed</code></th>
+						<td><p>The <a href="../Protocols/SPTAppRemotePodcastPlaybackSpeed.html"><code>SPTAppRemotePodcastPlaybackSpeed</code></a> to set as the current podcast playback speed</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>On success <code>result</code> will be <code>YES</code>.
+On error <code>result</code> will be <code>nil</code> and <code>error</code> set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This playback speed will only affect podcasts and not other types of media. If you set this
+when a podcast is not playing this will be the default value when a podcast does begin to play. For this reason
+you may get a successful callback when setting this even when a podcast is not playing and the current playback
+speed does not change.</p></div><div class="note"><p><strong>Note:</strong> You should use <a href="#//api/name/getAvailablePodcastPlaybackSpeeds:"><code>getAvailablePodcastPlaybackSpeeds:</code></a> to get a list of valid speeds to pass to this method</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemotePlayerAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -911,7 +1272,7 @@ On error <code>result</code> will be <code>nil</code> and error set</p></td>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Spotify. All rights reserved. Updated: 2018-09-11</p>
+						<p class="copyright">Copyright &copy; 2018 Spotify. All rights reserved. Updated: 2018-12-04</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

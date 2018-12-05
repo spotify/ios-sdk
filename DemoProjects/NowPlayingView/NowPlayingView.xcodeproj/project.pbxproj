@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BAD4B251CFD66290033DE75 /* My-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAD4B241CFD66290033DE75 /* My-Extensions.swift */; };
+		54266D9121ACB40D00E10A41 /* SpeedPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54266D9021ACB40D00E10A41 /* SpeedPickerViewController.swift */; };
 		546D86B52139DB76002AD06E /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546D86B42139DB76002AD06E /* SpotifyiOS.framework */; };
 		998FF9BE1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */; };
 		99A0FFE41D38F9B600A90453 /* PlaybackButtonGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0FFE31D38F9B600A90453 /* PlaybackButtonGraphics.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		2BAD4B241CFD66290033DE75 /* My-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "My-Extensions.swift"; sourceTree = "<group>"; };
+		54266D9021ACB40D00E10A41 /* SpeedPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedPickerViewController.swift; sourceTree = "<group>"; };
 		546D86B42139DB76002AD06E /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = ../../SpotifyiOS.framework; sourceTree = "<group>"; };
 		998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatusIndicatorView.swift; sourceTree = "<group>"; };
 		99A0FFE31D38F9B600A90453 /* PlaybackButtonGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackButtonGraphics.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				F4F974081CAD62D40036411D /* NowPlayingView-Bridging-Header.h */,
 				99A0FFE31D38F9B600A90453 /* PlaybackButtonGraphics.swift */,
 				998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */,
+				54266D9021ACB40D00E10A41 /* SpeedPickerViewController.swift */,
 			);
 			path = NowPlayingView;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54266D9121ACB40D00E10A41 /* SpeedPickerViewController.swift in Sources */,
 				99A0FFE41D38F9B600A90453 /* PlaybackButtonGraphics.swift in Sources */,
 				F6EB42E31D2BB0D800F57322 /* ContentCollectionViewController.swift in Sources */,
 				F4F973F21CAD60320036411D /* ViewController.swift in Sources */,

@@ -20,6 +20,8 @@ The Spotify iOS SDK is a set of lightweight objects that connect with the Spotif
 
 [Tutorial](#tutorial)
 
+[Frequently Asked Questions](#frequently-asked-questions)
+
 ## Key Features
 * Playback is always in sync with Spotify app
 * Playback, networking, and caching is all accounted for by the Spotify app
@@ -133,7 +135,7 @@ Follow these steps to make sure you are prepared to start coding.
 
 ![Import SpotifyiOS.framework](img/import_sdk.png)
 
-2. Add `-ObjC` to your project's "Other Linker Flags"  ([Technical Q&A QA1490](https://developer.apple.com/library/content/qa/qa1490/_index.html))\
+2. Add `-ObjC` to your project's "Other Linker Flags"  ([Technical Q&A QA1490](https://developer.apple.com/library/content/qa/qa1490/_index.html))
 
 ![Other Linker Flags](img/other_linker_flags.png)
 
@@ -144,10 +146,20 @@ Follow these steps to make sure you are prepared to start coding.
 4. Add `#import <SpotifyiOS/SpotifyiOS.h>` to your source files to import necessary headers.
 
 
+## Check if Spotify is Active
+If a user is already using Spotify, but has not authorized your application, you can use the following check to prompt them to
+start the authorization process. 
+
+```objective-c
+[SPTAppRemote checkIfSpotifyAppIsActive:^(BOOL active) {
+    if (active) {
+        // Prompt the user to connect Spotify here
+    }
+}];
+```
 
 ## Authorize Your Application
 To be able to use the playback control part of the SDK the user needs to authorize your application. If they haven't, the connection will fail with a `No token provided` error. To allow the user to authorize your app, you can use the `SPTSessionManager` flow described in the [iOS SDK Tutorial](https://beta.developer.spotify.com/documentation/ios-sdk/quick-start/) and below. This approach can be useful if your application needs a token with multiple scopes. If you're only interested in using the `app-remote-control` scope you can use the built-in authorization flow which doesn't require backend servers for OAuth token swaps.
-
 
 ### Using the built-in `app-remote-control` Authorization flow (Recommended)
 
@@ -195,13 +207,16 @@ if (!spotifyInstalled) {
 ```
 
 ### Using the  `SPTSessionManager`  Authorization flow
-**Note:** This is only necessary if you need additional scopes or want to authenticate even if the Spotify app isn't installed. This approach requires you to have your own server to perform an OAuth token swap
+**Note:** This is only necessary if you need additional scopes or want to authenticate even if the Spotify app isn't installed. This approach requires you to have your own server to perform an OAuth token swap. 
 
 1. Initialize `SPTConfiguration` with your client ID and redirect URI.
 
 ```objective-c
 SPTConfiguration *configuration =
     [[SPTConfiguration alloc] initWithClientID:@"your_client_id" redirectURL:[NSURL urlWithString:@"your_redirect_uri"]];
+
+// Optional: If you plan to connect SPTAppRemote you can start playback during authorization by setting playURI to a non-nil string.
+configuration.playURI = "";
 ```
 
 2. Set your token swap and refresh URLs . These endpoints will hold your client secret and communicate with Spotify's servers to get an OAuth token.
@@ -298,3 +313,17 @@ appRemote.playerAPI.delegate = self;
 ```
 
 
+
+# Frequently Asked Questions
+
+### Why is my app crashing with `[NSError spt_transport_endOfStreamError]: unrecognized selector sent to class`?
+
+You are missing the `-ObjC` linker flag discussed in Step #2 of [Add Dependencies](#add-dependencies)
+
+### Why does music need to be playing to connect with `SPTAppRemote`?
+
+Music must be playing when you connect with `SPTAppRemote` to ensure the Spotify app is not suspended in the background. iOS applications cannot stay alive in the background indefinitely unless they are actively doing something like navigation or playing music. 
+
+### Is SpotifyiOS.framework thread safe?
+
+No, the framework currently expects to be called from the main thread. It will offload most of its work to a background thread internally but callbacks to your code will also occur on the main thread.

@@ -22,6 +22,7 @@
 #import "SPTAppRemoteUserCapabilities.h"
 #import "SPTAppRemoteLibraryState.h"
 #import "SPTAppRemoteContentItem.h"
+#import "SPTAppRemotePodcastPlaybackSpeed.h"
 
 #import "SPTConfiguration.h"
 

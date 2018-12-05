@@ -30,6 +30,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// Returns `YES` if the item is expected to contain children, otherwise `NO`.
 @property (nonatomic, assign, readonly, getter=isContainer) BOOL container;
 
+/**
+ A list of the content item's children.
+
+ @note This is not populated for all container items as some of them are fetched
+       lazily with the `fetchChildrenOfContentItem:callback:` method.
+ */
+@property (nonatomic, strong, readonly, nullable) NSArray<id<SPTAppRemoteContentItem>> *children;
+
 @end
 
 NS_ASSUME_NONNULL_END

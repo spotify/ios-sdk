@@ -62,7 +62,9 @@
 		
 		<option value="//api/name/fetchChildrenOfContentItem:callback:">- fetchChildrenOfContentItem:callback:</option>
 		
-		<option value="//api/name/fetchRecommendedContentItemsForType:callback:">- fetchRecommendedContentItemsForType:callback:</option>
+		<option value="//api/name/fetchRecommendedContentItemsForType:flattenContainers:callback:">- fetchRecommendedContentItemsForType:flattenContainers:callback:</option>
+		
+		<option value="//api/name/fetchRootContentItemsForType:callback:">- fetchRootContentItemsForType:callback:</option>
 		
 	</optgroup>
 	
@@ -114,8 +116,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/fetchRecommendedContentItemsForType:callback:" title="fetchRecommendedContentItemsForType:callback:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/fetchRecommendedContentItemsForType:callback:">&ndash;&nbsp;fetchRecommendedContentItemsForType:callback:</a></code>
+	<a name="//api/name/fetchRootContentItemsForType:callback:" title="fetchRootContentItemsForType:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fetchRootContentItemsForType:callback:">&ndash;&nbsp;fetchRootContentItemsForType:callback:</a></code>
 <span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
@@ -130,7 +132,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)fetchRecommendedContentItemsForType:(SPTAppRemoteContentType)<em>contentType</em> callback:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)fetchRootContentItemsForType:(SPTAppRemoteContentType)<em>contentType</em> callback:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
 
 		    
 			
@@ -140,7 +142,7 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>contentType</code></th>
-						<td><p>A type that is used to retrieve content for a specific purpose.</p></td>
+						<td><p>A type that is used to retrieve content for a specific use-case.</p></td>
 					</tr>
 				
 					<tr>
@@ -241,6 +243,77 @@ indicates whether or not the item has any children.</p></div>
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/fetchRecommendedContentItemsForType:flattenContainers:callback:" title="fetchRecommendedContentItemsForType:flattenContainers:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fetchRecommendedContentItemsForType:flattenContainers:callback:">&ndash;&nbsp;fetchRecommendedContentItemsForType:flattenContainers:callback:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Fetches a list of recommended playlists for the current user.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)fetchRecommendedContentItemsForType:(SPTAppRemoteContentType)<em>contentType</em> flattenContainers:(BOOL)<em>flattenContainers</em> callback:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentType</code></th>
+						<td><p>A type that is used to retrieve content for a specific use-case.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>flattenContainers</code></th>
+						<td><p>Whether or not the recommendations should be flattened into a single list or remain
+separated in containers.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>The callback to be called once the request is completed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> The playlists returned are a mix of the user&rsquo;s recently played feed
+as well as personal recommendations, and as such may vary between users.</p></div><div class="note"><p><strong>Note:</strong> This method is only supported by Spotify clients running version 8.4.75 and above
+and will fail with an <code>SPTAppRemoteWAMPClientNotSupportedError</code> otherwise.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemoteContentAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -256,7 +329,7 @@ indicates whether or not the item has any children.</p></div>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Spotify. All rights reserved. Updated: 2018-09-11</p>
+						<p class="copyright">Copyright &copy; 2018 Spotify. All rights reserved. Updated: 2018-12-04</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

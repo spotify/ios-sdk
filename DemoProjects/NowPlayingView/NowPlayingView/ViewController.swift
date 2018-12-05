@@ -4,11 +4,14 @@ import StoreKit
 class ViewController: UIViewController,
                       SPTAppRemotePlayerStateDelegate,
                       SPTAppRemoteUserAPIDelegate,
+                      SpeedPickerViewControllerDelegate,
                       SKStoreProductViewControllerDelegate {
 
     fileprivate let playURI = "spotify:album:5uMfshtC2Jwqui0NUyUYIL"
     fileprivate let trackIdentifier = "spotify:track:32ftxJzxMPgUFCM6Km9WTS"
     fileprivate let name = "Now Playing View"
+
+    fileprivate var currentPodcastSpeed: SPTAppRemotePodcastPlaybackSpeed?
 
     // MARK: - Lifecycle
 
@@ -31,6 +34,11 @@ class ViewController: UIViewController,
         prevButton.setTitle("", for: UIControlState.normal)
         prevButton.setImage(PlaybackButtonGraphics.previousButtonImage(), for: UIControlState.normal)
         prevButton.setImage(PlaybackButtonGraphics.previousButtonImage(), for: UIControlState.highlighted)
+
+        skipBackward15Button.setImage(skipBackward15Button.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+        skipForward15Button.setImage(skipForward15Button.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+        skipBackward15Button.isHidden = true
+        skipForward15Button.isHidden = true
     }
 
     // MARK: - View
@@ -41,6 +49,10 @@ class ViewController: UIViewController,
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var prevButton: UIButton!
 
+    @IBOutlet var skipForward15Button: UIButton!
+    @IBOutlet var skipBackward15Button: UIButton!
+    @IBOutlet var podcastSpeedButton: UIButton!
+
     fileprivate func updateViewWithPlayerState(_ playerState: SPTAppRemotePlayerState) {
         updatePlayPauseButtonState(playerState.isPaused)
         updateRepeatModeLabel(playerState.playbackOptions.repeatMode)
@@ -50,6 +62,7 @@ class ViewController: UIViewController,
             self.updateAlbumArtWithImage(image)
         }
         updateViewWithRestrictions(playerState.playbackRestrictions)
+        updateInterfaceForPodcast(playerState: playerState)
     }
 
     fileprivate func updateViewWithRestrictions(_ restrictions: SPTAppRemotePlaybackRestrictions) {
@@ -73,6 +86,22 @@ class ViewController: UIViewController,
             albumArtImageView.image = nil
             updatePlayPauseButtonState(true);
         }
+    }
+
+    // MARK: Podcast Support
+
+    fileprivate func updateInterfaceForPodcast(playerState: SPTAppRemotePlayerState) {
+        skipForward15Button.isHidden = !playerState.track.isEpisode
+        skipBackward15Button.isHidden = !playerState.track.isEpisode
+        podcastSpeedButton.isHidden = !playerState.track.isPodcast
+        nextButton.isHidden = !skipForward15Button.isHidden
+        prevButton.isHidden = !skipBackward15Button.isHidden
+        getCurrentPodcastSpeed()
+    }
+
+    fileprivate func updatePodcastSpeed(speed: SPTAppRemotePodcastPlaybackSpeed) {
+        currentPodcastSpeed = speed
+        podcastSpeedButton.setTitle(String(format: "%0.1fx", speed.value.floatValue), for: .normal);
     }
 
     // MARK: Player Control
@@ -102,6 +131,18 @@ class ViewController: UIViewController,
 
     @IBAction func didPressPlayTrackButton(_ sender: AnyObject) {
         playTrack()
+    }
+
+    @IBAction func didPressSkipForward15Button(_ sender: UIButton) {
+        seekForward15Seconds()
+    }
+
+    @IBAction func didPressSkipBackward15Button(_ sender: UIButton) {
+        seekBackward15Seconds()
+    }
+
+    @IBAction func didPressChangePodcastPlaybackSpeedButton(_ sender: UIButton) {
+        pickPodcastSpeed()
     }
 
     @IBAction func didPressEnqueueTrackButton(_ sender: AnyObject) {
@@ -266,6 +307,25 @@ class ViewController: UIViewController,
         }
     }
 
+    fileprivate func seekForward15Seconds() {
+        appRemote.playerAPI?.seekForward15Seconds(defaultCallback)
+    }
+
+    fileprivate func seekBackward15Seconds() {
+        appRemote.playerAPI?.seekBackward15Seconds(defaultCallback)
+    }
+
+    fileprivate func pickPodcastSpeed() {
+        appRemote.playerAPI?.getAvailablePodcastPlaybackSpeeds({ (speeds, error) in
+            if error == nil, let speeds = speeds as? [SPTAppRemotePodcastPlaybackSpeed], let current = self.currentPodcastSpeed {
+                let vc = SpeedPickerViewController(podcastSpeeds: speeds, selectedSpeed: current)
+                vc.delegate = self
+                let nav = UINavigationController(rootViewController: vc)
+                self.present(nav, animated: true, completion: nil)
+            }
+        })
+    }
+
     fileprivate func skipNext() {
         appRemote.playerAPI?.skip(toNext: defaultCallback)
     }
@@ -302,6 +362,13 @@ class ViewController: UIViewController,
             let playerState = result as! SPTAppRemotePlayerState
             self.updateViewWithPlayerState(playerState)
         }
+    }
+
+    fileprivate func getCurrentPodcastSpeed() {
+        appRemote.playerAPI?.getCurrentPodcastPlaybackSpeed({ (speed, error) in
+            guard error == nil, let speed = speed as? SPTAppRemotePodcastPlaybackSpeed else { return }
+            self.updatePodcastSpeed(speed: speed)
+        })
     }
 
     fileprivate func playTrackWithIdentifier(_ identifier: String) {
@@ -421,5 +488,21 @@ class ViewController: UIViewController,
         self.subscribedToPlayerState = false
         self.subscribedToCapabilities = false
         enableInterface(false)
+    }
+
+    // MARK: - SpeedPickerViewController
+
+    func speedPickerDidCancel(viewController: SpeedPickerViewController) {
+        viewController.dismiss(animated: true, completion: nil)
+    }
+
+    func speedPicker(viewController: SpeedPickerViewController, didChoose speed: SPTAppRemotePodcastPlaybackSpeed) {
+        appRemote.playerAPI?.setPodcastPlaybackSpeed(speed, callback: { (_, error) in
+            guard error == nil else {
+                return
+            }
+            self.updatePodcastSpeed(speed: speed)
+        })
+        viewController.dismiss(animated: true, completion: nil)
     }
 }

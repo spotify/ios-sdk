@@ -2,14 +2,11 @@
 #import "SPTAppRemoteCommon.h"
 
 /// A type representing different lists of content.
-typedef NS_ENUM(NSUInteger, SPTAppRemoteContentType) {
-    /// The default type.
-    SPTAppRemoteContentTypeDefault = 0,
-    /// A content list used for navigation apps.
-    SPTAppRemoteContentTypeNavigation,
-    /// A content list used for fitness apps.
-    SPTAppRemoteContentTypeFitness,
-};
+typedef NSString * const SPTAppRemoteContentType;
+
+extern NSString * const SPTAppRemoteContentTypeDefault;
+extern NSString * const SPTAppRemoteContentTypeNavigation;
+extern NSString * const SPTAppRemoteContentTypeFitness;
 
 @protocol SPTAppRemoteContentItem;
 
@@ -26,11 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
  * @note The content returned is based on the users' home feeds, and as such may vary
  *       between different users.
  *
- * @param contentType A type that is used to retrieve content for a specific purpose.
+ * @param contentType A type that is used to retrieve content for a specific use-case.
  * @param callback The callback to be called once the request is completed.
  */
-- (void)fetchRecommendedContentItemsForType:(SPTAppRemoteContentType)contentType
-                                   callback:(nullable SPTAppRemoteCallback)callback;
+- (void)fetchRootContentItemsForType:(SPTAppRemoteContentType)contentType
+                            callback:(nullable SPTAppRemoteCallback)callback;
 
 /**
  * Fetches the children items for the provided content item.
@@ -43,6 +40,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)fetchChildrenOfContentItem:(id<SPTAppRemoteContentItem>)contentItem
                           callback:(nullable SPTAppRemoteCallback)callback;
+
+/**
+ * Fetches a list of recommended playlists for the current user.
+ *
+ * @note The playlists returned are a mix of the user's recently played feed
+ *       as well as personal recommendations, and as such may vary between users.
+ * @note This method is only supported by Spotify clients running version 8.4.75 and above
+ *       and will fail with an `SPTAppRemoteWAMPClientNotSupportedError` otherwise.
+ *
+ * @param contentType A type that is used to retrieve content for a specific use-case.
+ * @param flattenContainers Whether or not the recommendations should be flattened into a single list or remain
+ *                          separated in containers.
+ * @param callback The callback to be called once the request is completed.
+ */
+- (void)fetchRecommendedContentItemsForType:(SPTAppRemoteContentType)contentType
+                          flattenContainers:(BOOL)flattenContainers
+                                   callback:(nullable SPTAppRemoteCallback)callback;
 
 @end
 

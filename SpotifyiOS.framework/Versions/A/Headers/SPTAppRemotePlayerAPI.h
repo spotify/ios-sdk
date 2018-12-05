@@ -3,7 +3,7 @@
 #import "SPTAppRemoteCommon.h"
 #import "SPTAppRemotePlaybackOptions.h"
 
-@protocol SPTAppRemotePlayerState, SPTAppRemoteContentItem;
+@protocol SPTAppRemotePlayerState, SPTAppRemoteContentItem, SPTAppRemotePodcastPlaybackSpeed;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -110,6 +110,24 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)seekToPosition:(NSInteger)position callback:(nullable SPTAppRemoteCallback)callback;
 
+/**
+ * Asks the Spotify player to seek forward 15 seconds.
+ * Note: You should only use this method if isEpisode = YES for the currently playing track
+ *
+ * @param callback On success `result` will be `YES`.
+ *                 On error `result` will be `nil` and `error` set
+ */
+- (void)seekForward15Seconds:(nullable SPTAppRemoteCallback)callback;
+
+/**
+ * Asks the Spotify player to seek backward 15 seconds.
+ * Note: You should only use this method if isEpisode = YES for the currently playing track
+ *
+ * @param callback On success `result` will be `YES`.
+ *                 On error `result` will be `nil` and `error` set
+ */
+- (void)seekBackward15Seconds:(nullable SPTAppRemoteCallback)callback;
+
 #pragma mark Playback Options
 
 /**
@@ -159,7 +177,48 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)unsubscribeToPlayerState:(nullable SPTAppRemoteCallback)callback;
 
+/**
+ * Adds a track to the user's currently playing queue
+ *
+ * @param trackUri The track URI to add to the queue
+ * @param callback On success `result` will be `YES`
+ *                 On error `result` will be `nil` and error set
+ */
 - (void)enqueueTrackUri:(NSString*)trackUri callback:(nullable SPTAppRemoteCallback)callback;
+
+/**
+ * Asks the Spotify player for available podcast playback speeds
+ *
+ * @param callback On success `result` will be an `NSArray` of `SPTAppRemotePodcastPlaybackSpeed` objects
+ *                 On error `result` will be `nil` and `error` set
+ */
+- (void)getAvailablePodcastPlaybackSpeeds:(nullable SPTAppRemoteCallback)callback;
+
+/**
+ * Asks the Spotify player for the current podcast playback speed
+ *
+ * @note Podcast playback speed is seperate from other contents' playback speed. This value is only used for podcasts
+ *
+ * @param callback On success `result` will be a `SPTAppRemotePodcastPlaybackSpeed`
+ *                 On error `result` will be `nil` and `error` set
+ */
+- (void)getCurrentPodcastPlaybackSpeed:(nullable SPTAppRemoteCallback)callback;
+
+/**
+ * Set the current podcast playback speed
+ *
+ * @note This playback speed will only affect podcasts and not other types of media. If you set this
+ * when a podcast is not playing this will be the default value when a podcast does begin to play. For this reason
+ * you may get a successful callback when setting this even when a podcast is not playing and the current playback
+ * speed does not change.
+ *
+ * @note You should use `getAvailablePodcastPlaybackSpeeds:` to get a list of valid speeds to pass to this method
+ *
+ * @param speed The `SPTAppRemotePodcastPlaybackSpeed` to set as the current podcast playback speed
+ * @param callback  On success `result` will be `YES`.
+ *                  On error `result` will be `nil` and `error` set
+ */
+- (void)setPodcastPlaybackSpeed:(nonnull id<SPTAppRemotePodcastPlaybackSpeed>)speed callback:(nullable SPTAppRemoteCallback)callback;
 
 @end
 

@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// `YES` if the user can toggle shuffle, otherwise `NO`.
 @property (nonatomic, readonly) BOOL canToggleShuffle;
 
+/// `YES` if the user can seek to specific positions, otherwise `NO`.
+@property (nonatomic, readonly) BOOL canSeek;
+
 @end
 
 NS_ASSUME_NONNULL_END
