@@ -151,7 +151,7 @@ class ViewController: UIViewController,
 
     fileprivate func updatePlayPauseButtonState(_ paused: Bool) {
         let playPauseButtonImage = paused ? PlaybackButtonGraphics.playButtonImage() : PlaybackButtonGraphics.pauseButtonImage()
-        playPauseButton.setImage(playPauseButtonImage, for: UIControlState())
+        playPauseButton.setImage(playPauseButtonImage, for: .normal)
         playPauseButton.setImage(playPauseButtonImage, for: .highlighted)
     }
 
@@ -173,7 +173,7 @@ class ViewController: UIViewController,
 
     fileprivate func updatePlayerStateSubscriptionButtonState() {
         let playerStateSubscriptionButtonTitle = subscribedToPlayerState ? "Unsubscribe" : "Subscribe"
-        playerStateSubscriptionButton.setTitle(playerStateSubscriptionButtonTitle, for: UIControlState())
+        playerStateSubscriptionButton.setTitle(playerStateSubscriptionButtonTitle, for: .normal)
     }
 
     // MARK: Capabilities
@@ -199,7 +199,7 @@ class ViewController: UIViewController,
 
     fileprivate func updateCapabilitiesSubscriptionButtonState() {
         let capabilitiesSubscriptionButtonTitle = subscribedToCapabilities ? "Unsubscribe" : "Subscribe"
-        capabilitiesSubscriptionButton.setTitle(capabilitiesSubscriptionButtonTitle, for: UIControlState())
+        capabilitiesSubscriptionButton.setTitle(capabilitiesSubscriptionButtonTitle, for: .normal)
     }
 
     // MARK: Shuffle Button
