@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BAD4B251CFD66290033DE75 /* My-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAD4B241CFD66290033DE75 /* My-Extensions.swift */; };
 		54266D9121ACB40D00E10A41 /* SpeedPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54266D9021ACB40D00E10A41 /* SpeedPickerViewController.swift */; };
 		546D86B52139DB76002AD06E /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546D86B42139DB76002AD06E /* SpotifyiOS.framework */; };
 		998FF9BE1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */; };
@@ -23,7 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2BAD4B241CFD66290033DE75 /* My-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "My-Extensions.swift"; sourceTree = "<group>"; };
 		54266D9021ACB40D00E10A41 /* SpeedPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedPickerViewController.swift; sourceTree = "<group>"; };
 		546D86B42139DB76002AD06E /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = ../../SpotifyiOS.framework; sourceTree = "<group>"; };
 		998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatusIndicatorView.swift; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 				F4F973F11CAD60320036411D /* ViewController.swift */,
 				F6EB42E01D2BB01100F57322 /* ContentItemCell.swift */,
 				F6EB42E21D2BB0D800F57322 /* ContentCollectionViewController.swift */,
-				2BAD4B241CFD66290033DE75 /* My-Extensions.swift */,
 				F4F973F61CAD60320036411D /* Assets.xcassets */,
 				F4F973F31CAD60320036411D /* Main.storyboard */,
 				F4F973F81CAD60320036411D /* LaunchScreen.storyboard */,
@@ -185,7 +182,6 @@
 				99A0FFE41D38F9B600A90453 /* PlaybackButtonGraphics.swift in Sources */,
 				F6EB42E31D2BB0D800F57322 /* ContentCollectionViewController.swift in Sources */,
 				F4F973F21CAD60320036411D /* ViewController.swift in Sources */,
-				2BAD4B251CFD66290033DE75 /* My-Extensions.swift in Sources */,
 				F6EB42E11D2BB01100F57322 /* ContentItemCell.swift in Sources */,
 				F4F973F01CAD60320036411D /* AppDelegate.swift in Sources */,
 				998FF9BE1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift in Sources */,
