@@ -39,9 +39,7 @@ class ConnectionStatusIndicatorView : UIView {
         }
         
         let size = self.bounds.size
-        let path = CGMutablePath()
-        
-        path.__addRoundedRect(transform: nil, rect: self.bounds, cornerWidth: size.width/2, cornerHeight: size.height/2)
+        let path = CGPath(roundedRect: self.bounds, cornerWidth: size.width/2, cornerHeight: size.height/2, transform: nil)
         context.addPath(path)
         
         context.setFillColor(fillColor())
