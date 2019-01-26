@@ -23,7 +23,7 @@ class ViewController: UIViewController,
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: connectionIndicatorView)
         connectionIndicatorView.frame = CGRect(origin: CGPoint(), size: CGSize(width: 20,height: 20))
 
-        playPauseButton.setTitle("", for: UIControlState.normal);
+        playPauseButton.setTitle("", for: UIControlState.normal)
         playPauseButton.setImage(PlaybackButtonGraphics.playButtonImage(), for: UIControlState.normal)
         playPauseButton.setImage(PlaybackButtonGraphics.playButtonImage(), for: UIControlState.highlighted)
 
@@ -84,7 +84,7 @@ class ViewController: UIViewController,
 
         if (!enabled) {
             albumArtImageView.image = nil
-            updatePlayPauseButtonState(true);
+            updatePlayPauseButtonState(true)
         }
     }
 
@@ -101,7 +101,7 @@ class ViewController: UIViewController,
 
     fileprivate func updatePodcastSpeed(speed: SPTAppRemotePodcastPlaybackSpeed) {
         currentPodcastSpeed = speed
-        podcastSpeedButton.setTitle(String(format: "%0.1fx", speed.value.floatValue), for: .normal);
+        podcastSpeedButton.setTitle(String(format: "%0.1fx", speed.value.floatValue), for: .normal)
     }
 
     // MARK: Player Control

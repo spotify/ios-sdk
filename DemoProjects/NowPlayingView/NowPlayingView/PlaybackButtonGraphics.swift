@@ -6,7 +6,7 @@ class PlaybackButtonGraphics {
                                             width: 64, height: 64,
                                             bitsPerComponent: 8, bytesPerRow: 8*64*4,
                                             space: CGColorSpaceCreateDeviceRGB(),
-                                            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue);
+                                            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
         
         let path = CGMutablePath()
         for linePoints in lines {
@@ -62,10 +62,10 @@ class PlaybackButtonGraphics {
                                             width: 64, height: 64,
                                             bitsPerComponent: 8, bytesPerRow: 8*64*4,
                                             space: CGColorSpaceCreateDeviceRGB(),
-                                            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue);
+                                            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
         
-        context?.fill(CGRect(x: 0, y: 0, width: 20, height: 64));
-        context?.fill(CGRect(x: 44, y: 0, width: 20, height: 64));
+        context?.fill(CGRect(x: 0, y: 0, width: 20, height: 64))
+        context?.fill(CGRect(x: 44, y: 0, width: 20, height: 64))
         if let image = context?.makeImage() {
             return UIImage(cgImage: image, scale: UIScreen.main.scale, orientation: .up)
         }

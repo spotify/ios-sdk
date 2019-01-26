@@ -44,13 +44,13 @@ class AppDelegate: UIResponder,
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        let parameters = appRemote.authorizationParameters(from: url);
+        let parameters = appRemote.authorizationParameters(from: url)
 
         if let access_token = parameters?[SPTAppRemoteAccessTokenKey] {
             appRemote.connectionParameters.accessToken = access_token
             self.accessToken = access_token
         } else if let error_description = parameters?[SPTAppRemoteErrorDescriptionKey] {
-            playerViewController.showError(error_description);
+            playerViewController.showError(error_description)
         }
 
         return true
@@ -62,7 +62,7 @@ class AppDelegate: UIResponder,
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        self.connect();
+        self.connect()
     }
 
     func connect() {
