@@ -20,7 +20,7 @@ class ConnectionStatusIndicatorView : UIView {
                 displayLink?.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
             } else {
                 displayLink?.remove(from: RunLoop.main, forMode: RunLoopMode.commonModes)
-                displayLink = nil;
+                displayLink = nil
             }
         }
     }
@@ -29,7 +29,7 @@ class ConnectionStatusIndicatorView : UIView {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        self.clearsContextBeforeDrawing = true;
+        self.clearsContextBeforeDrawing = true
         self.backgroundColor = UIColor.clear
     }
     

@@ -17,7 +17,7 @@ extension Dictionary {
             let valueString = value as! String
             let encodedKey = keyString.encodeStringAsUrlParameter(key as! String)
             let encodedValue = valueString.encodeStringAsUrlParameter(value as! String)
-            let encoded = String(format: "%@=%@", encodedKey, encodedValue);
+            let encoded = String(format: "%@=%@", encodedKey, encodedValue)
             pairs.append(encoded)
         }
 
