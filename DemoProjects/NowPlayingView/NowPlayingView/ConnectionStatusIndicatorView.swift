@@ -14,8 +14,7 @@ class ConnectionStatusIndicatorView : UIView {
             self.setNeedsDisplay()
             if state == .connecting {
                 if displayLink == nil {
-                    let selector = #selector(setNeedsDisplay as () -> Void)
-                    displayLink = CADisplayLink(target: self, selector:selector)
+                    displayLink = CADisplayLink(target: self, selector: #selector(setNeedsDisplayProxy(_:)))
                 }
                 displayLink?.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
             } else {
@@ -61,5 +60,12 @@ class ConnectionStatusIndicatorView : UIView {
         case .connected:
             return UIColor.green.cgColor
         }
+    }
+
+    // Needed because CADisplayLink(target:, selector:)
+    // waits for selector method having signature `(void)selector:(CADisplayLink *)sender`
+    // https://developer.apple.com/documentation/quartzcore/cadisplaylink/1621228-init
+    @objc private func setNeedsDisplayProxy(_ sender: CADisplayLink) {
+        setNeedsLayout()
     }
 }
