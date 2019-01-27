@@ -47,11 +47,11 @@ class ConnectionStatusIndicatorView : UIView {
         context.fillPath()
     }
     
-    fileprivate func timebasedValue() -> CGFloat {
+    private func timebasedValue() -> CGFloat {
         return CGFloat(abs(sin(Date().timeIntervalSinceReferenceDate*4)))
     }
     
-    fileprivate func fillColor() -> CGColor {
+    private func fillColor() -> CGColor {
         switch state {
         case .disconnected:
             return UIColor.red.cgColor
