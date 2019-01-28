@@ -198,11 +198,15 @@ class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteD
     // MARK: - SPTSessionManagerDelegate
 
     func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
-        presentAlertController(title: "Authorization Failed", message: error.localizedDescription, buttonTitle: "Bummer")
+        DispatchQueue.main.async {
+            self.presentAlertController(title: "Authorization Failed", message: error.localizedDescription, buttonTitle: "Bummer")
+        }
     }
 
     func sessionManager(manager: SPTSessionManager, didRenew session: SPTSession) {
-        presentAlertController(title: "Session Renewed", message: session.description, buttonTitle: "Sweet")
+        DispatchQueue.main.async {
+            self.presentAlertController(title: "Session Renewed", message: session.description, buttonTitle: "Sweet")
+        }
     }
 
     func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
