@@ -7,15 +7,15 @@ class ViewController: UIViewController,
                       SpeedPickerViewControllerDelegate,
                       SKStoreProductViewControllerDelegate {
 
-    fileprivate let playURI = "spotify:album:5uMfshtC2Jwqui0NUyUYIL"
-    fileprivate let trackIdentifier = "spotify:track:32ftxJzxMPgUFCM6Km9WTS"
-    fileprivate let name = "Now Playing View"
+    private let playURI = "spotify:album:5uMfshtC2Jwqui0NUyUYIL"
+    private let trackIdentifier = "spotify:track:32ftxJzxMPgUFCM6Km9WTS"
+    private let name = "Now Playing View"
 
-    fileprivate var currentPodcastSpeed: SPTAppRemotePodcastPlaybackSpeed?
+    private var currentPodcastSpeed: SPTAppRemotePodcastPlaybackSpeed?
 
     // MARK: - Lifecycle
 
-    fileprivate var connectionIndicatorView = ConnectionStatusIndicatorView()
+    private var connectionIndicatorView = ConnectionStatusIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,17 +23,17 @@ class ViewController: UIViewController,
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: connectionIndicatorView)
         connectionIndicatorView.frame = CGRect(origin: CGPoint(), size: CGSize(width: 20,height: 20))
 
-        playPauseButton.setTitle("", for: UIControlState.normal);
-        playPauseButton.setImage(PlaybackButtonGraphics.playButtonImage(), for: UIControlState.normal)
-        playPauseButton.setImage(PlaybackButtonGraphics.playButtonImage(), for: UIControlState.highlighted)
+        playPauseButton.setTitle("", for: UIControl.State.normal);
+        playPauseButton.setImage(PlaybackButtonGraphics.playButtonImage(), for: UIControl.State.normal)
+        playPauseButton.setImage(PlaybackButtonGraphics.playButtonImage(), for: UIControl.State.highlighted)
 
-        nextButton.setTitle("", for: UIControlState.normal)
-        nextButton.setImage(PlaybackButtonGraphics.nextButtonImage(), for: UIControlState.normal)
-        nextButton.setImage(PlaybackButtonGraphics.nextButtonImage(), for: UIControlState.highlighted)
+        nextButton.setTitle("", for: UIControl.State.normal)
+        nextButton.setImage(PlaybackButtonGraphics.nextButtonImage(), for: UIControl.State.normal)
+        nextButton.setImage(PlaybackButtonGraphics.nextButtonImage(), for: UIControl.State.highlighted)
 
-        prevButton.setTitle("", for: UIControlState.normal)
-        prevButton.setImage(PlaybackButtonGraphics.previousButtonImage(), for: UIControlState.normal)
-        prevButton.setImage(PlaybackButtonGraphics.previousButtonImage(), for: UIControlState.highlighted)
+        prevButton.setTitle("", for: UIControl.State.normal)
+        prevButton.setImage(PlaybackButtonGraphics.previousButtonImage(), for: UIControl.State.normal)
+        prevButton.setImage(PlaybackButtonGraphics.previousButtonImage(), for: UIControl.State.highlighted)
 
         skipBackward15Button.setImage(skipBackward15Button.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
         skipForward15Button.setImage(skipForward15Button.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -53,7 +53,7 @@ class ViewController: UIViewController,
     @IBOutlet var skipBackward15Button: UIButton!
     @IBOutlet var podcastSpeedButton: UIButton!
 
-    fileprivate func updateViewWithPlayerState(_ playerState: SPTAppRemotePlayerState) {
+    private func updateViewWithPlayerState(_ playerState: SPTAppRemotePlayerState) {
         updatePlayPauseButtonState(playerState.isPaused)
         updateRepeatModeLabel(playerState.playbackOptions.repeatMode)
         updateShuffleLabel(playerState.playbackOptions.isShuffling)
@@ -65,19 +65,19 @@ class ViewController: UIViewController,
         updateInterfaceForPodcast(playerState: playerState)
     }
 
-    fileprivate func updateViewWithRestrictions(_ restrictions: SPTAppRemotePlaybackRestrictions) {
+    private func updateViewWithRestrictions(_ restrictions: SPTAppRemotePlaybackRestrictions) {
         nextButton.isEnabled = restrictions.canSkipNext
         prevButton.isEnabled = restrictions.canSkipPrevious
         toggleShuffleButton.isEnabled = restrictions.canToggleShuffle
         toggleRepeatModeButton.isEnabled = restrictions.canRepeatContext || restrictions.canRepeatTrack
     }
 
-    fileprivate func encodeStringAsUrlParameter(_ value: String) -> String {
+    private func encodeStringAsUrlParameter(_ value: String) -> String {
         let escapedString = value.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         return escapedString!
     }
 
-    fileprivate func enableInterface(_ enabled: Bool = true) {
+    private func enableInterface(_ enabled: Bool = true) {
         buttons.forEach { (button) -> () in
             button.isEnabled = enabled
         }
@@ -90,7 +90,7 @@ class ViewController: UIViewController,
 
     // MARK: Podcast Support
 
-    fileprivate func updateInterfaceForPodcast(playerState: SPTAppRemotePlayerState) {
+    private func updateInterfaceForPodcast(playerState: SPTAppRemotePlayerState) {
         skipForward15Button.isHidden = !playerState.track.isEpisode
         skipBackward15Button.isHidden = !playerState.track.isEpisode
         podcastSpeedButton.isHidden = !playerState.track.isPodcast
@@ -99,7 +99,7 @@ class ViewController: UIViewController,
         getCurrentPodcastSpeed()
     }
 
-    fileprivate func updatePodcastSpeed(speed: SPTAppRemotePodcastPlaybackSpeed) {
+    private func updatePodcastSpeed(speed: SPTAppRemotePodcastPlaybackSpeed) {
         currentPodcastSpeed = speed
         podcastSpeedButton.setTitle(String(format: "%0.1fx", speed.value.floatValue), for: .normal);
     }
@@ -149,9 +149,9 @@ class ViewController: UIViewController,
         enqueueTrack()
     }
 
-    fileprivate func updatePlayPauseButtonState(_ paused: Bool) {
+    private func updatePlayPauseButtonState(_ paused: Bool) {
         let playPauseButtonImage = paused ? PlaybackButtonGraphics.playButtonImage() : PlaybackButtonGraphics.pauseButtonImage()
-        playPauseButton.setImage(playPauseButtonImage, for: UIControlState())
+        playPauseButton.setImage(playPauseButtonImage, for: UIControl.State())
         playPauseButton.setImage(playPauseButtonImage, for: .highlighted)
     }
 
@@ -171,9 +171,9 @@ class ViewController: UIViewController,
         }
     }
 
-    fileprivate func updatePlayerStateSubscriptionButtonState() {
+    private func updatePlayerStateSubscriptionButtonState() {
         let playerStateSubscriptionButtonTitle = subscribedToPlayerState ? "Unsubscribe" : "Subscribe"
-        playerStateSubscriptionButton.setTitle(playerStateSubscriptionButtonTitle, for: UIControlState())
+        playerStateSubscriptionButton.setTitle(playerStateSubscriptionButtonTitle, for: UIControl.State())
     }
 
     // MARK: Capabilities
@@ -193,13 +193,13 @@ class ViewController: UIViewController,
         }
     }
 
-    fileprivate func updateViewWithCapabilities(_ capabilities: SPTAppRemoteUserCapabilities) {
+    private func updateViewWithCapabilities(_ capabilities: SPTAppRemoteUserCapabilities) {
         onDemandCapabilitiesLabel.text = "Can play on demand: " + (capabilities.canPlayOnDemand ? "Yes" : "No")
     }
 
-    fileprivate func updateCapabilitiesSubscriptionButtonState() {
+    private func updateCapabilitiesSubscriptionButtonState() {
         let capabilitiesSubscriptionButtonTitle = subscribedToCapabilities ? "Unsubscribe" : "Subscribe"
-        capabilitiesSubscriptionButton.setTitle(capabilitiesSubscriptionButtonTitle, for: UIControlState())
+        capabilitiesSubscriptionButton.setTitle(capabilitiesSubscriptionButtonTitle, for: UIControl.State())
     }
 
     // MARK: Shuffle Button
@@ -210,7 +210,7 @@ class ViewController: UIViewController,
     @IBAction func didPressToggleShuffleButton(_ sender: AnyObject) {
         toggleShuffle()
     }
-    fileprivate func updateShuffleLabel(_ isShuffling: Bool) {
+    private func updateShuffleLabel(_ isShuffling: Bool) {
         shuffleModeLabel.text = "Shuffle mode: " + (isShuffling ? "On" : "Off")
     }
 
@@ -222,32 +222,33 @@ class ViewController: UIViewController,
         toggleRepeatMode()
     }
 
-    fileprivate func updateRepeatModeLabel(_ repeatMode: SPTAppRemotePlaybackOptionsRepeatMode) {
+    private func updateRepeatModeLabel(_ repeatMode: SPTAppRemotePlaybackOptionsRepeatMode) {
         repeatModeLabel.text = "Repeat mode: " + {
             switch repeatMode {
-                case .off: return "Off"
-                case .track: return "Track"
-                case .context: return "Context"
+            case .off: return "Off"
+            case .track: return "Track"
+            case .context: return "Context"
+            default: return "Off"
             }
-        }()
+            }()
     }
 
     // MARK: Album Art
 
     @IBOutlet weak var albumArtImageView: UIImageView!
 
-    fileprivate func updateAlbumArtWithImage(_ image: UIImage) {
+    private func updateAlbumArtWithImage(_ image: UIImage) {
         self.albumArtImageView.image = image
         let transition = CATransition()
         transition.duration = 0.3
-        transition.type = kCATransitionFade
+        transition.type = CATransitionType.fade
         self.albumArtImageView.layer.add(transition, forKey: "transition")
     }
     
     
 
-    fileprivate var playerState: SPTAppRemotePlayerState?
-    fileprivate var subscribedToPlayerState: Bool = false
+    private var playerState: SPTAppRemotePlayerState?
+    private var subscribedToPlayerState: Bool = false
     
     
     var defaultCallback: SPTAppRemoteCallback {
@@ -260,21 +261,21 @@ class ViewController: UIViewController,
         }
     }
     
-    fileprivate func displayError(_ error: NSError?) {
+    private func displayError(_ error: NSError?) {
         if let error = error {
             presentAlert(title: "Error", message: error.description)
         }
     }
 
-    fileprivate func presentAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    private func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: StoreKit
 
-    fileprivate func showAppStoreInstall() {
+    private func showAppStoreInstall() {
         if TARGET_OS_SIMULATOR != 0 {
             presentAlert(title: "Simulator In Use", message: "The App Store is not available in the iOS simulator, please test this feature on a physical device.")
         } else {
@@ -307,15 +308,15 @@ class ViewController: UIViewController,
         }
     }
 
-    fileprivate func seekForward15Seconds() {
+    private func seekForward15Seconds() {
         appRemote.playerAPI?.seekForward15Seconds(defaultCallback)
     }
 
-    fileprivate func seekBackward15Seconds() {
+    private func seekBackward15Seconds() {
         appRemote.playerAPI?.seekBackward15Seconds(defaultCallback)
     }
 
-    fileprivate func pickPodcastSpeed() {
+    private func pickPodcastSpeed() {
         appRemote.playerAPI?.getAvailablePodcastPlaybackSpeeds({ (speeds, error) in
             if error == nil, let speeds = speeds as? [SPTAppRemotePodcastPlaybackSpeed], let current = self.currentPodcastSpeed {
                 let vc = SpeedPickerViewController(podcastSpeeds: speeds, selectedSpeed: current)
@@ -326,36 +327,36 @@ class ViewController: UIViewController,
         })
     }
 
-    fileprivate func skipNext() {
+    private func skipNext() {
         appRemote.playerAPI?.skip(toNext: defaultCallback)
     }
 
-    fileprivate func skipPrevious() {
+    private func skipPrevious() {
         appRemote.playerAPI?.skip(toPrevious: defaultCallback)
     }
 
-    fileprivate func startPlayback() {
+    private func startPlayback() {
         appRemote.playerAPI?.resume(defaultCallback)
     }
 
-    fileprivate func pausePlayback() {
+    private func pausePlayback() {
         appRemote.playerAPI?.pause(defaultCallback)
     }
     
-    fileprivate func playTrack() {
+    private func playTrack() {
         appRemote.playerAPI?.play(trackIdentifier, callback: defaultCallback)
     }
 
-    fileprivate func enqueueTrack() {
+    private func enqueueTrack() {
         appRemote.playerAPI?.enqueueTrackUri(trackIdentifier, callback: defaultCallback)
     }
 
-    fileprivate func toggleShuffle() {
+    private func toggleShuffle() {
         guard let playerState = playerState else { return }
         appRemote.playerAPI?.setShuffle(!playerState.playbackOptions.isShuffling, callback: defaultCallback)
     }
 
-    fileprivate func getPlayerState() {
+    private func getPlayerState() {
         appRemote.playerAPI?.getPlayerState { (result, error) -> Void in
             guard error == nil else { return }
 
@@ -364,18 +365,18 @@ class ViewController: UIViewController,
         }
     }
 
-    fileprivate func getCurrentPodcastSpeed() {
+    private func getCurrentPodcastSpeed() {
         appRemote.playerAPI?.getCurrentPodcastPlaybackSpeed({ (speed, error) in
             guard error == nil, let speed = speed as? SPTAppRemotePodcastPlaybackSpeed else { return }
             self.updatePodcastSpeed(speed: speed)
         })
     }
 
-    fileprivate func playTrackWithIdentifier(_ identifier: String) {
+    private func playTrackWithIdentifier(_ identifier: String) {
         appRemote.playerAPI?.play(identifier, callback: defaultCallback)
     }
 
-    fileprivate func subscribeToPlayerState() {
+    private func subscribeToPlayerState() {
         guard (!subscribedToPlayerState) else { return }
         appRemote.playerAPI!.delegate = self
         appRemote.playerAPI?.subscribe { (_, error) -> Void in
@@ -385,7 +386,7 @@ class ViewController: UIViewController,
         }
     }
 
-    fileprivate func unsubscribeFromPlayerState() {
+    private func unsubscribeFromPlayerState() {
         guard (subscribedToPlayerState) else { return }
         appRemote.playerAPI?.unsubscribe { (_, error) -> Void in
             guard error == nil else { return }
@@ -394,13 +395,14 @@ class ViewController: UIViewController,
         }
     }
 
-    fileprivate func toggleRepeatMode() {
+    private func toggleRepeatMode() {
         guard let playerState = playerState else { return }
         let repeatMode: SPTAppRemotePlaybackOptionsRepeatMode = {
             switch playerState.playbackOptions.repeatMode {
-                case .off: return SPTAppRemotePlaybackOptionsRepeatMode.track
-                case .track: return SPTAppRemotePlaybackOptionsRepeatMode.context
-                case .context: return SPTAppRemotePlaybackOptionsRepeatMode.off
+            case .off: return .track
+            case .track: return .context
+            case .context: return .off
+            default: return .off
             }
         }()
 
@@ -409,7 +411,7 @@ class ViewController: UIViewController,
 
     // MARK: - Image API
 
-    fileprivate func fetchAlbumArtForTrack(_ track: SPTAppRemoteTrack, callback: @escaping (UIImage) -> Void ) {
+    private func fetchAlbumArtForTrack(_ track: SPTAppRemoteTrack, callback: @escaping (UIImage) -> Void ) {
         appRemote.imageAPI?.fetchImage(forItem: track, with:CGSize(width: 1000, height: 1000), callback: { (image, error) -> Void in
             guard error == nil else { return }
 
@@ -419,9 +421,9 @@ class ViewController: UIViewController,
     }
 
     // MARK: - User API
-    fileprivate var subscribedToCapabilities: Bool = false
+    private var subscribedToCapabilities: Bool = false
 
-    fileprivate func fetchUserCapabilities() {
+    private func fetchUserCapabilities() {
         appRemote.userAPI?.fetchCapabilities(callback: { (capabilities, error) in
             guard error == nil else { return }
 
@@ -430,7 +432,7 @@ class ViewController: UIViewController,
         })
     }
 
-    fileprivate func subscribeToCapabilityChanges() {
+    private func subscribeToCapabilityChanges() {
         guard (!subscribedToCapabilities) else { return }
         appRemote.userAPI!.delegate = self
         appRemote.userAPI?.subscribe(toCapabilityChanges: { (success, error) in
@@ -441,7 +443,7 @@ class ViewController: UIViewController,
         })
     }
 
-    fileprivate func unsubscribeFromCapailityChanges() {
+    private func unsubscribeFromCapailityChanges() {
         guard (subscribedToCapabilities) else { return }
         AppDelegate.sharedInstance.appRemote.userAPI?.unsubscribe(toCapabilityChanges: { (success, error) in
             guard error == nil else { return }
@@ -465,8 +467,8 @@ class ViewController: UIViewController,
     }
 
     func showError(_ errorDescription: String) {
-        let alert = UIAlertController(title: "Error!", message: errorDescription, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: "Error!", message: errorDescription, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     

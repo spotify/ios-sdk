@@ -4,12 +4,12 @@ import UIKit
 class AppDelegate: UIResponder,
     UIApplicationDelegate, SPTAppRemoteDelegate {
 
-    fileprivate let redirectUri = URL(string:"comspotifytestsdk://")!
-    fileprivate let clientIdentifier = "089d841ccc194c10a77afad9e1c11d54"
-    fileprivate let name = "Now Playing View"
+    private let redirectUri = URL(string:"comspotifytestsdk://")!
+    private let clientIdentifier = "089d841ccc194c10a77afad9e1c11d54"
+    private let name = "Now Playing View"
 
     // keys
-    static fileprivate let kAccessTokenKey = "access-token-key"
+    static private let kAccessTokenKey = "access-token-key"
 
     var accessToken = UserDefaults.standard.string(forKey: kAccessTokenKey) {
         didSet {
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder,
     
     var playerViewController: ViewController {
         get {
-            let navController = self.window?.rootViewController?.childViewControllers[0] as! UINavigationController
+            let navController = self.window?.rootViewController?.children[0] as! UINavigationController
             return navController.topViewController as! ViewController
         }
     }
@@ -43,7 +43,7 @@ class AppDelegate: UIResponder,
         }
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         let parameters = appRemote.authorizationParameters(from: url);
 
         if let access_token = parameters?[SPTAppRemoteAccessTokenKey] {

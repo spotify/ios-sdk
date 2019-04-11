@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import "SPTAppRemoteCommon.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// A type representing different lists of content.
 typedef NSString * const SPTAppRemoteContentType;
 
@@ -9,8 +11,6 @@ extern NSString * const SPTAppRemoteContentTypeNavigation;
 extern NSString * const SPTAppRemoteContentTypeFitness;
 
 @protocol SPTAppRemoteContentItem;
-
-NS_ASSUME_NONNULL_BEGIN
 
 /**
  * The `SPTAppRemoteContentAPI` is used to access content from the Spotify application.

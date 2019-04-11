@@ -17,9 +17,9 @@ class ConnectionStatusIndicatorView : UIView {
                     let selector = #selector(setNeedsDisplay as () -> Void)
                     displayLink = CADisplayLink(target: self, selector:selector)
                 }
-                displayLink?.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
+                displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
             } else {
-                displayLink?.remove(from: RunLoop.main, forMode: RunLoopMode.commonModes)
+                displayLink?.remove(from: RunLoop.main, forMode: RunLoop.Mode.common)
                 displayLink = nil;
             }
         }
@@ -48,11 +48,11 @@ class ConnectionStatusIndicatorView : UIView {
         context.fillPath()
     }
     
-    fileprivate func timebasedValue() -> CGFloat {
+    private func timebasedValue() -> CGFloat {
         return CGFloat(abs(sin(Date().timeIntervalSinceReferenceDate*4)))
     }
     
-    fileprivate func fillColor() -> CGColor {
+    private func fillColor() -> CGColor {
         switch state {
         case .disconnected:
             return UIColor.red.cgColor

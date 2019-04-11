@@ -8,10 +8,10 @@ protocol SpeedPickerViewControllerDelegate {
 class SpeedPickerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var delegate: SpeedPickerViewControllerDelegate?
-    fileprivate let podcastSpeeds: [SPTAppRemotePodcastPlaybackSpeed]
-    fileprivate var selectedSpeed: SPTAppRemotePodcastPlaybackSpeed
-    fileprivate var selectedIndex: Int = 0
-    fileprivate let cellIdentifier = "SpeedCell"
+    private let podcastSpeeds: [SPTAppRemotePodcastPlaybackSpeed]
+    private var selectedSpeed: SPTAppRemotePodcastPlaybackSpeed
+    private var selectedIndex: Int = 0
+    private let cellIdentifier = "SpeedCell"
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds)
@@ -39,9 +39,9 @@ class SpeedPickerViewController: UIViewController, UITableViewDelegate, UITableV
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(didPressCancel))
     }
 
-    fileprivate func updateSelectedindex() {
+    private func updateSelectedindex() {
         let values = podcastSpeeds.map { $0.value }
-        selectedIndex = values.distance(from: values.startIndex, to:values.index(of: self.selectedSpeed.value)!)
+        selectedIndex = values.distance(from: values.startIndex, to:values.firstIndex(of: self.selectedSpeed.value)!)
     }
 
     @objc func didPressCancel() {

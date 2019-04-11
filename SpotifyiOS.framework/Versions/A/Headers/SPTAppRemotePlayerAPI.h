@@ -58,6 +58,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playItem:(id<SPTAppRemoteContentItem>)contentItem callback:(nullable SPTAppRemoteCallback)callback;
 
 /**
+ * Asks the Spotify player to play the provided content item starting at the specified index.
+ *
+ * @note Implement `SPTAppRemotePlayerStateDelegate` and set yourself as delegate in order to be notified when the
+ *       the track begins to play.
+ * @note The `playable` property of the `SPTAppRemoteContentItem` indicates whether or not a content item is
+ *       playable.
+ * @note Sending an `index` parameter that is out of bounds is undefined.
+ *
+ * @param contentItem      The content item to play.
+ * @param index            The index of the track to skip to if applicable.
+ * @param callback         On success `result` will be `YES`.
+ *                         On error `result` will be `nil` and error set
+ */
+- (void)playItem:(id<SPTAppRemoteContentItem>)contentItem skipToTrackIndex:(NSInteger) index callback:(nullable SPTAppRemoteCallback)callback;
+
+/**
  * Asks the Spotify player to resume playback.
  *
  * @note Implement `SPTAppRemotePlayerStateDelegate` and set yourself as delegate in order to be notified when the
@@ -219,6 +235,14 @@ NS_ASSUME_NONNULL_BEGIN
  *                  On error `result` will be `nil` and `error` set
  */
 - (void)setPodcastPlaybackSpeed:(nonnull id<SPTAppRemotePodcastPlaybackSpeed>)speed callback:(nullable SPTAppRemoteCallback)callback;
+
+/**
+ * Asks the Spotify player for the current crossfade state.
+ *
+ * @param callback On success `result` will be an instance of `id<SPTAppRemoteCrossfadeState>`
+ *                 On error `result` will be nil and error set
+ */
+- (void)getCrossfadeState:(nullable SPTAppRemoteCallback)callback;
 
 @end
 

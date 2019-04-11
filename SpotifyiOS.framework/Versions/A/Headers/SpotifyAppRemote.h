@@ -18,6 +18,7 @@
 #import "SPTAppRemotePlaybackOptions.h"
 #import "SPTAppRemotePlaybackRestrictions.h"
 #import "SPTAppRemotePlayerState.h"
+#import "SPTAppRemoteCrossfadeState.h"
 #import "SPTAppRemoteTrack.h"
 #import "SPTAppRemoteUserCapabilities.h"
 #import "SPTAppRemoteLibraryState.h"

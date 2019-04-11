@@ -70,6 +70,8 @@
 		
 		<option value="//api/name/getAvailablePodcastPlaybackSpeeds:">- getAvailablePodcastPlaybackSpeeds:</option>
 		
+		<option value="//api/name/getCrossfadeState:">- getCrossfadeState:</option>
+		
 		<option value="//api/name/getCurrentPodcastPlaybackSpeed:">- getCurrentPodcastPlaybackSpeed:</option>
 		
 		<option value="//api/name/getPlayerState:">- getPlayerState:</option>
@@ -79,6 +81,8 @@
 		<option value="//api/name/play:callback:">- play:callback:</option>
 		
 		<option value="//api/name/playItem:callback:">- playItem:callback:</option>
+		
+		<option value="//api/name/playItem:skipToTrackIndex:callback:">- playItem:skipToTrackIndex:callback:</option>
 		
 		<option value="//api/name/resume:">- resume:</option>
 		
@@ -307,6 +311,77 @@ On error <code>result</code> will be <code>nil</code> and error set</p></td>
 				<div class="note"><p><strong>Note:</strong> Implement <a href="../Protocols/SPTAppRemotePlayerStateDelegate.html"><code>SPTAppRemotePlayerStateDelegate</code></a> and set yourself as <a href="#//api/name/delegate">delegate</a> in order to be notified when the
 the track begins to play.</p></div><div class="note"><p><strong>Note:</strong> The <code>playable</code> property of the <a href="../Protocols/SPTAppRemoteContentItem.html"><code>SPTAppRemoteContentItem</code></a> indicates whether or not a content item is
 playable.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemotePlayerAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playItem:skipToTrackIndex:callback:" title="playItem:skipToTrackIndex:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playItem:skipToTrackIndex:callback:">&ndash;&nbsp;playItem:skipToTrackIndex:callback:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Asks the Spotify player to play the provided content item starting at the specified index.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playItem:(id&lt;SPTAppRemoteContentItem&gt;)<em>contentItem</em> skipToTrackIndex:(NSInteger)<em>index</em> callback:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentItem</code></th>
+						<td><p>The content item to play.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>index</code></th>
+						<td><p>The index of the track to skip to if applicable.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>On success <code>result</code> will be <code>YES</code>.
+On error <code>result</code> will be <code>nil</code> and error set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> Implement <a href="../Protocols/SPTAppRemotePlayerStateDelegate.html"><code>SPTAppRemotePlayerStateDelegate</code></a> and set yourself as <a href="#//api/name/delegate">delegate</a> in order to be notified when the
+the track begins to play.</p></div><div class="note"><p><strong>Note:</strong> The <code>playable</code> property of the <a href="../Protocols/SPTAppRemoteContentItem.html"><code>SPTAppRemoteContentItem</code></a> indicates whether or not a content item is
+playable.</p></div><div class="note"><p><strong>Note:</strong> Sending an <code>index</code> parameter that is out of bounds is undefined.</p></div>
 			</div>
 			
 
@@ -1257,6 +1332,60 @@ speed does not change.</p></div><div class="note"><p><strong>Note:</strong> You 
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCrossfadeState:" title="getCrossfadeState:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCrossfadeState:">&ndash;&nbsp;getCrossfadeState:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Asks the Spotify player for the current crossfade state.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getCrossfadeState:(nullable SPTAppRemoteCallback)<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>On success <code>result</code> will be an instance of <code>id</code>SPTAppRemoteCrossfadeState<code></code>
+On error <code>result</code> will be nil and error set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemotePlayerAPI.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -1272,7 +1401,7 @@ speed does not change.</p></div><div class="note"><p><strong>Note:</strong> You 
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Spotify. All rights reserved. Updated: 2018-12-04</p>
+						<p class="copyright">Copyright &copy; 2019 Spotify. All rights reserved. Updated: 2019-04-11</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

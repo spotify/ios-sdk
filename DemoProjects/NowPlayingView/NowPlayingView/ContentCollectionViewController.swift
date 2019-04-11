@@ -74,7 +74,7 @@ class ContentCollectionViewController : UICollectionViewController, UICollection
         return cell
     }
 
-    fileprivate func scaledSizeForCell(_ cell: UICollectionViewCell) -> CGSize {
+    private func scaledSizeForCell(_ cell: UICollectionViewCell) -> CGSize {
         let scale = UIScreen.main.scale
         let size = cell.frame.size
         return CGSize(width: size.width * scale, height: size.height * scale)
