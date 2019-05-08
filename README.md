@@ -138,6 +138,14 @@ Follow these steps to make sure you are prepared to start coding.
 
 ### Add Dependencies
 
+### CocoaPods
+
+Add the following line to your Podfile
+
+`pod 'Spotify-SDK'`
+
+### Manually
+
 1. Add the `SpotifyiOS.framework` to your Xcode project.
 
     ![Import SpotifyiOS.framework](img/import_sdk.png)
