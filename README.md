@@ -206,6 +206,24 @@ if (!spotifyInstalled) {
 }
 ```
 
+If you are using UIScene then you need to use appropriate method in your scene delegate.
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    guard let url = URLContexts.first?.url else {
+        return
+    }
+
+    let parameters = appRemote.authorizationParameters(from: url);
+
+    if let access_token = parameters?[SPTAppRemoteAccessTokenKey] {
+        appRemote.connectionParameters.accessToken = access_token
+        self.accessToken = access_token
+    } else if let error_description = parameters?[SPTAppRemoteErrorDescriptionKey] {
+        // Show the error
+    }
+}
+```
+
 ### Using the  `SPTSessionManager`  Authorization flow
 **Note:** This is only necessary if you need additional scopes or want to authenticate even if the Spotify app isn't installed. This approach requires you to have your own server to perform an OAuth token swap. 
 
@@ -233,10 +251,10 @@ configuration.tokenRefreshURL = [NSURL URLWithString: @"http://[your_server]/ref
 self.sessionManager = [SPTSessionManager sessionManagerWithConfiguration:configuration delegate:self];
 ```
 
-4. Configure your `AppDelegate` to parse the returned token from the Spotify app or web view.
+4. Configure your `AppDelegate` to parse the returned token from the Spotify app.
 
 ```objective-c
-(BOOL)application:(UIApplication *)application openURL:(NSURL *)URL options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)URL options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
 {
     [self.sessionManager application:application openURL:URL options:options];
 }

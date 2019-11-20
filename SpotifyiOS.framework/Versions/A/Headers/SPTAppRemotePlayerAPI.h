@@ -44,6 +44,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)play:(NSString *)entityIdentifier callback:(nullable SPTAppRemoteCallback)callback;
 
 /**
+ * Asks the Spotify player to play the entity with the given identifier.
+ *
+ * @note Implement `SPTAppRemotePlayerStateDelegate` and set yourself as delegate in order to be notified when the
+ *       the track begins to play.
+ *
+ * @param trackUri      The track URI to play.
+ * @param asRadio       `YES` to start radio for track URI.
+ * @param callback      On success `result` will be `YES`.
+ *                      On error `result` will be `nil` and `error` set
+ */
+- (void)play:(NSString *)trackUri asRadio:(BOOL)asRadio callback:(SPTAppRemoteCallback)callback;
+
+/**
  * Asks the Spotify player to play the provided content item.
  *
  * @note Implement `SPTAppRemotePlayerStateDelegate` and set yourself as delegate in order to be notified when the

@@ -159,6 +159,18 @@ typedef NS_ENUM(NSUInteger, SPTAppRemoteLogLevel) {
 - (BOOL)authorizeAndPlayURI:(NSString *)URI;
 
 /**
+ * Open Spotify app to obtain access token and start playback.
+ *
+ * @param playURI The URI to play. Use a blank string to attempt to play the user's last song
+ * @param asRadio `YES` to start radio for the given URI.
+ *
+ * @return `YES` if the Spotify app is installed and an authorization attempt can be made, otherwise `NO`.
+ * Note: The return `BOOL` here is not a measure of whether or not authentication succeeded, only a check if
+ * the Spotify app is installed and can attempt to handle the authorization request.
+ */
+- (BOOL)authorizeAndPlayURI:(NSString *)playURI asRadio:(BOOL)asRadio;
+
+/**
  * Parse out an access token or error description from a url passed to application:openURL:options:
  *
  * @param url The URL returned from the Spotify app after calling authorizeAndPlayURI
