@@ -60,23 +60,32 @@ static NSString * const SpotifyRedirectURLString = @"spotify-login-sdk-test-app:
 
 - (void)sessionManager:(SPTSessionManager *)manager didInitiateSession:(SPTSession *)session
 {
-    [self presentAlertControllerWithTitle:@"Authorization Succeeded"
-                                  message:session.description
-                              buttonTitle:@"Nice"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentAlertControllerWithTitle:@"Authorization Succeeded"
+                                      message:session.description
+                                  buttonTitle:@"Nice"];
+    });
+
 }
 
 - (void)sessionManager:(SPTSessionManager *)manager didFailWithError:(NSError *)error
 {
-    [self presentAlertControllerWithTitle:@"Authorization Failed"
-                                  message:error.description
-                              buttonTitle:@"Bummer"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentAlertControllerWithTitle:@"Authorization Failed"
+                                      message:error.description
+                                  buttonTitle:@"Bummer"];
+    });
+
 }
 
 - (void)sessionManager:(SPTSessionManager *)manager didRenewSession:(SPTSession *)session
 {
-    [self presentAlertControllerWithTitle:@"Session Renewed"
-                                  message:session.description
-                              buttonTitle:@"Sweet"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentAlertControllerWithTitle:@"Session Renewed"
+                                      message:session.description
+                                  buttonTitle:@"Sweet"];
+
+    });
 }
 
 #pragma mark - Set up view
