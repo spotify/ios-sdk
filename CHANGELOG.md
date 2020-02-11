@@ -1,5 +1,12 @@
 # Changelog
 
+## Spotify iOS SDK v1.2.1
+
+What's New:
+
+- Remove the need for the `-Objc` linker flag
+- Update the demo apps
+
 ## Spotify iOS SDK v1.2.0
 
 What's New:

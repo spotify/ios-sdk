@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24C075932344A28C00691840 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C075922344A28C00691840 /* SceneDelegate.swift */; };
+		24DFF77423F2F0DA00FF073B /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DFF77323F2F0DA00FF073B /* SpotifyiOS.framework */; };
 		2BAD4B251CFD66290033DE75 /* My-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAD4B241CFD66290033DE75 /* My-Extensions.swift */; };
-		54266D9121ACB40D00E10A41 /* SpeedPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54266D9021ACB40D00E10A41 /* SpeedPickerViewController.swift */; };
-		546D86B52139DB76002AD06E /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546D86B42139DB76002AD06E /* SpotifyiOS.framework */; };
+		5468B2592110D8440097D1D3 /* SpeedPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5468B2582110D8440097D1D3 /* SpeedPickerViewController.swift */; };
 		998FF9BE1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */; };
 		99A0FFE41D38F9B600A90453 /* PlaybackButtonGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0FFE31D38F9B600A90453 /* PlaybackButtonGraphics.swift */; };
 		F4F973F01CAD60320036411D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F973EF1CAD60320036411D /* AppDelegate.swift */; };
@@ -23,9 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24C075922344A28C00691840 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		24DFF77323F2F0DA00FF073B /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = ../../SpotifyiOS.framework; sourceTree = "<group>"; };
 		2BAD4B241CFD66290033DE75 /* My-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "My-Extensions.swift"; sourceTree = "<group>"; };
-		54266D9021ACB40D00E10A41 /* SpeedPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedPickerViewController.swift; sourceTree = "<group>"; };
-		546D86B42139DB76002AD06E /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = ../../SpotifyiOS.framework; sourceTree = "<group>"; };
+		5468B2582110D8440097D1D3 /* SpeedPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedPickerViewController.swift; sourceTree = "<group>"; };
 		998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatusIndicatorView.swift; sourceTree = "<group>"; };
 		99A0FFE31D38F9B600A90453 /* PlaybackButtonGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackButtonGraphics.swift; sourceTree = "<group>"; };
 		F4F973EC1CAD60320036411D /* NowPlayingView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NowPlayingView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				546D86B52139DB76002AD06E /* SpotifyiOS.framework in Frameworks */,
+				24DFF77423F2F0DA00FF073B /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				F4F973EF1CAD60320036411D /* AppDelegate.swift */,
+				24C075922344A28C00691840 /* SceneDelegate.swift */,
 				F4F973F11CAD60320036411D /* ViewController.swift */,
 				F6EB42E01D2BB01100F57322 /* ContentItemCell.swift */,
 				F6EB42E21D2BB0D800F57322 /* ContentCollectionViewController.swift */,
@@ -86,7 +89,7 @@
 				F4F974081CAD62D40036411D /* NowPlayingView-Bridging-Header.h */,
 				99A0FFE31D38F9B600A90453 /* PlaybackButtonGraphics.swift */,
 				998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */,
-				54266D9021ACB40D00E10A41 /* SpeedPickerViewController.swift */,
+				5468B2582110D8440097D1D3 /* SpeedPickerViewController.swift */,
 			);
 			path = NowPlayingView;
 			sourceTree = "<group>";
@@ -94,7 +97,7 @@
 		F4F974011CAD60580036411D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				546D86B42139DB76002AD06E /* SpotifyiOS.framework */,
+				24DFF77323F2F0DA00FF073B /* SpotifyiOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,13 +129,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Spotify;
 				TargetAttributes = {
 					F4F973EB1CAD60320036411D = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 2FNC3A47ZF;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -146,10 +149,9 @@
 			};
 			buildConfigurationList = F4F973E71CAD60320036411D /* Build configuration list for PBXProject "NowPlayingView" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -182,8 +184,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54266D9121ACB40D00E10A41 /* SpeedPickerViewController.swift in Sources */,
+				5468B2592110D8440097D1D3 /* SpeedPickerViewController.swift in Sources */,
 				99A0FFE41D38F9B600A90453 /* PlaybackButtonGraphics.swift in Sources */,
+				24C075932344A28C00691840 /* SceneDelegate.swift in Sources */,
 				F6EB42E31D2BB0D800F57322 /* ContentCollectionViewController.swift in Sources */,
 				F4F973F21CAD60320036411D /* ViewController.swift in Sources */,
 				2BAD4B251CFD66290033DE75 /* My-Extensions.swift in Sources */,
@@ -219,6 +222,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -264,7 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -277,6 +281,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -316,7 +321,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
@@ -337,7 +342,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NowPlayingView/NowPlayingView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -353,7 +357,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.testappremote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NowPlayingView/NowPlayingView-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

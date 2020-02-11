@@ -10,9 +10,9 @@ class ContentCollectionViewController : UICollectionViewController, UICollection
     var contentItems = [SPTAppRemoteContentItem]()
     var needsReload = true
     
-    var appRemote: SPTAppRemote {
+    var appRemote: SPTAppRemote? {
         get {
-            return AppDelegate.sharedInstance.appRemote
+            return (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.appRemote
         }
     }
 
@@ -22,14 +22,14 @@ class ContentCollectionViewController : UICollectionViewController, UICollection
         }
 
         if let container = containerItem {
-            appRemote.contentAPI?.fetchChildren(of: container) { (items, error) in
+            appRemote?.contentAPI?.fetchChildren(of: container) { (items, error) in
                 if let contentItems = items as? [SPTAppRemoteContentItem] {
                     self.contentItems = contentItems
                 }
                 self.collectionView?.reloadData()
             }
         } else {
-            appRemote.contentAPI?.fetchRootContentItems(forType: SPTAppRemoteContentTypeDefault) { (items, error) in
+            appRemote?.contentAPI?.fetchRecommendedContentItems(forType: SPTAppRemoteContentTypeDefault, flattenContainers: true) { (items, error) in
                 if let contentItems = items as? [SPTAppRemoteContentItem] {
                     self.contentItems = contentItems
                 }
@@ -38,6 +38,12 @@ class ContentCollectionViewController : UICollectionViewController, UICollection
         }
 
         needsReload = false
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        containerItem = nil
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -64,7 +70,7 @@ class ContentCollectionViewController : UICollectionViewController, UICollection
         cell.subtitleLabel?.text = item.subtitle
 
         cell.imageView.image = nil
-        appRemote.imageAPI?.fetchImage(forItem: item, with: scaledSizeForCell(cell)) { (image, error) in
+        appRemote?.imageAPI?.fetchImage(forItem: item, with: scaledSizeForCell(cell)) { (image, error) in
             // If the cell hasn't been reused
             if cell.titleLabel.text == item.title {
                 cell.imageView?.image = image as? UIImage
@@ -107,7 +113,13 @@ class ContentCollectionViewController : UICollectionViewController, UICollection
 
             navigationController?.pushViewController(newVc, animated: true)
         } else {
-            appRemote.playerAPI?.play(selectedItem, callback: nil)
+            appRemote?.playerAPI?.play(selectedItem, callback: { [weak self = self] result, error in
+                if let errorMessage = (error as NSError?)?.userInfo["error-identifier"] as? String {
+                    let alert = UIAlertController(title: NSLocalizedString("Oops!", comment: ""), message: errorMessage, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
+                    self?.present(alert, animated: true, completion: nil)
+                }
+            })
         }
     }
 }

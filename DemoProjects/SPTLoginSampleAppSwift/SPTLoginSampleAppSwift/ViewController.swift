@@ -2,8 +2,8 @@ import UIKit
 
 class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
 
-    fileprivate let SpotifyClientID = "044b2c45e77f45aca8da89e338849b6a"
-    fileprivate let SpotifyRedirectURI = URL(string: "spotify-login-sdk-test-app://spotify-login-callback")!
+    private let SpotifyClientID = "044b2c45e77f45aca8da89e338849b6a"
+    private let SpotifyRedirectURI = URL(string: "spotify-login-sdk-test-app://spotify-login-callback")!
 
     lazy var configuration: SPTConfiguration = {
         let configuration = SPTConfiguration(clientID: SpotifyClientID, redirectURL: SpotifyRedirectURI)
@@ -29,35 +29,35 @@ class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteD
         return appRemote
     }()
 
-    fileprivate var lastPlayerState: SPTAppRemotePlayerState?
+    private var lastPlayerState: SPTAppRemotePlayerState?
 
     // MARK: - Subviews
 
-    fileprivate lazy var connectLabel: UILabel = {
+    private lazy var connectLabel: UILabel = {
         let label = UILabel()
         label.text = "Connect your Spotify account"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    fileprivate lazy var connectButton = ConnectButton(title: "CONNECT")
-    fileprivate lazy var disconnectButton = ConnectButton(title: "DISCONNECT")
+    private lazy var connectButton = ConnectButton(title: "CONNECT")
+    private lazy var disconnectButton = ConnectButton(title: "DISCONNECT")
 
-    fileprivate lazy var pauseAndPlayButton: UIButton = {
+    private lazy var pauseAndPlayButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(didTapPauseOrPlay), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
-    fileprivate lazy var imageView: UIImageView = {
+    private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
-    fileprivate lazy var trackLabel: UILabel = {
+    private lazy var trackLabel: UILabel = {
         let trackLabel = UILabel()
         trackLabel.translatesAutoresizingMaskIntoConstraints = false
         trackLabel.textAlignment = .center
@@ -96,8 +96,8 @@ class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteD
 
         pauseAndPlayButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         pauseAndPlayButton.topAnchor.constraint(equalTo: trackLabel.bottomAnchor, constant: constant).isActive = true
-        pauseAndPlayButton.widthAnchor.constraint(equalToConstant: 50)
-        pauseAndPlayButton.heightAnchor.constraint(equalToConstant: 50)
+        pauseAndPlayButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        pauseAndPlayButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         pauseAndPlayButton.sizeToFit()
 
         connectButton.sizeToFit()
@@ -241,11 +241,13 @@ class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteD
 
     // MARK: - Private Helpers
 
-    fileprivate func presentAlertController(title: String, message: String, buttonTitle: String) {
-        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: buttonTitle, style: .default, handler: nil)
-        controller.addAction(action)
-        present(controller, animated: true)
+    private func presentAlertController(title: String, message: String, buttonTitle: String) {
+        DispatchQueue.main.async {
+            let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let action = UIAlertAction(title: buttonTitle, style: .default, handler: nil)
+            controller.addAction(action)
+            self.present(controller, animated: true)
+        }
     }
 }
 
