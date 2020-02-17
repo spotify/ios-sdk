@@ -22,7 +22,7 @@ typedef NSString * const SPTAuthorizationCode;
 @interface SPTSessionManager : NSObject
 
 /// The `SPTSession` for the `SPTSessionManager` to manage. If no user has been authenticated this will be nil
-@property (nullable, nonatomic) SPTSession *session;
+@property (nullable, nonatomic, strong) SPTSession *session;
 
 /// The `SPTSessionManagerDelegate` to notify of initiating a session, renewing a session, and/or errors related to a session
 @property (nullable, nonatomic, weak) id <SPTSessionManagerDelegate> delegate;
