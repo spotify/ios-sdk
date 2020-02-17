@@ -1,5 +1,12 @@
 # Changelog
 
+## Spotify iOS SDK v1.2.2
+
+What's New:
+
+- Work around for missing symbols reported in some cases.
+- Update the demo apps
+
 ## Spotify iOS SDK v1.2.1
 
 What's New:
