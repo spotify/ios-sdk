@@ -5,7 +5,7 @@ SPTAppRemoteDelegate {
 
     static private let kAccessTokenKey = "access-token-key"
     private let redirectUri = URL(string:"comspotifytestsdk://")!
-    private let clientIdentifier = "089d841ccc194c10a77afad9e1c11d54"
+    private let clientIdentifier = "<#ClientID#>"
 
     var window: UIWindow?
 

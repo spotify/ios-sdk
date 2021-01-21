@@ -29,7 +29,7 @@ require 'encrypted_strings'
 # with default settings on your local machine) to the
 # token swap method in the iOS SDK:
 #
-# SPTConfiguration *configuration = [SPTConfiguration configurationWithClientID:@"044b2c45e77f45aca8da89e338849b6a"
+# SPTConfiguration *configuration = [SPTConfiguration configurationWithClientID:@"YOUR_CLIENT_ID"
 #                                                                   redirectURL:[NSURL URLWithString:@"spotify-login-sdk-test-app://spotify-login-callback"]];
 # configuration.tokenSwapURL = [NSURL urlWithString:@"http://localhost:1234/swap"];
 # configuration.tokenRefreshURL = [NSURL urlWithString:@"http://localhost:1234/refresh"];
@@ -41,9 +41,9 @@ print "\e[31mwith your own and remove this silly warning.\e[0m\n"
 print "\e[31m------------------------------------------------------\e[0m\n"
 print "\7\7"
 sleep(2)
-CLIENT_ID = "044b2c45e77f45aca8da89e338849b6a"
-CLIENT_SECRET = "c7d838bc6f3d40889cb11517afc8e3f3"
-ENCRYPTION_SECRET = "cFJLyifeUJUBFWdHzVbykfDmPHtLKLGzViHW9aHGmyTLD8hGXC"
+CLIENT_ID = "<#ClientID#>"
+CLIENT_SECRET = "<#ClientSecret#>"
+ENCRYPTION_SECRET = "<#EncryptionSecret#>"
 CLIENT_CALLBACK_URL = "spotify-login-sdk-test-app://spotify-login-callback"
 AUTH_HEADER = "Basic " + Base64.strict_encode64(CLIENT_ID + ":" + CLIENT_SECRET)
 SPOTIFY_ACCOUNTS_ENDPOINT = URI.parse("https://accounts.spotify.com")

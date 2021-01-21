@@ -1,7 +1,7 @@
 #import "ConnectView.h"
 #import "ViewController.h"
 
-static NSString * const SpotifyClientID = @"044b2c45e77f45aca8da89e338849b6a";
+static NSString * const SpotifyClientID = @"<#ClientID#>";
 static NSString * const SpotifyRedirectURLString = @"spotify-login-sdk-test-app://spotify-login-callback";
 
 @interface ViewController ()
