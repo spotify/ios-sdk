@@ -14,7 +14,7 @@ The Spotify iOS SDK is a set of lightweight objects that connect with the Spotif
 
 [Components](#components)
 
-[How Do App Remote Calls Work?](#how-do-app-remote-calls-work)
+[How Do App Remote Calls Work?](#how-app-remote-calls-work)
 
 [Terms of Use](#terms-of-use)
 
