@@ -14,7 +14,7 @@ The main entry point for authentication if you need to authorize without startin
     SPTConfiguration *configuration =
         [[SPTConfiguration alloc] initWithClientID:@"your_client_id" redirectURL:[NSURL urlWithString:@"your_redirect_uri"]];
 
-    // Optional: If you plan to connect SPTAppRemote you can start playback during authorization by setting playURI to a non-nil string.
+    // Optional: If you plan to connect SPTAppRemote you can start playback during authorization by setting playURI to a non-nil string. If Spotify is already playing it will continue playing even though a URI is provided.
     configuration.playURI = "";
     ```
 
