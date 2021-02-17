@@ -138,7 +138,7 @@ Follow these steps to make sure you are prepared to start coding.
 
 ### Add Dependencies
 
-1. Add the `SpotifyiOS.framework` to your Xcode project.
+1. Add the `SpotifyiOS.framework` or `SpotifyiOS.xcframework` to your Xcode project.
 
     ![Import SpotifyiOS.framework](img/import_sdk.png)
 
