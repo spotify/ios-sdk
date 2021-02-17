@@ -15,6 +15,7 @@
 		3518DFFB1F99674A00A5313C /* ConnectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3518DFFA1F99674A00A5313C /* ConnectButton.m */; };
 		3518DFFE1F99983F00A5313C /* ConnectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3518DFFD1F99983F00A5313C /* ConnectView.m */; };
 		5413459A20D100AD00FD05F7 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5413459920D100AD00FD05F7 /* SpotifyiOS.framework */; };
+		5D8A04B92350D51F00639CEE /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5413459920D100AD00FD05F7 /* SpotifyiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D8A04B92350D51F00639CEE /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2FNC3A47ZF;
+				DEVELOPMENT_TEAM = U8H2KJ7NX5;
 				INFOPLIST_FILE = SPTLoginSampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -396,7 +398,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2FNC3A47ZF;
+				DEVELOPMENT_TEAM = U8H2KJ7NX5;
 				INFOPLIST_FILE = SPTLoginSampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -414,7 +416,7 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2FNC3A47ZF;
+				DEVELOPMENT_TEAM = U8H2KJ7NX5;
 				INFOPLIST_FILE = SPTLoginSampleAppUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -432,7 +434,7 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2FNC3A47ZF;
+				DEVELOPMENT_TEAM = U8H2KJ7NX5;
 				INFOPLIST_FILE = SPTLoginSampleAppUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

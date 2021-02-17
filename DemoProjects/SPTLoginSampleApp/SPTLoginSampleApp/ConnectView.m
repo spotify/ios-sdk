@@ -28,6 +28,12 @@
         [label.centerXAnchor constraintEqualToAnchor:connectButton.centerXAnchor].active = YES;
         [label.bottomAnchor constraintEqualToAnchor:connectButton.topAnchor constant:-16.0].active = YES;
         [label sizeToFit];
+
+        ConnectButton *stateButton = [self buttonWithTitle:@"STATE"];
+        self.stateButton = stateButton;
+        [self addSubview:stateButton];
+        [stateButton.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
+        [stateButton.centerYAnchor constraintEqualToAnchor:connectButton.bottomAnchor constant:50.0].active = YES;
     }
 
     return self;

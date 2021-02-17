@@ -64,6 +64,14 @@ static NSString * const SpotifyRedirectURLString = @"spotify-login-sdk-test-app:
     }
 }
 
+- (void)didTapStateButton:(ConnectButton *)sender
+{
+    NSLog(@"-----------> didTapStateButton");
+    [[self.appRemote playerAPI] getPlayerState:^(id<SPTAppRemotePlayerState> state, NSError* error) {
+        NSLog(@"-----------> getPlayerState returned");
+    }];
+}
+
 #pragma mark - SPTSessionManagerDelegate
 
 - (void)sessionManager:(SPTSessionManager *)manager didInitiateSession:(SPTSession *)session
@@ -93,6 +101,7 @@ static NSString * const SpotifyRedirectURLString = @"spotify-login-sdk-test-app:
 {
     ConnectView *view = [ConnectView new];
     [view.connectButton addTarget:self action:@selector(didTapAuthButton:) forControlEvents:UIControlEventTouchUpInside];
+    [view.stateButton addTarget:self action:@selector(didTapStateButton:) forControlEvents:UIControlEventTouchUpInside];
     self.view = view;
 }
 
