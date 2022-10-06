@@ -1,0 +1,7 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ios-sdk
+spec:
+  type: library
+  owner: opx-partner-activation
