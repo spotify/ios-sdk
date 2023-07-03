@@ -14,7 +14,7 @@ The Spotify iOS SDK is a set of lightweight objects that connect with the Spotif
 
 [Components](#components)
 
-[How Do App Remote Calls Work?](#how-app-remote-calls-work)
+[How Do App Remote Calls Work?](#how-do-app-remote-calls-work)
 
 [Terms of Use](#terms-of-use)
 
@@ -41,6 +41,8 @@ Make sure you search existing issues before creating new ones.
 The Spotify iOS framework requires a deployment target of iOS 9 or higher. The
 following architectures are supported: `armv7`, `armv7s` and `arm64` for devices,
 `i386` and `x86_64` for the iOS Simulator. Bitcode is also supported.
+
+The XCFramework build also supports `arm64`for simulator.
 
 ## Components
 
@@ -138,9 +140,9 @@ Follow these steps to make sure you are prepared to start coding.
 
 ### Add Dependencies
 
-1. Add the SpotifyiOS package to your project. You can either do this through Swift Package Manager (SPM), or by adding `SpotifyiOS.framework` or `SpotifyiOS.xcframework` to your Xcode project directly.
+1. Add the framework to your Xcode project. Spotify recommends using the `SpotifyiOS.xcframework` but we're also providing a FAT framework build `SpotifyiOS.framework` as a courtesy. Use this if you have environmental constraints that prevent you from using the XCFramework. 
 
-    ![Import SpotifyiOS.framework](img/import_sdk.png)
+    ![Import SpotifyiOS.xcframework](img/xcframework-import.png)
 
 2. In your info.plist add your redirect URI you registered at [My Applications](https://beta.developer.spotify.com/dashboard/). You will need to add your redirect URI under "URL types" and "URL Schemes". Be sure to set a unique "URL identifier" as well. [More info on URL Schemes](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW1)
 
@@ -270,6 +272,38 @@ To be able to use the playback control part of the SDK the user needs to authori
         NSLog(@"Track name: %@", playerState.track.name);
     }
     ```
+
+### Connection handling
+
+As a courtesy you should always disconnect App Remote when your app enters a background state.
+This tells Spotify that it's safe to disable the active stream. If your app does not properly call disconnect Spotify has no way of knowing that it should not maintain the connection, and this may result in future connection issues.
+
+If you want your app to automatically reconnect after disruption events like incoming calls or Siri interactions you may use the `willResignActive` and `didBecomeActive` callbacks to safely disconnect and reconnect. If you don't wish to reconnect directly, it's typically enough to close the connection in `didEnterBackground` callbacks. 
+
+```objective-c
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [self.appRemote disconnect];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [self.appRemote connect];
+}
+
+// If you're using UIWindowSceneDelegate
+
+- (void)sceneDidBecomeActive:(UIScene *)scene
+{
+    [self.appRemote connect];
+}
+
+- (void)sceneWillResignActive:(UIScene *)scene
+{
+    [self.appRemote disconnect];
+}
+```
+
 
 ## Frequently Asked Questions
 

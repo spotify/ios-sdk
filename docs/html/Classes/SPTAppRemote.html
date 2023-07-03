@@ -60,6 +60,8 @@
 		
 		<option value="//api/name/connectionParameters">connectionParameters</option>
 		
+		<option value="//api/name/connectivityAPI">connectivityAPI</option>
+		
 		<option value="//api/name/contentAPI">contentAPI</option>
 		
 		<option value="//api/name/delegate">delegate</option>
@@ -96,7 +98,11 @@
 		
 		<option value="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:">- authorizeAndPlayURI:asRadio:additionalScopes:</option>
 		
+		<option value="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:">- authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:</option>
+		
 		<option value="//api/name/connect">- connect</option>
+		
+		<option value="//api/name/connectWithSessionIdentifier:">- connectWithSessionIdentifier:</option>
 		
 		<option value="//api/name/disconnect">- disconnect</option>
 		
@@ -608,6 +614,65 @@ will be considered active if music is playing or the app is active in the backgr
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/connectWithSessionIdentifier:" title="connectWithSessionIdentifier:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connectWithSessionIdentifier:">&ndash;&nbsp;connectWithSessionIdentifier:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Attempts to <a href="#//api/name/connect">connect</a> to the Spotify application with a given session identifier.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)connectWithSessionIdentifier:(NSUUID *)<em>sessionIdentifier</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sessionIdentifier</code></th>
+						<td><p>The unique session identifier which was used when calling
+<a href="#//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:"><code>authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:</code></a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If the Spotify app is not running you will need to use <a href="#//api/name/authorizeAndPlayURI:">authorizeAndPlayURI:</a> to wake it up.</p><p>If <code>authorizeAndPlayURI</code> was used without a given session identifier, <a href="#//api/name/connect"><code>connect</code></a> should be used instead of this method.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemote.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/disconnect" title="disconnect"></a>
 	<h3 class="method-title"><code><a href="#//api/name/disconnect">&ndash;&nbsp;disconnect</a></code>
 </h3>
@@ -660,7 +725,8 @@ will be considered active if music is playing or the app is active in the backgr
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Open Spotify app to obtain access token and start playback.</p>
+				<p>Open Spotify app to obtain access token and start playback.
+The passed URI will start playing unless Spotify is already playing.</p>
 			</div>
 			
 		    
@@ -811,6 +877,83 @@ the Spotify app is installed and can attempt to handle the authorization request
 					<tr>
 						<th scope="row" class="argument-name"><code>additionalScopes</code></th>
 						<td><p>An array of scopes in addition to <code>app-remote-control</code>. Can be nil if you only need <code>app-remote-control</code></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.
+Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
+the Spotify app is installed and can attempt to handle the authorization request.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemote.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:" title="authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:">&ndash;&nbsp;authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Open Spotify app to obtain access token and start playback.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)authorizeAndPlayURI:(NSString *)<em>playURI</em> asRadio:(BOOL)<em>asRadio</em> additionalScopes:(nullable NSArray&lt;NSString*&gt; *)<em>additionalScopes</em> sessionIdentifier:(nullable NSUUID *)<em>sessionIdentifier</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>playURI</code></th>
+						<td><p>The URI to play. Use a blank string to attempt to play the user&rsquo;s last song</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>asRadio</code></th>
+						<td><p><code>YES</code> to start radio for the given URI.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>additionalScopes</code></th>
+						<td><p>An array of scopes in addition to <code>app-remote-control</code>. Can be nil if you only need <code>app-remote-control</code></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sessionIdentifier</code></th>
+						<td><p>An optional unique identifier for this specific session, which is used for analytics purposes. Every <a href="#//api/name/new">new</a> attempt to
+<a href="#//api/name/connect">connect</a> to the Spotify app should have a <a href="#//api/name/new">new</a> identifier, but the identifier used here should then be reused for the accompanied call to
+<a href="#//api/name/connectWithSessionIdentifier:"><code>connectWithSessionIdentifier:</code></a>.</p></td>
 					</tr>
 				
 				</table>
@@ -1091,6 +1234,53 @@ Use <code>SPTAppRemoteAccessTokenKey</code> and <code>SPTAppRemoteErrorDescripti
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/connectivityAPI" title="connectivityAPI"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connectivityAPI">&nbsp;&nbsp;connectivityAPI</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The API used to get connectivity data from the Spotify app.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, strong, readonly) id&lt;SPTAppRemoteConnectivityAPI&gt; connectivityAPI</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> Will only be populated when the App Remote is <a href="#//api/name/connected">connected</a>. If you retain this object you must release it on
+<a href="#//api/name/disconnect">disconnect</a>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAppRemote.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -1106,7 +1296,7 @@ Use <code>SPTAppRemoteAccessTokenKey</code> and <code>SPTAppRemoteErrorDescripti
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2021 Spotify. All rights reserved. Updated: 2021-02-17</p>
+						<p class="copyright">Copyright &copy; 2023 Spotify. All rights reserved. Updated: 2023-07-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
