@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		24C075932344A28C00691840 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C075922344A28C00691840 /* SceneDelegate.swift */; };
-		24DFF77423F2F0DA00FF073B /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DFF77323F2F0DA00FF073B /* SpotifyiOS.framework */; };
+		28FFAE4D260B368F00E3EDBD /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FFAE4C260B368F00E3EDBD /* SpotifyiOS.xcframework */; };
 		2BAD4B251CFD66290033DE75 /* My-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAD4B241CFD66290033DE75 /* My-Extensions.swift */; };
 		5468B2592110D8440097D1D3 /* SpeedPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5468B2582110D8440097D1D3 /* SpeedPickerViewController.swift */; };
 		998FF9BE1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */; };
@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		24C075922344A28C00691840 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		24DFF77323F2F0DA00FF073B /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = ../../SpotifyiOS.framework; sourceTree = "<group>"; };
+		28FFAE4C260B368F00E3EDBD /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpotifyiOS.xcframework; path = ../../SpotifyiOS.xcframework; sourceTree = "<group>"; };
 		2BAD4B241CFD66290033DE75 /* My-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "My-Extensions.swift"; sourceTree = "<group>"; };
 		5468B2582110D8440097D1D3 /* SpeedPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedPickerViewController.swift; sourceTree = "<group>"; };
 		998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatusIndicatorView.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24DFF77423F2F0DA00FF073B /* SpotifyiOS.framework in Frameworks */,
+				28FFAE4D260B368F00E3EDBD /* SpotifyiOS.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +97,7 @@
 		F4F974011CAD60580036411D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				24DFF77323F2F0DA00FF073B /* SpotifyiOS.framework */,
+				28FFAE4C260B368F00E3EDBD /* SpotifyiOS.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -325,7 +325,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -337,7 +338,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2FNC3A47ZF;
 				INFOPLIST_FILE = NowPlayingView/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.testappremote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NowPlayingView/NowPlayingView-Bridging-Header.h";
@@ -353,7 +357,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2FNC3A47ZF;
 				INFOPLIST_FILE = NowPlayingView/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.testappremote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NowPlayingView/NowPlayingView-Bridging-Header.h";

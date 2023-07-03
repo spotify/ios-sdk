@@ -304,7 +304,7 @@ class ViewController: UIViewController {
         })
     }
 
-    private func unsubscribeFromCapabilityChanges() {
+    private func unsubscribeFromCapailityChanges() {
         guard (subscribedToCapabilities) else { return }
         appRemote?.userAPI?.unsubscribe(toCapabilityChanges: { (success, error) in
             guard error == nil else { return }
@@ -414,7 +414,7 @@ class ViewController: UIViewController {
 
     @IBAction func didPressCapabilitiesSubscriptionButton(_ sender: AnyObject) {
         if (subscribedToCapabilities) {
-            unsubscribeFromCapabilityChanges()
+            unsubscribeFromCapailityChanges()
         } else {
             subscribeToCapabilityChanges()
         }

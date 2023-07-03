@@ -1,5 +1,19 @@
 # Changelog
 
+## Spotify iOS SDK v1.2.4
+
+What's New:
+
+- Internal improvements.
+
+## Spotify iOS SDK v1.2.3
+
+What's New:
+
+- Adds new API to allow for a session identifier to be passed along in connection phase for enhanced instrumentation.
+- Adds `SPTAppRemoteConnectivityAPI` and `SPTAppRemoteConnectivityAPIDelegate` for subscribing to connectivity changes of the Spotify app.
+- Adds `SpotifyiOS.xcframework` as default in NowPlayingView sample project. 
+
 ## Spotify iOS SDK v1.2.2
 
 What's New:
