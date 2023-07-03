@@ -1,5 +1,9 @@
 # Changelog
 
+## Spotify iOS SDK v1.2.3
+
+- Support Swift Package Manager
+
 ## Spotify iOS SDK v1.2.2
 
 What's New:
