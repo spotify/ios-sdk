@@ -271,6 +271,33 @@ To be able to use the playback control part of the SDK the user needs to authori
     }
     ```
 
+### Connection handling
+
+As a courtesy you should always disconnect App Remote when your app enters a background state.
+This tells Spotify that it's safe to disable the active stream. If your app does not properly call disconnect Spotify has no way of knowing that it should not maintain the connection, and this may result in future connection issues.
+
+If you want your app to automatically reconnect after disruption events like incoming calls or Siri interactions you may use the `willResignActive` and `didBecomeActive` callbacks to safely disconnect and reconnect. If you don't wish to reconnect directly, it's typically enough to close the connection in `didEnterBackground` callbacks.
+
+```objective-c
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [self.appRemote disconnect];
+}
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [self.appRemote connect];
+}
+// If you're using UIWindowSceneDelegate
+- (void)sceneDidBecomeActive:(UIScene *)scene
+{
+    [self.appRemote connect];
+}
+- (void)sceneWillResignActive:(UIScene *)scene
+{
+    [self.appRemote disconnect];
+}
+```
+
 ## Frequently Asked Questions
 
 **Why does music need to be playing to connect with `SPTAppRemote`?**
