@@ -7,4 +7,6 @@
 
 @property (nonatomic) ConnectButton *connectButton;
 
+@property (nonatomic) ConnectButton *stateButton;
+
 @end

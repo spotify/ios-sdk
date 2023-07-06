@@ -8,6 +8,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) SPTSessionManager *sessionManager;
 
+@property (nonatomic) SPTAppRemote *appRemote;
+
 @end
 
 
