@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12EE82892BCD450F003F62A0 /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12EE82882BCD450F003F62A0 /* SpotifyiOS.xcframework */; };
+		12EE828A2BCD450F003F62A0 /* SpotifyiOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12EE82882BCD450F003F62A0 /* SpotifyiOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35029C521F5F476800383619 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35029C511F5F476800383619 /* AppDelegate.m */; };
 		35029C551F5F476800383619 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35029C541F5F476800383619 /* ViewController.m */; };
 		35029C5A1F5F476800383619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35029C591F5F476800383619 /* Assets.xcassets */; };
@@ -14,7 +16,6 @@
 		35029C601F5F476800383619 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35029C5F1F5F476800383619 /* main.m */; };
 		3518DFFB1F99674A00A5313C /* ConnectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3518DFFA1F99674A00A5313C /* ConnectButton.m */; };
 		3518DFFE1F99983F00A5313C /* ConnectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3518DFFD1F99983F00A5313C /* ConnectView.m */; };
-		5413459A20D100AD00FD05F7 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5413459920D100AD00FD05F7 /* SpotifyiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				12EE828A2BCD450F003F62A0 /* SpotifyiOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		12EE82882BCD450F003F62A0 /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpotifyiOS.xcframework; path = ../../SpotifyiOS.xcframework; sourceTree = "<group>"; };
 		35029C4D1F5F476800383619 /* SPTLoginSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPTLoginSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35029C501F5F476800383619 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35029C511F5F476800383619 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -54,7 +57,6 @@
 		3518DFFA1F99674A00A5313C /* ConnectButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectButton.m; sourceTree = "<group>"; };
 		3518DFFC1F99983F00A5313C /* ConnectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectView.h; sourceTree = "<group>"; };
 		3518DFFD1F99983F00A5313C /* ConnectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectView.m; sourceTree = "<group>"; };
-		5413459920D100AD00FD05F7 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = ../../SpotifyiOS.framework; sourceTree = "<group>"; };
 		54D50C4E20C87A480035B73A /* SPTLoginSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SPTLoginSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -63,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5413459A20D100AD00FD05F7 /* SpotifyiOS.framework in Frameworks */,
+				12EE82892BCD450F003F62A0 /* SpotifyiOS.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +119,7 @@
 		F7AACE2064F336ABCC7C6D5C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5413459920D100AD00FD05F7 /* SpotifyiOS.framework */,
+				12EE82882BCD450F003F62A0 /* SpotifyiOS.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -383,7 +385,10 @@
 				DEVELOPMENT_TEAM = 2FNC3A47ZF;
 				INFOPLIST_FILE = SPTLoginSampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spotify.sdk.SPTLoginSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -399,7 +404,10 @@
 				DEVELOPMENT_TEAM = 2FNC3A47ZF;
 				INFOPLIST_FILE = SPTLoginSampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spotify.sdk.SPTLoginSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -417,7 +425,11 @@
 				DEVELOPMENT_TEAM = 2FNC3A47ZF;
 				INFOPLIST_FILE = SPTLoginSampleAppUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Spotify.SPTLoginSampleAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -435,7 +447,11 @@
 				DEVELOPMENT_TEAM = 2FNC3A47ZF;
 				INFOPLIST_FILE = SPTLoginSampleAppUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Spotify.SPTLoginSampleAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
