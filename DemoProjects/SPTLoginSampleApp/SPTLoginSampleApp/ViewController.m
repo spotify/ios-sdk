@@ -55,13 +55,7 @@ static NSString * const SpotifyRedirectURLString = @"spotify-login-sdk-test-app:
     /*
      Start the authorization process. This requires user input.
      */
-    if (@available(iOS 11, *)) {
-        // Use this on iOS 11 and above to take advantage of SFAuthenticationSession
-        [self.sessionManager initiateSessionWithScope:scope options:SPTDefaultAuthorizationOption];
-    } else {
-        // Use this on iOS versions < 11 to use SFSafariViewController
-        [self.sessionManager initiateSessionWithScope:scope options:SPTDefaultAuthorizationOption presentingViewController:self];
-    }
+    [self.sessionManager initiateSessionWithScope:scope options:SPTDefaultAuthorizationOption];
 }
 
 #pragma mark - SPTSessionManagerDelegate

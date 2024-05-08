@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Returns `YES` if the item is expected to contain children, otherwise `NO`.
 @property (nonatomic, assign, readonly, getter=isContainer) BOOL container;
 
+/// Returns `YES` if the item is pinned in Your Library, otherwise `NO`. 
+@property (nonatomic, assign, readonly, getter=isPinned) BOOL pinnned;
+
 /**
  A list of the content item's children.
 
