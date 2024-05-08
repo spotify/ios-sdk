@@ -169,7 +169,7 @@ To be able to use the playback control part of the SDK the user needs to authori
 
     ```objective-c
     SPTConfiguration *configuration =
-        [[SPTConfiguration alloc] initWithClientID:@"your_client_id" redirectURL:[NSURL urlWithString:@"your_redirect_uri"]];
+        [[SPTConfiguration alloc] initWithClientID:@"your_client_id" redirectURL:[NSURL URLWithString:@"your_redirect_uri"]];
     ```
 
 2. Initialize `SPTAppRemote` with your `SPTConfiguration`
@@ -182,14 +182,16 @@ To be able to use the playback control part of the SDK the user needs to authori
 
     ```objective-c
     // Note: A blank string will play the user's last song or pick a random one.
-    BOOL spotifyInstalled = [self.appRemote authorizeAndPlayURI:@"spotify:track:69bp2EbF7Q2rqc5N3ylezZ"];
-    if (!spotifyInstalled) {
-        /*
-        * The Spotify app is not installed.
-        * Use SKStoreProductViewController with [SPTAppRemote spotifyItunesItemIdentifier] to present the user
-        * with a way to install the Spotify app.
-        */
-    }
+    [self.appRemote authorizeAndPlayURI:@"spotify:track:69bp2EbF7Q2rqc5N3ylezZ" completionHandler:^(BOOL spotifyInstalled) {
+        if (!spotifyInstalled) {
+            /*
+            * The Spotify app is not installed.
+            * Use SKStoreProductViewController with [SPTAppRemote spotifyItunesItemIdentifier] to present the user
+            * with a way to install the Spotify app.
+            */
+        }
+    }];
+    
     ```
 
 4. Configure your `AppDelegate` to parse out the accessToken in `application:openURL:options:` and set it on the `SPTAppRemote` connectionParameters.

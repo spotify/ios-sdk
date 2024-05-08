@@ -1,5 +1,14 @@
 # Changelog
 
+## Spotify iOS SDK v2.0.0
+
+What's New:
+- Added a completionHandler to authorizeAndPlayURI API
+- Support for pinned items in Your Library
+- Fix crash NSRangeException -[NSConcreteMutableData replaceBytesInRange:withBytes:length:]:
+- Fix umbrela header warnings in SpotifyiOS.xcframework
+- Bumped the min deployment target version to iOS 12.0
+
 ## Spotify iOS SDK v1.2.5
 
 What's New:

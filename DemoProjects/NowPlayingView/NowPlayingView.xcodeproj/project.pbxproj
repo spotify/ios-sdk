@@ -19,7 +19,6 @@
 		F4F973F51CAD60320036411D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F973F31CAD60320036411D /* Main.storyboard */; };
 		F4F973F71CAD60320036411D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F973F61CAD60320036411D /* Assets.xcassets */; };
 		F4F973FA1CAD60320036411D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F973F81CAD60320036411D /* LaunchScreen.storyboard */; };
-		F4F974051CAD60C60036411D /* host.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = F4F974041CAD60C60036411D /* host.entitlements */; };
 		F6EB42E11D2BB01100F57322 /* ContentItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB42E01D2BB01100F57322 /* ContentItemCell.swift */; };
 		F6EB42E31D2BB0D800F57322 /* ContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB42E21D2BB0D800F57322 /* ContentCollectionViewController.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +51,6 @@
 		F4F973F61CAD60320036411D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4F973F91CAD60320036411D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4F973FB1CAD60320036411D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4F974041CAD60C60036411D /* host.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = host.entitlements; sourceTree = "<group>"; };
 		F4F974081CAD62D40036411D /* NowPlayingView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NowPlayingView-Bridging-Header.h"; sourceTree = "<group>"; };
 		F6EB42E01D2BB01100F57322 /* ContentItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentItemCell.swift; sourceTree = "<group>"; };
 		F6EB42E21D2BB0D800F57322 /* ContentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				F4F973F31CAD60320036411D /* Main.storyboard */,
 				F4F973F81CAD60320036411D /* LaunchScreen.storyboard */,
 				F4F973FB1CAD60320036411D /* Info.plist */,
-				F4F974041CAD60C60036411D /* host.entitlements */,
 				F4F974081CAD62D40036411D /* NowPlayingView-Bridging-Header.h */,
 				99A0FFE31D38F9B600A90453 /* PlaybackButtonGraphics.swift */,
 				998FF9BD1D3E54AC003E339B /* ConnectionStatusIndicatorView.swift */,
@@ -144,8 +141,9 @@
 		F4F973E41CAD60320036411D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1510;
 				ORGANIZATIONNAME = Spotify;
 				TargetAttributes = {
 					F4F973EB1CAD60320036411D = {
@@ -187,7 +185,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4F973FA1CAD60320036411D /* LaunchScreen.storyboard in Resources */,
-				F4F974051CAD60C60036411D /* host.entitlements in Resources */,
 				F4F973F71CAD60320036411D /* Assets.xcassets in Resources */,
 				F4F973F51CAD60320036411D /* Main.storyboard in Resources */,
 			);
@@ -238,6 +235,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -257,6 +255,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -269,6 +268,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				FRAMEWORK_SEARCH_PATHS = ../..;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -297,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -316,6 +317,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -328,6 +330,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				FRAMEWORK_SEARCH_PATHS = ../..;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;

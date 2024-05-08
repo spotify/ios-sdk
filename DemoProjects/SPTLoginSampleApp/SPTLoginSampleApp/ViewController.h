@@ -1,5 +1,5 @@
 @import UIKit;
-#import <SpotifyiOS/SpotifyiOS.h>
+@import SpotifyiOS;
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -92,13 +92,13 @@
 		
 		<option value="//api/name/authorizationParametersFromURL:">- authorizationParametersFromURL:</option>
 		
-		<option value="//api/name/authorizeAndPlayURI:">- authorizeAndPlayURI:</option>
+		<option value="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:completionHandler:">- authorizeAndPlayURI:asRadio:additionalScopes:completionHandler:</option>
 		
-		<option value="//api/name/authorizeAndPlayURI:asRadio:">- authorizeAndPlayURI:asRadio:</option>
+		<option value="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:completionHandler:">- authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:completionHandler:</option>
 		
-		<option value="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:">- authorizeAndPlayURI:asRadio:additionalScopes:</option>
+		<option value="//api/name/authorizeAndPlayURI:asRadio:completionHandler:">- authorizeAndPlayURI:asRadio:completionHandler:</option>
 		
-		<option value="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:">- authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:</option>
+		<option value="//api/name/authorizeAndPlayURI:completionHandler:">- authorizeAndPlayURI:completionHandler:</option>
 		
 		<option value="//api/name/connect">- connect</option>
 		
@@ -596,7 +596,7 @@ will be considered active if music is playing or the app is active in the backgr
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>If the Spotify app is not running you will need to use <a href="#//api/name/authorizeAndPlayURI:">authorizeAndPlayURI:</a> to wake it up</p>
+				<p>If the Spotify app is not running you will need to use authorizeAndPlayURI: to wake it up</p>
 			</div>
 			
 
@@ -641,7 +641,7 @@ will be considered active if music is playing or the app is active in the backgr
 					<tr>
 						<th scope="row" class="argument-name"><code>sessionIdentifier</code></th>
 						<td><p>The unique session identifier which was used when calling
-<a href="#//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:"><code>authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:</code></a></p></td>
+<code>authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:</code></p></td>
 					</tr>
 				
 				</table>
@@ -655,7 +655,7 @@ will be considered active if music is playing or the app is active in the backgr
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>If the Spotify app is not running you will need to use <a href="#//api/name/authorizeAndPlayURI:">authorizeAndPlayURI:</a> to wake it up.</p><p>If <code>authorizeAndPlayURI</code> was used without a given session identifier, <a href="#//api/name/connect"><code>connect</code></a> should be used instead of this method.</p>
+				<p>If the Spotify app is not running you will need to use authorizeAndPlayURI: to wake it up.</p><p>If <code>authorizeAndPlayURI</code> was used without a given session identifier, <a href="#//api/name/connect"><code>connect</code></a> should be used instead of this method.</p>
 			</div>
 			
 
@@ -714,8 +714,8 @@ will be considered active if music is playing or the app is active in the backgr
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/authorizeAndPlayURI:" title="authorizeAndPlayURI:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/authorizeAndPlayURI:">&ndash;&nbsp;authorizeAndPlayURI:</a></code>
+	<a name="//api/name/authorizeAndPlayURI:completionHandler:" title="authorizeAndPlayURI:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/authorizeAndPlayURI:completionHandler:">&ndash;&nbsp;authorizeAndPlayURI:completionHandler:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -731,7 +731,7 @@ The passed URI will start playing unless Spotify is already playing.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (BOOL)authorizeAndPlayURI:(NSString *)<em>URI</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)authorizeAndPlayURI:(NSString *)<em>URI</em> completionHandler:(void ( ^ __nullable ) ( BOOL success ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -744,17 +744,18 @@ The passed URI will start playing unless Spotify is already playing.</p>
 						<td><p>The URI to play. Use a blank string to attempt to play the user&rsquo;s last song</p></td>
 					</tr>
 				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.</p>
+
+<p>Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
+the Spotify app is installed and can attempt to handle the authorization request.</p></td>
+					</tr>
+				
 				</table>
 			</div>
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.
-Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
-the Spotify app is installed and can attempt to handle the authorization request.</p>
-			</div>
 			
 
 			
@@ -775,8 +776,8 @@ the Spotify app is installed and can attempt to handle the authorization request
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/authorizeAndPlayURI:asRadio:" title="authorizeAndPlayURI:asRadio:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/authorizeAndPlayURI:asRadio:">&ndash;&nbsp;authorizeAndPlayURI:asRadio:</a></code>
+	<a name="//api/name/authorizeAndPlayURI:asRadio:completionHandler:" title="authorizeAndPlayURI:asRadio:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/authorizeAndPlayURI:asRadio:completionHandler:">&ndash;&nbsp;authorizeAndPlayURI:asRadio:completionHandler:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -791,7 +792,7 @@ the Spotify app is installed and can attempt to handle the authorization request
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (BOOL)authorizeAndPlayURI:(NSString *)<em>playURI</em> asRadio:(BOOL)<em>asRadio</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)authorizeAndPlayURI:(NSString *)<em>playURI</em> asRadio:(BOOL)<em>asRadio</em> completionHandler:(void ( ^ __nullable ) ( BOOL success ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -809,17 +810,18 @@ the Spotify app is installed and can attempt to handle the authorization request
 						<td><p><code>YES</code> to start radio for the given URI.</p></td>
 					</tr>
 				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.</p>
+
+<p>Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
+the Spotify app is installed and can attempt to handle the authorization request.</p></td>
+					</tr>
+				
 				</table>
 			</div>
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.
-Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
-the Spotify app is installed and can attempt to handle the authorization request.</p>
-			</div>
 			
 
 			
@@ -840,8 +842,8 @@ the Spotify app is installed and can attempt to handle the authorization request
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:" title="authorizeAndPlayURI:asRadio:additionalScopes:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/authorizeAndPlayURI:asRadio:additionalScopes:">&ndash;&nbsp;authorizeAndPlayURI:asRadio:additionalScopes:</a></code>
+	<a name="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:completionHandler:" title="authorizeAndPlayURI:asRadio:additionalScopes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/authorizeAndPlayURI:asRadio:additionalScopes:completionHandler:">&ndash;&nbsp;authorizeAndPlayURI:asRadio:additionalScopes:completionHandler:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -856,7 +858,7 @@ the Spotify app is installed and can attempt to handle the authorization request
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (BOOL)authorizeAndPlayURI:(NSString *)<em>playURI</em> asRadio:(BOOL)<em>asRadio</em> additionalScopes:(nullable NSArray&lt;NSString*&gt; *)<em>additionalScopes</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)authorizeAndPlayURI:(NSString *)<em>playURI</em> asRadio:(BOOL)<em>asRadio</em> additionalScopes:(nullable NSArray&lt;NSString*&gt; *)<em>additionalScopes</em> completionHandler:(void ( ^ __nullable ) ( BOOL success ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -879,17 +881,18 @@ the Spotify app is installed and can attempt to handle the authorization request
 						<td><p>An array of scopes in addition to <code>app-remote-control</code>. Can be nil if you only need <code>app-remote-control</code></p></td>
 					</tr>
 				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.</p>
+
+<p>Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
+the Spotify app is installed and can attempt to handle the authorization request.</p></td>
+					</tr>
+				
 				</table>
 			</div>
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.
-Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
-the Spotify app is installed and can attempt to handle the authorization request.</p>
-			</div>
 			
 
 			
@@ -910,8 +913,8 @@ the Spotify app is installed and can attempt to handle the authorization request
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:" title="authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:">&ndash;&nbsp;authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:</a></code>
+	<a name="//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:completionHandler:" title="authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:completionHandler:">&ndash;&nbsp;authorizeAndPlayURI:asRadio:additionalScopes:sessionIdentifier:completionHandler:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -926,7 +929,7 @@ the Spotify app is installed and can attempt to handle the authorization request
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (BOOL)authorizeAndPlayURI:(NSString *)<em>playURI</em> asRadio:(BOOL)<em>asRadio</em> additionalScopes:(nullable NSArray&lt;NSString*&gt; *)<em>additionalScopes</em> sessionIdentifier:(nullable NSUUID *)<em>sessionIdentifier</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)authorizeAndPlayURI:(NSString *)<em>playURI</em> asRadio:(BOOL)<em>asRadio</em> additionalScopes:(nullable NSArray&lt;NSString*&gt; *)<em>additionalScopes</em> sessionIdentifier:(nullable NSUUID *)<em>sessionIdentifier</em> completionHandler:(void ( ^ __nullable ) ( BOOL success ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -956,17 +959,18 @@ the Spotify app is installed and can attempt to handle the authorization request
 <a href="#//api/name/connectWithSessionIdentifier:"><code>connectWithSessionIdentifier:</code></a>.</p></td>
 					</tr>
 				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.</p>
+
+<p>Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
+the Spotify app is installed and can attempt to handle the authorization request.</p></td>
+					</tr>
+				
 				</table>
 			</div>
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.
-Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
-the Spotify app is installed and can attempt to handle the authorization request.</p>
-			</div>
 			
 
 			
@@ -1296,7 +1300,7 @@ Use <code>SPTAppRemoteAccessTokenKey</code> and <code>SPTAppRemoteErrorDescripti
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2024 Spotify. All rights reserved. Updated: 2024-04-15</p>
+						<p class="copyright">Copyright &copy; 2024 Spotify. All rights reserved. Updated: 2024-05-08</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

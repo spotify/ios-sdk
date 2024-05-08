@@ -71,10 +71,11 @@ class ContentCollectionViewController : UICollectionViewController, UICollection
 
         cell.imageView.image = nil
         appRemote?.imageAPI?.fetchImage(forItem: item, with: scaledSizeForCell(cell)) { (image, error) in
-            // If the cell hasn't been reused
-            if cell.titleLabel.text == item.title {
-                cell.imageView?.image = image as? UIImage
+            guard let image = image as? UIImage, error == nil,
+                  let cell = collectionView.cellForItem(at: indexPath) as? ContentItemCell else {
+                return
             }
+            cell.imageView?.image = image
         }
 
         return cell

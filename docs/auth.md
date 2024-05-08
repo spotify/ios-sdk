@@ -61,11 +61,5 @@ The main entry point for authentication if you need to authorize without startin
     */
     SPTScope scope = SPTUserFollowReadScope | SPTAppRemoteControlScope;
 
-    if (@available(iOS 11, *)) {
-        // Use this on iOS 11 and above to take advantage of SFAuthenticationSession
-        [self.sessionManager initiateSessionWithScope:scope options:SPTDefaultAuthorizationOption];
-    } else {
-        // Use this on iOS versions < 11 to use SFSafariViewController
-        [self.sessionManager initiateSessionWithScope:scope options:SPTDefaultAuthorizationOption presentingViewController:self];
-    }
+    [self.sessionManager initiateSessionWithScope:scope options:SPTDefaultAuthorizationOption];
     ```

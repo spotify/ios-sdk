@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: connectionIndicatorView)
         connectionIndicatorView.frame = CGRect(origin: CGPoint(), size: CGSize(width: 20,height: 20))
 
-        playPauseButton.setTitle("", for: UIControl.State.normal);
+        playPauseButton.setTitle("", for: UIControl.State.normal)
         playPauseButton.setImage(PlaybackButtonGraphics.playButtonImage(), for: UIControl.State.normal)
         playPauseButton.setImage(PlaybackButtonGraphics.playButtonImage(), for: UIControl.State.highlighted)
 
@@ -104,7 +104,7 @@ class ViewController: UIViewController {
 
         if (!enabled) {
             albumArtImageView.image = nil
-            updatePlayPauseButtonState(true);
+            updatePlayPauseButtonState(true)
         }
     }
 
@@ -120,19 +120,19 @@ class ViewController: UIViewController {
 
     private func updatePodcastSpeed(speed: SPTAppRemotePodcastPlaybackSpeed) {
         currentPodcastSpeed = speed
-        podcastSpeedButton.setTitle(String(format: "%0.1fx", speed.value.floatValue), for: .normal);
+        podcastSpeedButton.setTitle(String(format: "%0.1fx", speed.value.floatValue), for: .normal)
     }
 
     // MARK: Player State
     private func updatePlayPauseButtonState(_ paused: Bool) {
         let playPauseButtonImage = paused ? PlaybackButtonGraphics.playButtonImage() : PlaybackButtonGraphics.pauseButtonImage()
-        playPauseButton.setImage(playPauseButtonImage, for: UIControl.State())
+        playPauseButton.setImage(playPauseButtonImage, for: .normal)
         playPauseButton.setImage(playPauseButtonImage, for: .highlighted)
     }
 
     private func updatePlayerStateSubscriptionButtonState() {
         let playerStateSubscriptionButtonTitle = subscribedToPlayerState ? "Unsubscribe" : "Subscribe"
-        playerStateSubscriptionButton.setTitle(playerStateSubscriptionButtonTitle, for: UIControl.State())
+        playerStateSubscriptionButton.setTitle(playerStateSubscriptionButtonTitle, for: .normal)
     }
 
     // MARK: Capabilities
@@ -142,7 +142,7 @@ class ViewController: UIViewController {
 
     private func updateCapabilitiesSubscriptionButtonState() {
         let capabilitiesSubscriptionButtonTitle = subscribedToCapabilities ? "Unsubscribe" : "Subscribe"
-        capabilitiesSubscriptionButton.setTitle(capabilitiesSubscriptionButtonTitle, for: UIControl.State())
+        capabilitiesSubscriptionButton.setTitle(capabilitiesSubscriptionButtonTitle, for: .normal)
     }
 
     // MARK: Shuffle
@@ -159,7 +159,7 @@ class ViewController: UIViewController {
             case .context: return "Context"
             default: return "Off"
             }
-            }()
+        }()
     }
 
     // MARK: Album Art
@@ -206,7 +206,7 @@ class ViewController: UIViewController {
     private func pausePlayback() {
         appRemote?.playerAPI?.pause(defaultCallback)
     }
-    
+
     private func playTrack() {
         appRemote?.playerAPI?.play(trackIdentifier, callback: defaultCallback)
     }
@@ -357,9 +357,11 @@ class ViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func didPressPlayPauseButton(_ sender: AnyObject) {
         if appRemote?.isConnected == false {
-            if appRemote?.authorizeAndPlayURI(playURI) == false {
-                // The Spotify app is not installed, present the user with an App Store page
-                showAppStoreInstall()
+            appRemote?.authorizeAndPlayURI(playURI) { success in
+                if !success {
+                    // The Spotify app is not installed, present the user with an App Store page
+                    self.showAppStoreInstall()
+                }
             }
         } else if playerState == nil || playerState!.isPaused {
             startPlayback()
@@ -430,9 +432,11 @@ class ViewController: UIViewController {
 
     @IBAction func playRadioTapped(_ sender: Any) {
         if appRemote?.isConnected == false && appRemote?.playerAPI != nil {
-            if appRemote?.authorizeAndPlayURI(trackIdentifier, asRadio: true) == false {
-                // The Spotify app is not installed, present the user with an App Store page
-                showAppStoreInstall()
+            appRemote?.authorizeAndPlayURI(trackIdentifier, asRadio: true) { success in
+                if !success {
+                    // The Spotify app is not installed, present the user with an App Store page
+                    self.showAppStoreInstall()
+                }
             }
         } else {
             var trackUri = trackIdentifier
@@ -467,10 +471,10 @@ extension ViewController: SpeedPickerViewControllerDelegate {
 
 // MARK: - SPTAppRemotePlayerStateDelegate
 extension ViewController: SPTAppRemotePlayerStateDelegate {
-       func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
-           self.playerState = playerState
-           updateViewWithPlayerState(playerState)
-       }
+    func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
+        self.playerState = playerState
+        updateViewWithPlayerState(playerState)
+    }
 }
 // MARK: - SPTAppRemoteUserAPIDelegate
 extension ViewController: SPTAppRemoteUserAPIDelegate {
