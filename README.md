@@ -38,9 +38,12 @@ Make sure you search existing issues before creating new ones.
 
 ### Requirements
 
-The Spotify iOS framework requires a deployment target of iOS 9 or higher. The
-following architectures are supported: `armv7`, `armv7s` and `arm64` for devices,
-`i386` and `x86_64` for the iOS Simulator. Bitcode is also supported.
+The Spotify iOS framework requires a deployment target of iOS 12 or higher. 
+The following architectures are supported in the SDK:
+
+- device: arm64
+- simulator: arm64 x86_64
+
 
 ## Components
 
@@ -146,13 +149,37 @@ Follow these steps to make sure you are prepared to start coding.
 
     ![Info.plist](img/info_plist.png)
 
-3. Add `#import <SpotifyiOS/SpotifyiOS.h>` to your source files to import necessary headers.
+3. Add the library to your source files.
+
+    *Swift*
+    
+    ```swift
+    import SpotifyiOS
+    ```
+    
+    *Objective-c*
+    
+    ```objective-c
+    #import <SpotifyiOS/SpotifyiOS.h>
+    ```
 
 ### Check if Spotify is Active
 
 If a user is already using Spotify, but has not authorized your application, you can use the following check to prompt them to
 start the authorization process.
 
+*Swift*
+    
+```swift
+SPTAppRemote.checkIfSpotifyAppIsActive { active in
+    if active {
+        // Prompt the user to connect Spotify here
+    }
+}
+```
+    
+*Objective-c*
+    
 ```objective-c
 [SPTAppRemote checkIfSpotifyAppIsActive:^(BOOL active) {
     if (active) {
@@ -167,19 +194,55 @@ To be able to use the playback control part of the SDK the user needs to authori
 
 1. Initialize `SPTConfiguration` with your client ID and redirect URI.
 
+    *Swift*
+    
+    ```swift
+    let configuration = SPTConfiguration(
+        clientID: "YOUR_CLIENT_ID",
+        redirectURL: URL(string: "your_redirect_uri")!
+        )
+    ```
+    
+    *Objective-c*
+    
     ```objective-c
-    SPTConfiguration *configuration =
-        [[SPTConfiguration alloc] initWithClientID:@"your_client_id" redirectURL:[NSURL URLWithString:@"your_redirect_uri"]];
+    SPTConfiguration *configuration = [[SPTConfiguration alloc] initWithClientID:@"your_client_id" 
+                                                                     redirectURL:[NSURL URLWithString:@"your_redirect_uri"]];
     ```
 
 2. Initialize `SPTAppRemote` with your `SPTConfiguration`
 
+    *Swift*
+    
+    ```swift
+    self.appRemote = SPTAppRemote(configuration: configuration, logLevel: .debug)
+    ```
+    
+    *Objective-c*
+    
     ```objective-c
     self.appRemote = [[SPTAppRemote alloc] initWithConfiguration:configuration logLevel:SPTAppRemoteLogLevelDebug];
     ```
 
 3. Initiate the authentication flow (for other ways to detect if Spotify is installed, as well as attributing installs, please see our [Content Linking Guide](https://beta.developer.spotify.com/documentation/general/guides/content-linking-guide/)).
 
+    *Swift*
+    
+    ```swift
+    // Note: A blank string will play the user's last song or pick a random one.
+    self.appRemote.authorizeAndPlayURI("spotify:track:69bp2EbF7Q2rqc5N3ylezZ") { spotifyInstalled in
+        if !spotifyInstalled {
+            /*
+             * The Spotify app is not installed.
+             * Use SKStoreProductViewController with [SPTAppRemote spotifyItunesItemIdentifier] to present the user
+             * with a way to install the Spotify app.
+             */
+        }
+    }
+    ```
+    
+    *Objective-c*
+    
     ```objective-c
     // Note: A blank string will play the user's last song or pick a random one.
     [self.appRemote authorizeAndPlayURI:@"spotify:track:69bp2EbF7Q2rqc5N3ylezZ" completionHandler:^(BOOL spotifyInstalled) {
@@ -191,11 +254,13 @@ To be able to use the playback control part of the SDK the user needs to authori
             */
         }
     }];
-    
     ```
 
 4. Configure your `AppDelegate` to parse out the accessToken in `application:openURL:options:` and set it on the `SPTAppRemote` connectionParameters.
 
+
+    *Objective-c*
+    
     ```objective-c
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
     {
@@ -209,17 +274,19 @@ To be able to use the playback control part of the SDK the user needs to authori
         return YES;
     }
     ```
-
+    
     If you are using UIScene then you need to use appropriate method in your scene delegate.
 
+    *Swift*
+    
     ```swift
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let url = URLContexts.first?.url else {
             return
         }
-
+        
         let parameters = appRemote.authorizationParameters(from: url);
-
+        
         if let access_token = parameters?[SPTAppRemoteAccessTokenKey] {
             appRemote.connectionParameters.accessToken = access_token
             self.accessToken = access_token
@@ -233,23 +300,45 @@ To be able to use the playback control part of the SDK the user needs to authori
 
 1. Set your connection delegate and attempt to connect.
 
+    *Swift*
+    
+    ```Swift
+    self.appRemote.delegate = self
+    self.appRemote.connect()
+    ```
+    
+    ```Swift
+    // MARK: AppRemoteDelegate
+    func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
+        // Connection was successful, you can begin issuing commands
+    }
+    func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
+        // Connection failed
+    }
+    func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) { 
+        // Connection disconnected
+    }
+    ```
+    
+    *Objective-c*
+    
     ```objective-c
     self.appRemote.delegate = self;
     [self.appRemote connect];
     ```
-
+    
     ```objective-c
-
+    
     - (void)appRemoteDidEstablishConnection:(SPTAppRemote *)appRemote
     {
         // Connection was successful, you can begin issuing commands
     }
-
+    
     - (void)appRemote:(SPTAppRemote *)appRemote didFailConnectionAttemptWithError:(NSError *)error
     {
         // Connection failed
     }
-
+    
     - (void)appRemote:(SPTAppRemote *)appRemote didDisconnectWithError:(nullable NSError *)error
     {
         // Connection disconnected
@@ -258,6 +347,24 @@ To be able to use the playback control part of the SDK the user needs to authori
 
 2. Set a delegate and subscribe to player state:
 
+    *Swift*
+    
+    ```Swift
+    self.appRemote.playerAPI?.delegate = self
+    appRemote.playerAPI?.subscribe(toPlayerState: { result, error in
+        // Handle Errors
+    })
+    ```
+    
+    ```Swift
+    // MARK: SPTAppRemotePlayerStateDelegate
+    func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
+        print("track name \(playerState.track.name)")
+    }
+    ```
+    
+    *Objective-c*
+    
     ```objective-c
     appRemote.playerAPI.delegate = self;
 
@@ -280,6 +387,19 @@ This tells Spotify that it's safe to disable the active stream. If your app does
 
 If you want your app to automatically reconnect after disruption events like incoming calls or Siri interactions you may use the `willResignActive` and `didBecomeActive` callbacks to safely disconnect and reconnect. If you don't wish to reconnect directly, it's typically enough to close the connection in `didEnterBackground` callbacks.
 
+*Swift*
+
+```swift
+func sceneWillResignActive(_ scene: UIScene) {
+    self.appRemote.disconnect()
+}
+func sceneDidBecomeActive(_ scene: UIScene) {
+    self.appRemote.connect()
+}
+```
+
+*Objective-c*
+    
 ```objective-c
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -289,7 +409,9 @@ If you want your app to automatically reconnect after disruption events like inc
 {
     [self.appRemote connect];
 }
+
 // If you're using UIWindowSceneDelegate
+
 - (void)sceneDidBecomeActive:(UIScene *)scene
 {
     [self.appRemote connect];

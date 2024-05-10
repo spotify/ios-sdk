@@ -1,5 +1,10 @@
 # Changelog
 
+## Spotify iOS SDK v2.0.1
+
+What's New:
+- Bumped the min deployment target version to iOS 12.0 in Package.swift
+
 ## Spotify iOS SDK v2.0.0
 
 What's New:
