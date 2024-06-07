@@ -76,9 +76,7 @@
 		
 		<option value="//api/name/initWithConfiguration:delegate:">- initWithConfiguration:delegate:</option>
 		
-		<option value="//api/name/initiateSessionWithScope:options:">- initiateSessionWithScope:options:</option>
-		
-		<option value="//api/name/initiateSessionWithScope:options:presentingViewController:">- initiateSessionWithScope:options:presentingViewController:</option>
+		<option value="//api/name/initiateSessionWithScope:options:campaign:">- initiateSessionWithScope:options:campaign:</option>
 		
 		<option value="//api/name/renewSession">- renewSession</option>
 		
@@ -303,8 +301,8 @@ You SHOULD NOT set this value to <code>YES</code> in production or your users wi
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/initiateSessionWithScope:options:" title="initiateSessionWithScope:options:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initiateSessionWithScope:options:">&ndash;&nbsp;initiateSessionWithScope:options:</a></code>
+	<a name="//api/name/initiateSessionWithScope:options:campaign:" title="initiateSessionWithScope:options:campaign:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initiateSessionWithScope:options:campaign:">&ndash;&nbsp;initiateSessionWithScope:options:campaign:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -314,71 +312,12 @@ You SHOULD NOT set this value to <code>YES</code> in production or your users wi
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Initiate the authorization process on iOS 11 and later.</p>
+				<p>Initiate the authorization process</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)initiateSessionWithScope:(SPTScope)<em>scope</em> options:(SPTAuthorizationOptions)<em>options</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>scope</code></th>
-						<td><p>The scope to request, e.g. <code>SPTPlaylistReadPrivateScope</code>|<code>SPTUserReadEmailScope</code> if you wish to request read access to private playlists, and read access to the user&rsquo;s email address.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>options</code></th>
-						<td><p>Options bitmask that informs authorization behavior.
-See <a href="../Protocols/SPTSessionManagerDelegate.html"><code>SPTSessionManagerDelegate</code></a> for messages regarding changes in <a href="#//api/name/session">session</a> state.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">SPTSessionManager.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/initiateSessionWithScope:options:presentingViewController:" title="initiateSessionWithScope:options:presentingViewController:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initiateSessionWithScope:options:presentingViewController:">&ndash;&nbsp;initiateSessionWithScope:options:presentingViewController:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Initiate the authorization process on iOS versions &lt; 11.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)initiateSessionWithScope:(SPTScope)<em>scope</em> options:(SPTAuthorizationOptions)<em>options</em> presentingViewController:(UIViewController *)<em>presentingViewController</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)initiateSessionWithScope:(SPTScope)<em>scope</em> options:(SPTAuthorizationOptions)<em>options</em> campaign:(nullable NSString *)<em>campaign</em></code></div>
 
 		    
 			
@@ -397,8 +336,8 @@ See <a href="../Protocols/SPTSessionManagerDelegate.html"><code>SPTSessionManage
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>presentingViewController</code></th>
-						<td><p>The <code>UIViewController</code> to present the login <code>SFSafariViewController</code> on
+						<th scope="row" class="argument-name"><code>campaign</code></th>
+						<td><p>The campaign identifier, to help attribute where the account linking was initiated from.
 See <a href="../Protocols/SPTSessionManagerDelegate.html"><code>SPTSessionManagerDelegate</code></a> for messages regarding changes in <a href="#//api/name/session">session</a> state.</p></td>
 					</tr>
 				
@@ -612,7 +551,7 @@ See <a href="../Protocols/SPTSessionManagerDelegate.html"><code>SPTSessionManage
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2024 Spotify. All rights reserved. Updated: 2024-05-10</p>
+						<p class="copyright">Copyright &copy; 2024 Spotify. All rights reserved. Updated: 2024-06-07</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
