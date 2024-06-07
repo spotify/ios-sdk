@@ -184,14 +184,7 @@ class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteD
          For more information, see https://developer.spotify.com/web-api/using-scopes/.
          */
         let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
-
-        if #available(iOS 11, *) {
-            // Use this on iOS 11 and above to take advantage of SFAuthenticationSession
-            sessionManager.initiateSession(with: scope, options: .clientOnly)
-        } else {
-            // Use this on iOS versions < 11 to use SFSafariViewController
-            sessionManager.initiateSession(with: scope, options: .clientOnly, presenting: self)
-        }
+        sessionManager.initiateSession(with: scope, options: .clientOnly, campaign: nil)
     }
 
 

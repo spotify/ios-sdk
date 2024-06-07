@@ -1,5 +1,9 @@
 # Changelog
 
+## Spotify iOS SDK v2.1.1
+What's New:
+- Added the new campaign parameter in the sample apps.
+
 ## Spotify iOS SDK v2.1.0
 What's New:
 - Expanded existing API with campaign parameter to allow consumers to specify details about where the auth flow was initiated
