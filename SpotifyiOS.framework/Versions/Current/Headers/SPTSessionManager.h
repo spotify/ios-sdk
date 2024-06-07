@@ -44,26 +44,16 @@ typedef NSString * const SPTAuthorizationCode;
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- Initiate the authorization process on iOS 11 and later.
+ Initiate the authorization process
 
  @param scope The scope to request, e.g. `SPTPlaylistReadPrivateScope`|`SPTUserReadEmailScope` if you wish to request read access to private playlists, and read access to the user's email address.
  @param options Options bitmask that informs authorization behavior.
- See `SPTSessionManagerDelegate` for messages regarding changes in session state.
- */
-- (void)initiateSessionWithScope:(SPTScope)scope
-                         options:(SPTAuthorizationOptions)options NS_AVAILABLE_IOS(11_0);
-
-/**
- Initiate the authorization process on iOS versions < 11.
-
- @param scope The scope to request, e.g. `SPTPlaylistReadPrivateScope`|`SPTUserReadEmailScope` if you wish to request read access to private playlists, and read access to the user's email address.
- @param options Options bitmask that informs authorization behavior.
- @param presentingViewController The `UIViewController` to present the login `SFSafariViewController` on
+ @param campaign The campaign identifier, to help attribute where the account linking was initiated from.
  See `SPTSessionManagerDelegate` for messages regarding changes in session state.
  */
 - (void)initiateSessionWithScope:(SPTScope)scope
                          options:(SPTAuthorizationOptions)options
-        presentingViewController: (UIViewController *)presentingViewController NS_DEPRECATED_IOS(9_0, 11_0);
+                        campaign:(nullable NSString *)campaign;
 
 /// Attempt to renew the access token, using the refresh token in the current `SPTSession` which must be valid.
 - (void)renewSession;
