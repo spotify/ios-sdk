@@ -6,7 +6,7 @@ There are 3 sample projects included to show you different ways to interact with
 
 This Swift project focuses on how to interact with the Spotify client to control playback, subscribe to player state changes, fetch content, and more. This project does not require you to have a server for token swaps so you can ignore the provided ruby script. You will have to run this project on a real device as it requires the Spotify iOS app to be installed.
 
-## SPTLoginSampleApp
+## SPTLoginSampleAppObjc
 
 This Objective-C project focuses solely on the authentication part of the SDK. If you are looking to use the Web API this will show you how to request different scopes and get access tokens. You will need to have a server running for this sample to work so you will likely want to use the provided ruby script.
 

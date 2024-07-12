@@ -1,14 +1,15 @@
 #import <Foundation/Foundation.h>
-
 #import "SPTAppRemoteCommon.h"
 #import "SPTAppRemotePlaybackOptions.h"
 
-@protocol SPTAppRemotePlayerState, SPTAppRemoteContentItem, SPTAppRemotePodcastPlaybackSpeed;
+@protocol SPTAppRemotePlayerState
+, SPTAppRemoteContentItem, SPTAppRemotePodcastPlaybackSpeed;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * The `SPTAppRemotePlayerStateDelegate` is used to get notifications from the Spotify app when the player state is changed.
+ * The `SPTAppRemotePlayerStateDelegate` is used to get notifications from the Spotify app when the player state is
+ * changed.
  */
 @protocol SPTAppRemotePlayerStateDelegate <NSObject>
 
@@ -84,7 +85,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback         On success `result` will be `YES`.
  *                         On error `result` will be `nil` and error set
  */
-- (void)playItem:(id<SPTAppRemoteContentItem>)contentItem skipToTrackIndex:(NSInteger) index callback:(nullable SPTAppRemoteCallback)callback;
+- (void)playItem:(id<SPTAppRemoteContentItem>)contentItem
+    skipToTrackIndex:(NSInteger)index
+            callback:(nullable SPTAppRemoteCallback)callback;
 
 /**
  * Asks the Spotify player to resume playback.
@@ -175,7 +178,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param callback On success `result` will be `YES`.
  *                  On error `result` will be `nil` and `error` will be set.
  */
-- (void)setRepeatMode:(SPTAppRemotePlaybackOptionsRepeatMode)repeatMode callback:(nullable SPTAppRemoteCallback)callback;
+- (void)setRepeatMode:(SPTAppRemotePlaybackOptionsRepeatMode)repeatMode
+             callback:(nullable SPTAppRemoteCallback)callback;
 
 #pragma mark Player State
 
@@ -213,7 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback On success `result` will be `YES`
  *                 On error `result` will be `nil` and error set
  */
-- (void)enqueueTrackUri:(NSString*)trackUri callback:(nullable SPTAppRemoteCallback)callback;
+- (void)enqueueTrackUri:(NSString *)trackUri callback:(nullable SPTAppRemoteCallback)callback;
 
 /**
  * Asks the Spotify player for available podcast playback speeds
@@ -247,7 +251,8 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback  On success `result` will be `YES`.
  *                  On error `result` will be `nil` and `error` set
  */
-- (void)setPodcastPlaybackSpeed:(nonnull id<SPTAppRemotePodcastPlaybackSpeed>)speed callback:(nullable SPTAppRemoteCallback)callback;
+- (void)setPodcastPlaybackSpeed:(nonnull id<SPTAppRemotePodcastPlaybackSpeed>)speed
+                       callback:(nullable SPTAppRemoteCallback)callback;
 
 /**
  * Asks the Spotify player for the current crossfade state.

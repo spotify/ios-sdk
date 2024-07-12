@@ -4,8 +4,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * The `SPTAppRemoteContentItem` protocol represents a track or a collection of tracks. Use the `isContainer` instance method
- * to determine if the content item is a collection of tracks for which to grab children from.
+ * The `SPTAppRemoteContentItem` protocol represents a track or a collection of tracks. Use the `isContainer` instance
+ * method to determine if the content item is a collection of tracks for which to grab children from.
  */
 @protocol SPTAppRemoteContentItem <NSObject, SPTAppRemoteImageRepresentable>
 
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Returns `YES` if the item is expected to contain children, otherwise `NO`.
 @property (nonatomic, assign, readonly, getter=isContainer) BOOL container;
 
-/// Returns `YES` if the item is pinned in Your Library, otherwise `NO`. 
+/// Returns `YES` if the item is pinned in Your Library, otherwise `NO`.
 @property (nonatomic, assign, readonly, getter=isPinned) BOOL pinnned;
 
 /**
