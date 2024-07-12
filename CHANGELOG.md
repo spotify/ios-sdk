@@ -1,5 +1,9 @@
 # Changelog
 
+## Spotify iOS SDK v2.1.2
+What's New:
+- Dismiss authentication screen when Spotify app is installed.
+
 ## Spotify iOS SDK v2.1.1
 What's New:
 - Added the new campaign parameter in the sample apps.
