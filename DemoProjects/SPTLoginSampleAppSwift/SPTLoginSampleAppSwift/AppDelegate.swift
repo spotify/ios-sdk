@@ -14,10 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        rootViewController.sessionManager.application(app, open: url, options: options)
-        return true
+        // Use this method if your SpotifyRedirectURL is a native deeplink
+        return rootViewController.sessionManager.application(app, open: url, options: options)
     }
 
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([any UIUserActivityRestoring]?) -> Void) -> Bool {
+        // Use this method if your SpotifyRedirectURL is an universal link (https/http)
+        return rootViewController.sessionManager.application(application, continue: userActivity, restorationHandler: restorationHandler)
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         if (rootViewController.appRemote.isConnected) {
             rootViewController.appRemote.disconnect()

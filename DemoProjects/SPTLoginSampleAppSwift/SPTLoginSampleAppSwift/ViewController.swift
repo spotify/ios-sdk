@@ -1,4 +1,5 @@
 import UIKit
+import SpotifyiOS
 
 class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
 

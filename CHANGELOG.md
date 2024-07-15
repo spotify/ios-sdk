@@ -1,5 +1,9 @@
 # Changelog
 
+## Spotify iOS SDK v2.1.3
+What's New:
+- Fix bug in the web authentication when using Universal Links in the redirect URI
+
 ## Spotify iOS SDK v2.1.2
 What's New:
 - Dismiss authentication screen when Spotify app is installed.
