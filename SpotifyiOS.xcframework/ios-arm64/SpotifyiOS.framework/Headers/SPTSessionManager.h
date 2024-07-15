@@ -78,9 +78,17 @@ typedef NSString * const SPTAuthorizationCode;
  @param options The options passed in to the matching `AppDelegate` method
  @return Returns `YES` if `SPTSessionManager` recognizes the URL and will attempt to parse an access token, otherwise returns `NO`.
 */
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)URL
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)URL options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
+
+/**
+ Handle continueUserActivity callbacks from the `AppDelegate`
+
+ @param application The `UIApplication` passed into the matching `AppDelegate` method
+ @param userActivity An object encapsulating a user activity supported by this responder.
+ @param restorationHandler A block to execute if your app creates objects to perform the task the user was performing
+ @return Returns `YES` if `SPTSessionManager` recognizes the URL and will attempt to parse an access token, otherwise returns `NO`.
+*/
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray<id<UIUserActivityRestoring>> * __nullable restorableObjects))restorationHandler;
 
 @end
 

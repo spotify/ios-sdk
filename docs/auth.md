@@ -37,9 +37,18 @@ The main entry point for authentication if you need to authorize without startin
     ```objective-c
     - (BOOL)application:(UIApplication *)application openURL:(NSURL *)URL options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
     {
-        [self.sessionManager application:application openURL:URL options:options];
+        return [self.sessionManager application:application openURL:URL options:options];
     }
     ```
+
+    If you using a Universal Link in the redirect URI, you should use this delegate method instead:
+
+    ```objective-c
+    - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
+		return [self.rootViewController.sessionManager application:application continueUserActivity:userActivity restorationHandler:restorationHandler]
+    }
+    ```
+
 
 5. If using `SPTAppRemote` to control playback be sure to set the returned token on its connection parameters in the `SPTSessionManager` delegate callback.
 

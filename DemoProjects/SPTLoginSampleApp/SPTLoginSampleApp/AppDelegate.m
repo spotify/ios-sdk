@@ -24,9 +24,15 @@
             openURL:(NSURL *)URL
             options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
 {
-    [self.rootViewController.sessionManager application:application openURL:URL options:options];
-    NSLog(@"%@ %@", URL, options);
-    return YES;
+    // Use this method if your SpotifyRedirectURL is a native deeplink
+    return [self.rootViewController.sessionManager application:application openURL:URL options:options];
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
+    // Use this method if your SpotifyRedirectURL is an universal link (https/http)
+    return [self.rootViewController.sessionManager application:application
+                                          continueUserActivity:userActivity
+                                            restorationHandler:restorationHandler];
 }
 
 @end
