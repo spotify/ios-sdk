@@ -1,5 +1,9 @@
 # Changelog
 
+## Spotify iOS SDK v2.1.4
+What's New:
+- Add support for raw scope string
+
 ## Spotify iOS SDK v2.1.3
 What's New:
 - Fix bug in the web authentication when using Universal Links in the redirect URI
