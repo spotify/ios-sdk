@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method if your SpotifyRedirectURL is an universal link (https/http)
         return rootViewController.sessionManager.application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
         if (rootViewController.appRemote.isConnected) {
             rootViewController.appRemote.disconnect()

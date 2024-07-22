@@ -7,7 +7,7 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -144,7 +144,8 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The <code>SPTAppRemote</code> is the main entry point for interacting with the Spotify app using the Spotify App Remote for iOS.</p>
+						<p>The <code>SPTAppRemote</code> is the main entry point for interacting with the Spotify app using the Spotify App Remote for
+iOS.</p>
 					</div>
 					
 					
@@ -254,7 +255,8 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>connectionParameters</code></th>
-						<td><p><a href="../Classes/SPTAppRemoteConnectionParams.html"><code>SPTAppRemoteConnectionParams</code></a> for custom image sizes and types, and to hold the accessToken</p></td>
+						<td><p><a href="../Classes/SPTAppRemoteConnectionParams.html"><code>SPTAppRemoteConnectionParams</code></a> for custom image sizes and types, and to hold the
+accessToken</p></td>
 					</tr>
 				
 					<tr>
@@ -403,7 +405,8 @@ will be considered active if music is playing or the app is active in the backgr
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The Spotify app iTunes item identifier for use with <code>SKStoreProductViewController</code> for installing Spotify from the App Store.</p>
+				<p>The Spotify app iTunes item identifier for use with <code>SKStoreProductViewController</code> for installing Spotify from the
+App Store.</p>
 			</div>
 			
 		    
@@ -416,7 +419,8 @@ will be considered active if music is playing or the app is active in the backgr
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An <code>NSNumber</code> representing the Spotify iTunes item identifier to be used for the <code>SKStoreProductParameterITunesItemIdentifier</code> key</p>
+				<p>An <code>NSNumber</code> representing the Spotify iTunes item identifier to be used for the
+<code>SKStoreProductParameterITunesItemIdentifier</code> key</p>
 			</div>
 			
 
@@ -655,7 +659,8 @@ will be considered active if music is playing or the app is active in the backgr
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>If the Spotify app is not running you will need to use authorizeAndPlayURI: to wake it up.</p><p>If <code>authorizeAndPlayURI</code> was used without a given session identifier, <a href="#//api/name/connect"><code>connect</code></a> should be used instead of this method.</p>
+				<p>If the Spotify app is not running you will need to use authorizeAndPlayURI: to wake it up.</p><p>If <code>authorizeAndPlayURI</code> was used without a given session identifier, <a href="#//api/name/connect"><code>connect</code></a> should be used instead of
+this method.</p>
 			</div>
 			
 
@@ -746,7 +751,8 @@ The passed URI will start playing unless Spotify is already playing.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
-						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.</p>
+						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise
+<code>NO</code>.</p>
 
 <p>Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
 the Spotify app is installed and can attempt to handle the authorization request.</p></td>
@@ -812,7 +818,8 @@ the Spotify app is installed and can attempt to handle the authorization request
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
-						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.</p>
+						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise
+<code>NO</code>.</p>
 
 <p>Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
 the Spotify app is installed and can attempt to handle the authorization request.</p></td>
@@ -878,12 +885,14 @@ the Spotify app is installed and can attempt to handle the authorization request
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>additionalScopes</code></th>
-						<td><p>An array of scopes in addition to <code>app-remote-control</code>. Can be nil if you only need <code>app-remote-control</code></p></td>
+						<td><p>An array of scopes in addition to <code>app-remote-control</code>. Can be nil if you only need
+<code>app-remote-control</code></p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
-						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.</p>
+						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise
+<code>NO</code>.</p>
 
 <p>Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
 the Spotify app is installed and can attempt to handle the authorization request.</p></td>
@@ -949,19 +958,21 @@ the Spotify app is installed and can attempt to handle the authorization request
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>additionalScopes</code></th>
-						<td><p>An array of scopes in addition to <code>app-remote-control</code>. Can be nil if you only need <code>app-remote-control</code></p></td>
+						<td><p>An array of scopes in addition to <code>app-remote-control</code>. Can be nil if you only need
+<code>app-remote-control</code></p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>sessionIdentifier</code></th>
-						<td><p>An optional unique identifier for this specific session, which is used for analytics purposes. Every <a href="#//api/name/new">new</a> attempt to
-<a href="#//api/name/connect">connect</a> to the Spotify app should have a <a href="#//api/name/new">new</a> identifier, but the identifier used here should then be reused for the accompanied call to
-<a href="#//api/name/connectWithSessionIdentifier:"><code>connectWithSessionIdentifier:</code></a>.</p></td>
+						<td><p>An optional unique identifier for this specific session, which is used for analytics
+purposes. Every <a href="#//api/name/new">new</a> attempt to <a href="#//api/name/connect">connect</a> to the Spotify app should have a <a href="#//api/name/new">new</a> identifier, but the identifier used here
+should then be reused for the accompanied call to <a href="#//api/name/connectWithSessionIdentifier:"><code>connectWithSessionIdentifier:</code></a>.</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
-						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise <code>NO</code>.</p>
+						<td><p><code>YES</code> if the Spotify app is installed and an authorization attempt can be made, otherwise
+<code>NO</code>.</p>
 
 <p>Note: The return <code>BOOL</code> here is not a measure of whether or not authentication succeeded, only a check if
 the Spotify app is installed and can attempt to handle the authorization request.</p></td>
@@ -1293,17 +1304,15 @@ Use <code>SPTAppRemoteAccessTokenKey</code> and <code>SPTAppRemoteErrorDescripti
 					
 
                     
-                    
-          
 				</main>
 
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2024 Spotify. All rights reserved. Updated: 2024-07-16</p>
+						<p class="copyright">Copyright &copy; 2024 Spotify. All rights reserved. Updated: 2024-07-18</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

@@ -45,7 +45,7 @@ The main entry point for authentication if you need to authorize without startin
 
     ```objective-c
     - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
-		return [self.rootViewController.sessionManager application:application continueUserActivity:userActivity restorationHandler:restorationHandler]
+        return [self.rootViewController.sessionManager application:application continueUserActivity:userActivity restorationHandler:restorationHandler]
     }
     ```
 

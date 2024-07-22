@@ -1,5 +1,6 @@
 import UIKit
 import StoreKit
+import SpotifyiOS
 
 class ViewController: UIViewController {
     // MARK: - IBOutlets

@@ -1,23 +1,45 @@
 # Changelog
 
-## Spotify iOS SDK v2.1.4
+## Spotify iOS SDK v2.1.6
+
 What's New:
+
+- Strip binary symbols
+
+## Spotify iOS SDK v2.1.5
+
+What's New:
+
+- Migrate build system to Bazel
+
+## Spotify iOS SDK v2.1.4
+
+What's New:
+
 - Add support for raw scope string
 
 ## Spotify iOS SDK v2.1.3
+
 What's New:
+
 - Fix bug in the web authentication when using Universal Links in the redirect URI
 
 ## Spotify iOS SDK v2.1.2
+
 What's New:
+
 - Dismiss authentication screen when Spotify app is installed.
 
 ## Spotify iOS SDK v2.1.1
+
 What's New:
+
 - Added the new campaign parameter in the sample apps.
 
 ## Spotify iOS SDK v2.1.0
+
 What's New:
+
 - Expanded existing API with campaign parameter to allow consumers to specify details about where the auth flow was initiated
 
 ## Spotify iOS SDK v2.0.1
@@ -28,6 +50,7 @@ What's New:
 ## Spotify iOS SDK v2.0.0
 
 What's New:
+
 - Added a completionHandler to authorizeAndPlayURI API
 - Support for pinned items in Your Library
 - Fix crash NSRangeException -[NSConcreteMutableData replaceBytesInRange:withBytes:length:]:
