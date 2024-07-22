@@ -1,3 +1,4 @@
+import SpotifyiOS
 
 protocol SpeedPickerViewControllerDelegate {
     func speedPicker(viewController: SpeedPickerViewController, didChoose speed:SPTAppRemotePodcastPlaybackSpeed)

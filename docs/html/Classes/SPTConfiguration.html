@@ -7,7 +7,7 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -134,7 +134,7 @@ See <a href="https://developer.spotify.com/my-applications/">https://developer.s
 						
 
 						
-						<h2 class="task-title">Other Methods</h2>
+						
 
 						<div class="task-list">
 							<div class="section-method">
@@ -231,7 +231,7 @@ See <a href="https://developer.spotify.com/my-applications/">https://developer.s
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Your company name</p>
+				<p>Name of the company</p>
 			</div>
 			
 		    
@@ -261,140 +261,6 @@ See <a href="https://developer.spotify.com/my-applications/">https://developer.s
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/initWithClientID:redirectURL:" title="initWithClientID:redirectURL:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithClientID:redirectURL:">&ndash;&nbsp;initWithClientID:redirectURL:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Designated initializer for <code>SPTConfiguration</code></p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithClientID:(NSString *)<em>clientID</em> redirectURL:(NSURL *)<em>redirectURL</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>clientID</code></th>
-						<td><p>Your client ID obtained from developer.spotify.com</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>redirectURL</code></th>
-						<td><p>Your redirect URL for Spotify to open your app again after authorization</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>A newly initialized <code>SPTConfiguration</code></p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">SPTConfiguration.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/configurationWithClientID:redirectURL:" title="configurationWithClientID:redirectURL:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configurationWithClientID:redirectURL:">+&nbsp;configurationWithClientID:redirectURL:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Convenience intializer for <code>SPTConfiguration</code></p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (instancetype)configurationWithClientID:(NSString *)<em>clientID</em> redirectURL:(NSURL *)<em>redirectURL</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>clientID</code></th>
-						<td><p>Your client ID obtained from developer.spotify.com</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>redirectURL</code></th>
-						<td><p>Your redirect URL for Spotify to open your app again after authorization</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>A newly initialized <code>SPTConfiguration</code></p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">SPTConfiguration.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
 	<a name="//api/name/tokenSwapURL" title="tokenSwapURL"></a>
 	<h3 class="method-title"><code><a href="#//api/name/tokenSwapURL">&nbsp;&nbsp;tokenSwapURL</a></code>
 </h3>
@@ -493,8 +359,9 @@ to get a new access token.</p>
 			
 			<div class="method-subsection brief-description">
 				<p>If requesting the <code>SPTAppRemoteControlScope</code> you can provide an optional uri to begin playing after a successful
-authentication. To continue the user&rsquo;s last session set this to a blank string @&ldquo;&rdquo;. If this value is <code>nil</code> or <code>SPTAppRemoteControlScope</code>
-is not requested no audio will play. If Spotify is already playing it will continue playing even though a URI is provided.</p>
+authentication. To continue the user&rsquo;s last session set this to a blank string @&ldquo;&rdquo;. If this value is <code>nil</code> or
+<code>SPTAppRemoteControlScope</code> is not requested no audio will play. If Spotify is already playing it will continue playing
+even though a URI is provided.</p>
 			</div>
 			
 		    
@@ -523,6 +390,132 @@ is not requested no audio will play. If Spotify is already playing it will conti
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithClientID:redirectURL:" title="initWithClientID:redirectURL:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithClientID:redirectURL:">&ndash;&nbsp;initWithClientID:redirectURL:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Designated initializer for <code>SPTConfiguration</code></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithClientID:(NSString *)<em>clientID</em> redirectURL:(NSURL *)<em>redirectURL</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>clientID</code></th>
+						<td><p>Your client ID obtained from developer.spotify.com</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>redirectURL</code></th>
+						<td><p>Your redirect URL for Spotify to open your app again after authorization</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A newly initialized <code>SPTConfiguration</code></p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTConfiguration.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/configurationWithClientID:redirectURL:" title="configurationWithClientID:redirectURL:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configurationWithClientID:redirectURL:">+&nbsp;configurationWithClientID:redirectURL:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Convenience intializer for <code>SPtConfiguration</code></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)configurationWithClientID:(NSString *)<em>clientID</em> redirectURL:(NSURL *)<em>redirectURL</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>clientID</code></th>
+						<td><p>Your client ID obtained from developer.spotify.com</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>redirectURL</code></th>
+						<td><p>Your redirect URL for Spotify to open your app again after authorization</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A newly initialized <code>SPTConfiguration</code></p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTConfiguration.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -531,17 +524,15 @@ is not requested no audio will play. If Spotify is already playing it will conti
 					
 
                     
-                    
-          
 				</main>
 
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2024 Spotify. All rights reserved. Updated: 2024-07-16</p>
+						<p class="copyright">Copyright &copy; 2024 Spotify. All rights reserved. Updated: 2024-07-18</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

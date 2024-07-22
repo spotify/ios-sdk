@@ -4,12 +4,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// A type representing different lists of content.
-typedef NSString * const SPTAppRemoteContentType;
+typedef NSString *const SPTAppRemoteContentType;
 
-extern NSString * const SPTAppRemoteContentTypeDefault;
-extern NSString * const SPTAppRemoteContentTypeNavigation;
-extern NSString * const SPTAppRemoteContentTypeFitness;
-extern NSString * const SPTAppRemoteContentTypeGaming;
+extern NSString *const SPTAppRemoteContentTypeDefault;
+extern NSString *const SPTAppRemoteContentTypeNavigation;
+extern NSString *const SPTAppRemoteContentTypeFitness;
+extern NSString *const SPTAppRemoteContentTypeGaming;
 
 @protocol SPTAppRemoteContentItem;
 
@@ -31,7 +31,9 @@ extern NSString * const SPTAppRemoteContentTypeGaming;
  * @param callback The callback to be called once the request is completed.
  */
 - (void)fetchRootContentItemsForType:(SPTAppRemoteContentType)contentType
-                            callback:(nullable SPTAppRemoteCallback)callback DEPRECATED_MSG_ATTRIBUTE("Deprecated. Use fetchRecommendedContentItemsForType:flattenContainers:callback: instead.");
+                            callback:(nullable SPTAppRemoteCallback)callback
+    DEPRECATED_MSG_ATTRIBUTE(
+        "Deprecated. Use fetchRecommendedContentItemsForType:flattenContainers:callback: instead.");
 
 /**
  * Fetches the children items for the provided content item.

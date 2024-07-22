@@ -1,0 +1,15 @@
+name: SPTLoginSampleAppSwift
+targets:
+  SPTLoginSampleAppSwift:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: 
+        - path: SPTLoginSampleAppSwift   
+        - path: SPTLoginSampleAppSwift/Info.plist
+          buildPhase: none
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.spotify.SPTLoginSampleAppSwift
+      INFOPLIST_FILE: SPTLoginSampleAppSwift/Info.plist
+    dependencies:
+      - framework: ../../SpotifyiOS.xcframework

@@ -1,11 +1,13 @@
 import UIKit
+import SpotifyiOS
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate,
-SPTAppRemoteDelegate {
+                     SPTAppRemoteDelegate {
+
+    private let clientIdentifier = "<#ClientID#>"
+    private let redirectUri = URL(string:"<#RedirectURI#>")!
 
     static private let kAccessTokenKey = "access-token-key"
-    private let redirectUri = URL(string:"comspotifytestsdk://")!
-    private let clientIdentifier = "<#ClientID#>"
 
     var window: UIWindow?
 

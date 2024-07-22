@@ -1,0 +1,17 @@
+name: NowPlayingView
+targets:
+  NowPlayingView:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: 
+        - path: NowPlayingView   
+        - path: NowPlayingView/Info.plist
+          buildPhase: none
+        - path: README.md
+          buildPhase: none
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.testappremote
+      INFOPLIST_FILE: NowPlayingView/Info.plist
+    dependencies:
+      - framework: ../../SpotifyiOS.xcframework

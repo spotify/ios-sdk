@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-
 #import "SPTAppRemoteCommon.h"
 
 @protocol SPTAppRemoteUserAPI;
@@ -80,8 +79,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param URI      The URI of the item to save
  *  @param callback A callback block that will be invoked when the fetch request has completed.
- *                  On success `result` will be an instance of `id<SPTAppRemoteLibraryState>` that indicates the resulting state of the entity.
- *                  On error `result` will be `nil` and `error` will be set.
+ *                  On success `result` will be an instance of `id<SPTAppRemoteLibraryState>` that indicates the
+ * resulting state of the entity. On error `result` will be `nil` and `error` will be set.
  */
 - (void)addItemToLibraryWithURI:(NSString *)URI callback:(nullable SPTAppRemoteCallback)callback;
 
@@ -93,8 +92,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param URI      The URI of the item to remove
  *  @param callback A callback block that will be invoked when the fetch request has completed.
- *                  On success `result` will be an instance of `id<SPTAppRemoteLibraryState>` that indicates the resulting state of the entity.
- *                  On error `result` will be `nil` and `error` will be set.
+ *                  On success `result` will be an instance of `id<SPTAppRemoteLibraryState>` that indicates the
+ * resulting state of the entity. On error `result` will be `nil` and `error` will be set.
  */
 - (void)removeItemFromLibraryWithURI:(NSString *)URI callback:(nullable SPTAppRemoteCallback)callback;
 

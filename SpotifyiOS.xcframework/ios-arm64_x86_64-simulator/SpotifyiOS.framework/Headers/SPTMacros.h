@@ -48,42 +48,78 @@
     } while (0);
  \endcode
 */
-#define SPT_OPTIONAL_MESSAGE_SEND(RECEIVER, RESULT, ...) do { \
-    if ([RECEIVER respondsToSelector:@selector(SPT_CONCAT_SELECTOR(__VA_ARGS__))]) \
-        *(RESULT) = [RECEIVER SPT_CONCAT_METHOD(__VA_ARGS__)]; \
-} while (0)
+#define SPT_OPTIONAL_MESSAGE_SEND(RECEIVER, RESULT, ...)                               \
+    do {                                                                               \
+        if ([RECEIVER respondsToSelector:@selector(SPT_CONCAT_SELECTOR(__VA_ARGS__))]) \
+            *(RESULT) = [RECEIVER SPT_CONCAT_METHOD(__VA_ARGS__)];                     \
+    } while (0)
 
 /**
  Like SPT_OPTIONAL_MESSAGE_SEND but ignores the return value.
  @param RECEIVER The object to which the message will be sent.
  @param ... 0-4 arguments.
 */
-#define SPT_OPTIONAL_MESSAGE_SEND_(RECEIVER, ...) do { \
-    if ([RECEIVER respondsToSelector:@selector(SPT_CONCAT_SELECTOR(__VA_ARGS__))]) \
-        [RECEIVER SPT_CONCAT_METHOD(__VA_ARGS__)]; \
-} while (0)
+#define SPT_OPTIONAL_MESSAGE_SEND_(RECEIVER, ...)                                      \
+    do {                                                                               \
+        if ([RECEIVER respondsToSelector:@selector(SPT_CONCAT_SELECTOR(__VA_ARGS__))]) \
+            [RECEIVER SPT_CONCAT_METHOD(__VA_ARGS__)];                                 \
+    } while (0)
 
 // Some boilerplate for SPT_OPTIONAL_MESSAGE_SEND[_]
-#define SPT_CONCAT_METHOD8(A, _1, B, _2, C, _3, D, _4) A:_1 B:_2 C:_3 D:_4
-#define SPT_CONCAT_METHOD6(A, _1, B, _2, C, _3) A:_1 B:_2 C:_3
-#define SPT_CONCAT_METHOD4(A, _1, B, _2) A:_1 B:_2
-#define SPT_CONCAT_METHOD2(A, _1) A:_1
+#define SPT_CONCAT_METHOD8(A, _1, B, _2, C, _3, D, _4) \
+    A:                                                 \
+    _1 B : _2 C : _3 D : _4
+#define SPT_CONCAT_METHOD6(A, _1, B, _2, C, _3) \
+    A:                                          \
+    _1 B : _2 C : _3
+#define SPT_CONCAT_METHOD4(A, _1, B, _2) \
+    A:                                   \
+    _1 B : _2
+#define SPT_CONCAT_METHOD2(A, _1) \
+    A:                            \
+    _1
 #define SPT_CONCAT_METHOD1(A) A
 
-#define SPT_CONCAT_SELECTOR8(A, _1, B, _2, C, _3, D, _4) A:B:C:D:
-#define SPT_CONCAT_SELECTOR6(A, _1, B, _2, C, _3) A:B:C:
-#define SPT_CONCAT_SELECTOR4(A, _1, B, _2) A:B:
-#define SPT_CONCAT_SELECTOR2(A, _1) A:
+#define SPT_CONCAT_SELECTOR8(A, _1, B, _2, C, _3, D, _4) \
+    A:                                                   \
+    B:                                                   \
+    C:                                                   \
+    D:
+#define SPT_CONCAT_SELECTOR6(A, _1, B, _2, C, _3) \
+    A:                                            \
+    B:                                            \
+    C:
+#define SPT_CONCAT_SELECTOR4(A, _1, B, _2) \
+    A:                                     \
+    B:
+#define SPT_CONCAT_SELECTOR2(A, _1) \
+    A:
 #define SPT_CONCAT_SELECTOR1(A) A
 
 #define SPT_PICK_CONCAT_MACRO(_1, _2, _3, _4, _5, _6, _7, _8, NAME, ...) NAME
 
-#define SPT_CONCAT_METHOD(...) SPT_PICK_CONCAT_MACRO(__VA_ARGS__, \
-    SPT_CONCAT_METHOD8, SPT_CONCAT_METHOD7, SPT_CONCAT_METHOD6, SPT_CONCAT_METHOD5, \
-    SPT_CONCAT_METHOD4, SPT_CONCAT_METHOD3, SPT_CONCAT_METHOD2, SPT_CONCAT_METHOD1)(__VA_ARGS__)
+#define SPT_CONCAT_METHOD(...)                \
+    SPT_PICK_CONCAT_MACRO(__VA_ARGS__,        \
+                          SPT_CONCAT_METHOD8, \
+                          SPT_CONCAT_METHOD7, \
+                          SPT_CONCAT_METHOD6, \
+                          SPT_CONCAT_METHOD5, \
+                          SPT_CONCAT_METHOD4, \
+                          SPT_CONCAT_METHOD3, \
+                          SPT_CONCAT_METHOD2, \
+                          SPT_CONCAT_METHOD1) \
+    (__VA_ARGS__)
 
-#define SPT_CONCAT_SELECTOR(...) SPT_PICK_CONCAT_MACRO(__VA_ARGS__, \
-    SPT_CONCAT_SELECTOR8, SPT_CONCAT_SELECTOR7, SPT_CONCAT_SELECTOR6, SPT_CONCAT_SELECTOR5, \
-    SPT_CONCAT_SELECTOR4, SPT_CONCAT_SELECTOR3, SPT_CONCAT_SELECTOR2, SPT_CONCAT_SELECTOR1)(__VA_ARGS__)
+#define SPT_CONCAT_SELECTOR(...)                \
+    SPT_PICK_CONCAT_MACRO(__VA_ARGS__,          \
+                          SPT_CONCAT_SELECTOR8, \
+                          SPT_CONCAT_SELECTOR7, \
+                          SPT_CONCAT_SELECTOR6, \
+                          SPT_CONCAT_SELECTOR5, \
+                          SPT_CONCAT_SELECTOR4, \
+                          SPT_CONCAT_SELECTOR3, \
+                          SPT_CONCAT_SELECTOR2, \
+                          SPT_CONCAT_SELECTOR1) \
+    (__VA_ARGS__)
 
 #endif // SPT_MACROS

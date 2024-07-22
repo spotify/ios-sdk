@@ -33,8 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  If requesting the `SPTAppRemoteControlScope` you can provide an optional uri to begin playing after a successful
- authentication. To continue the user's last session set this to a blank string @"". If this value is `nil` or `SPTAppRemoteControlScope`
- is not requested no audio will play. If Spotify is already playing it will continue playing even though a URI is provided.
+ authentication. To continue the user's last session set this to a blank string @"". If this value is `nil` or
+ `SPTAppRemoteControlScope` is not requested no audio will play. If Spotify is already playing it will continue playing
+ even though a URI is provided.
  */
 @property (nonatomic, nullable, copy) NSString *playURI;
 
@@ -47,8 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param redirectURL Your redirect URL for Spotify to open your app again after authorization
  @return A newly initialized `SPTConfiguration`
  */
-- (instancetype)initWithClientID:(NSString *)clientID
-                     redirectURL:(NSURL *)redirectURL NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithClientID:(NSString *)clientID redirectURL:(NSURL *)redirectURL NS_DESIGNATED_INITIALIZER;
 
 /**
  Convenience intializer for `SPtConfiguration`

@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-
 #import "SPTAppRemoteCommon.h"
 
 @protocol SPTAppRemoteConnectivityAPI;
@@ -8,7 +7,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * The `SPTAppRemoteConnectivityAPIDelegate` gets notified whenever the connectivity API receives new data from subscription events.
+ * The `SPTAppRemoteConnectivityAPIDelegate` gets notified whenever the connectivity API receives new data from
+ * subscription events.
  */
 @protocol SPTAppRemoteConnectivityAPIDelegate <NSObject>
 
@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
  * @param connectivityAPI The API that received updates.
  * @param connectivityState The new connectivity state received.
  */
-- (void)connectivityAPI:(id<SPTAppRemoteConnectivityAPI>)connectivityAPI didReceiveNewConnectivityState:(id<SPTAppRemoteConnectivityState>)connectivityState;
+- (void)connectivityAPI:(id<SPTAppRemoteConnectivityAPI>)connectivityAPI
+    didReceiveNewConnectivityState:(id<SPTAppRemoteConnectivityState>)connectivityState;
 
 @end
 

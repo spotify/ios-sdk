@@ -58,7 +58,6 @@ typedef NSString * const SPTAuthorizationCode;
 /**
  Initiate the authorization process
  @note Prefer `initiateSessionWithScope:options:campaign` instead, unless you need additional scopes that aren't listed in `SPTScope`
-
  @param scope The scope to request, e.g. `"playlist-read-private user-read-email"` if you wish to request read access to private playlists, and read access to the user's email address.
  @param options Options bitmask that informs authorization behavior.
  @param campaign The campaign identifier, to help attribute where the account linking was initiated from.

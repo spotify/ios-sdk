@@ -1,5 +1,3 @@
-#import <UIKit/UIKit.h>
-
 #import "SPTAppRemoteCommon.h"
 #import "SPTAppRemoteImageRepresentable.h"
 
@@ -18,7 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @param callback On success `result` will be an instance of `UIImage`
  *                 On error `result` will be nil and error set
  */
-- (void)fetchImageForItem:(id<SPTAppRemoteImageRepresentable>)imageRepresentable withSize:(CGSize)imageSize callback:(nullable SPTAppRemoteCallback)callback;
+- (void)fetchImageForItem:(id<SPTAppRemoteImageRepresentable>)imageRepresentable
+                 withSize:(CGSize)imageSize
+                 callback:(nullable SPTAppRemoteCallback)callback;
 
 @end
 
