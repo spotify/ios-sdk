@@ -1,32 +1,33 @@
+#import <Foundation/Foundation.h>
+
 // (Objective-C identifier, Swift name, string value, bit flag)
-#define SPT_SCOPE_LIST \
-SPT_SCOPE(SPTPlaylistReadPrivateScope, playlistReadPrivate, "playlist-read-private", (1 << 0)) \
-SPT_SCOPE(SPTPlaylistReadCollaborativeScope, playlistReadCollaborative, "playlist-read-collaborative", (1 << 1)) \
-SPT_SCOPE(SPTPlaylistModifyPublicScope, playlistModifyPublic, "playlist-modify-public", (1 << 2)) \
-SPT_SCOPE(SPTPlaylistModifyPrivateScope, playlistModifyPrivate, "playlist-modify-private", (1 << 3)) \
-SPT_SCOPE(SPTUserFollowReadScope, userFollowRead, "user-follow-read", (1 << 4)) \
-SPT_SCOPE(SPTUserFollowModifyScope, userFollowModify, "user-follow-modify", (1 << 5)) \
-SPT_SCOPE(SPTUserLibraryReadScope, userLibraryRead, "user-library-read", (1 << 6)) \
-SPT_SCOPE(SPTUserLibraryModifyScope, userLibraryModify, "user-library-modify", (1 << 7)) \
-SPT_SCOPE(SPTUserReadBirthDateScope, userReadBirthDate, "user-read-birthdate", (1 << 8)) \
-SPT_SCOPE(SPTUserReadEmailScope, userReadEmail, "user-read-email", (1 << 9)) \
-SPT_SCOPE(SPTUserReadPrivateScope, userReadPrivate, "user-read-private", (1 << 10)) \
-SPT_SCOPE(SPTUserTopReadScope, userTopRead, "user-top-read", (1 << 11)) \
-SPT_SCOPE(SPTUGCImageUploadScope, ugcImageUpload, "ugc-image-upload", (1 << 12)) \
-SPT_SCOPE(SPTStreamingScope, streaming, "streaming", (1 << 13)) \
-SPT_SCOPE(SPTAppRemoteControlScope, appRemoteControl, "app-remote-control", (1 << 14)) \
-SPT_SCOPE(SPTUserReadPlaybackStateScope, userReadPlaybackState, "user-read-playback-state", (1 << 15)) \
-SPT_SCOPE(SPTUserModifyPlaybackStateScope, userModifyPlaybackState, "user-modify-playback-state", (1 << 16)) \
-SPT_SCOPE(SPTUserReadCurrentlyPlayingScope, userReadCurrentlyPlaying, "user-read-currently-playing", (1 << 17)) \
-SPT_SCOPE(SPTUserReadRecentlyPlayedScope, userReadRecentlyPlayed, "user-read-recently-played", (1 << 18)) \
-SPT_SCOPE(SPTOpenIdScope, openid, "openid", (1 << 19))
+#define SPT_SCOPE_LIST                                                                                               \
+    SPT_SCOPE(SPTPlaylistReadPrivateScope, playlistReadPrivate, "playlist-read-private", (1 << 0))                   \
+    SPT_SCOPE(SPTPlaylistReadCollaborativeScope, playlistReadCollaborative, "playlist-read-collaborative", (1 << 1)) \
+    SPT_SCOPE(SPTPlaylistModifyPublicScope, playlistModifyPublic, "playlist-modify-public", (1 << 2))                \
+    SPT_SCOPE(SPTPlaylistModifyPrivateScope, playlistModifyPrivate, "playlist-modify-private", (1 << 3))             \
+    SPT_SCOPE(SPTUserFollowReadScope, userFollowRead, "user-follow-read", (1 << 4))                                  \
+    SPT_SCOPE(SPTUserFollowModifyScope, userFollowModify, "user-follow-modify", (1 << 5))                            \
+    SPT_SCOPE(SPTUserLibraryReadScope, userLibraryRead, "user-library-read", (1 << 6))                               \
+    SPT_SCOPE(SPTUserLibraryModifyScope, userLibraryModify, "user-library-modify", (1 << 7))                         \
+    SPT_SCOPE(SPTUserReadBirthDateScope, userReadBirthDate, "user-read-birthdate", (1 << 8))                         \
+    SPT_SCOPE(SPTUserReadEmailScope, userReadEmail, "user-read-email", (1 << 9))                                     \
+    SPT_SCOPE(SPTUserReadPrivateScope, userReadPrivate, "user-read-private", (1 << 10))                              \
+    SPT_SCOPE(SPTUserTopReadScope, userTopRead, "user-top-read", (1 << 11))                                          \
+    SPT_SCOPE(SPTUGCImageUploadScope, ugcImageUpload, "ugc-image-upload", (1 << 12))                                 \
+    SPT_SCOPE(SPTStreamingScope, streaming, "streaming", (1 << 13))                                                  \
+    SPT_SCOPE(SPTAppRemoteControlScope, appRemoteControl, "app-remote-control", (1 << 14))                           \
+    SPT_SCOPE(SPTUserReadPlaybackStateScope, userReadPlaybackState, "user-read-playback-state", (1 << 15))           \
+    SPT_SCOPE(SPTUserModifyPlaybackStateScope, userModifyPlaybackState, "user-modify-playback-state", (1 << 16))     \
+    SPT_SCOPE(SPTUserReadCurrentlyPlayingScope, userReadCurrentlyPlaying, "user-read-currently-playing", (1 << 17))  \
+    SPT_SCOPE(SPTUserReadRecentlyPlayedScope, userReadRecentlyPlayed, "user-read-recently-played", (1 << 18))        \
+    SPT_SCOPE(SPTOpenIdScope, openid, "openid", (1 << 19))
 
 /**
  `SPTScope` represents the OAuth scopes that declare how your app wants to access a user's account.
  See https://developer.spotify.com/web-api/using-scopes/ for more information.
 */
-typedef NS_OPTIONS(NSUInteger, SPTScope)
-{
+typedef NS_OPTIONS(NSUInteger, SPTScope) {
     /// Read access to user's private playlists.
     SPTPlaylistReadPrivateScope NS_SWIFT_NAME(playlistReadPrivate) = (1 << 0),
     /// Include collaborative playlists when requesting a user's playlists.
@@ -48,7 +49,7 @@ typedef NS_OPTIONS(NSUInteger, SPTScope)
     /// Read access to user’s email address.
     SPTUserReadEmailScope NS_SWIFT_NAME(userReadEmail) = (1 << 9),
     /// Read access to user’s subscription details (type of user account).
-    SPTUserReadPrivateScope  NS_SWIFT_NAME(userReadPrivate) = (1 << 10),
+    SPTUserReadPrivateScope NS_SWIFT_NAME(userReadPrivate) = (1 << 10),
     /// Read access to a user's top artists and tracks.
     SPTUserTopReadScope NS_SWIFT_NAME(userTopRead) = (1 << 11),
     /// Upload user generated content images
@@ -68,4 +69,3 @@ typedef NS_OPTIONS(NSUInteger, SPTScope)
     /// Indicate that the application intends to use OIDC to verify the user's identity
     SPTOpenIdScope NS_SWIFT_NAME(openid) = (1 << 19),
 };
-

@@ -1,5 +1,13 @@
 # Changelog
 
+## Spotify iOS SDK v2.1.7
+
+What's New:
+
+- Add support for iOS 17.4 API for universal links in web authentication
+- Fix minor issues with the web authentication flow
+- Update demo apps project setup to use Xcodegen for managing Xcode project files
+
 ## Spotify iOS SDK v2.1.6
 
 What's New:

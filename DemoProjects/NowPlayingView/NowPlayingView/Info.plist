@@ -29,7 +29,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>&lt;#URL_Scheme#&gt;</string>
+				<string>spotify-ios-test-app</string>
 			</array>
 		</dict>
 	</array>

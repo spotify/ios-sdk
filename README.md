@@ -4,7 +4,7 @@
 
 The Spotify iOS framework allows your application to interact with the Spotify app running in the background on a user's device. Capabilities include authorizing, getting metadata for the currently playing track and context, as well as issuing playback commands.
 
-**Please Note:** By using Spotify developer tools you accept our [Developer Terms of Use](https://beta.developer.spotify.com/terms/).
+**Please Note:** By using Spotify developer tools you accept our [Developer Terms of Use](https://developer.spotify.com/terms).
 
 The Spotify iOS SDK is a set of lightweight objects that connect with the Spotify app and let you control it while all the heavy lifting of playback is offloaded to the Spotify app itself. The Spotify app takes care of playback, networking, offline caching and OS music integration, leaving you to focus on your user experience.  Moving from your app to the Spotify app and vice versa is a streamlined experience where playback and metadata always stay in sync.
 
@@ -141,7 +141,7 @@ Follow these steps to make sure you are prepared to start coding.
 
 ### Add Dependencies
 
-1. Add the SpotifyiOS package to your project. You can either do this through Swift Package Manager (SPM), or by adding `SpotifyiOS.framework` or `SpotifyiOS.xcframework` to your Xcode project directly.
+1. Add the SpotifyiOS package to your project. You can either do this through Swift Package Manager (SPM), or by adding `SpotifyiOS.xcframework` to your Xcode project directly.
 
     ![Import SpotifyiOS.framework](img/import_sdk.png)
 

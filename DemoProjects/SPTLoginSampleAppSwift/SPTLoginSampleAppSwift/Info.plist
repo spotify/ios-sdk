@@ -25,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>&lt;#URL_Scheme#&gt;</string>
+				<string>spotify-login-sdk-test-app-swift</string>
 			</array>
 		</dict>
 	</array>

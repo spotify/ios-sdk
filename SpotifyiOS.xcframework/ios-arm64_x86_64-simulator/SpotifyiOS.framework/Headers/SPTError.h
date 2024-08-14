@@ -7,8 +7,7 @@ NS_ASSUME_NONNULL_BEGIN
 SPT_EXPORT NSErrorDomain const SPTLoginErrorDomain;
 
 /// Spotify error codes, use NSUnderlyingErrorKey to see the underlying error
-typedef NS_ENUM(NSUInteger, SPTErrorCode)
-{
+typedef NS_ENUM(NSUInteger, SPTErrorCode) {
     /// Unknown error code
     SPTUnknownErrorCode NS_SWIFT_NAME(unknown) = 0,
     /// Authorization failed

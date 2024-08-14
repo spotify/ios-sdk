@@ -11,7 +11,7 @@ targets:
         - path: README.md
           buildPhase: none
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.testappremote
+      PRODUCT_BUNDLE_IDENTIFIER: com.spotify.SpotifyIosSampleApp
       INFOPLIST_FILE: NowPlayingView/Info.plist
     dependencies:
       - framework: ../../SpotifyiOS.xcframework

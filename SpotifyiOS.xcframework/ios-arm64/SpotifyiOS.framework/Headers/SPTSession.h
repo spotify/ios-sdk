@@ -20,7 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Check whether the session has expired. `YES` if expired; `NO` otherwise.
- Note: The session is considered expired once the current date and time is equal to or greater than the expiration date and time.
+ Note: The session is considered expired once the current date and time is equal to or greater than the expiration date
+ and time.
 */
 @property (nonatomic, readonly, getter=isExpired) BOOL expired;
 
