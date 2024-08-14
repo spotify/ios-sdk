@@ -4,8 +4,8 @@ import SpotifyiOS
 class SceneDelegate: UIResponder, UIWindowSceneDelegate,
                      SPTAppRemoteDelegate {
 
-    private let clientIdentifier = "<#ClientID#>"
-    private let redirectUri = URL(string:"<#RedirectURI#>")!
+    private let redirectUri = URL(string:"spotify-ios-test-app://spotify-login-callback")!
+    private let clientIdentifier = "<#ClientId#>"
 
     static private let kAccessTokenKey = "access-token-key"
 

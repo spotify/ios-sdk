@@ -23,7 +23,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>&lt;#URL_Scheme#&gt;</string>
+				<string>spotify-login-sdk-test-app-objc</string>
 			</array>
 		</dict>
 	</array>

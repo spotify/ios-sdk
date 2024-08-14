@@ -94,7 +94,7 @@
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTError.h</key>
 		<data>
-		Kj+zm7PGIYwZLO3nL5NfqmfXVXk=
+		JUqc0KVhD8vpZ0DZkUbN915UJjA=
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTLogin.h</key>
 		<data>
@@ -106,15 +106,15 @@
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTScope.h</key>
 		<data>
-		F575KcNSsah0efQcJ9NxqhMj1XU=
+		tVp4YLErK1kUkS2Kh3Gxpwb3qa8=
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTSession.h</key>
 		<data>
-		tlKyXr4cYHsmCVT1Pirrn7YD35M=
+		1LUreOg2FEVsSZvZJntprBecg4M=
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTSessionManager.h</key>
 		<data>
-		Ru7R1szm66XmkrDTW6C+oL8VPYQ=
+		jBP5h/OoLF5uMbXBusHi3XVN+vo=
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SpotifyAppRemote.h</key>
 		<data>
@@ -122,11 +122,11 @@
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SpotifyiOS.h</key>
 		<data>
-		N5xvK/PeuqrBrnN22o1g3Wz1s4A=
+		BHIpJ87aMgEqrbaWv/GuywsUkMs=
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Info.plist</key>
 		<data>
-		ku0mXUiM5QUhyMXE7MPKBMtmKJU=
+		TzCJ2TWQnUVUJ+yxG81MEW1Xa7Q=
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Modules/module.modulemap</key>
 		<data>
@@ -138,7 +138,7 @@
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/SpotifyiOS</key>
 		<data>
-		4LRwj0iSO79uNfwQYfST5GlByS4=
+		63FAAqrydvowtujFf1n5h0PH89s=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTAppRemote.h</key>
 		<data>
@@ -230,7 +230,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTError.h</key>
 		<data>
-		Kj+zm7PGIYwZLO3nL5NfqmfXVXk=
+		JUqc0KVhD8vpZ0DZkUbN915UJjA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTLogin.h</key>
 		<data>
@@ -242,15 +242,15 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTScope.h</key>
 		<data>
-		F575KcNSsah0efQcJ9NxqhMj1XU=
+		tVp4YLErK1kUkS2Kh3Gxpwb3qa8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTSession.h</key>
 		<data>
-		tlKyXr4cYHsmCVT1Pirrn7YD35M=
+		1LUreOg2FEVsSZvZJntprBecg4M=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTSessionManager.h</key>
 		<data>
-		Ru7R1szm66XmkrDTW6C+oL8VPYQ=
+		jBP5h/OoLF5uMbXBusHi3XVN+vo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SpotifyAppRemote.h</key>
 		<data>
@@ -258,11 +258,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SpotifyiOS.h</key>
 		<data>
-		N5xvK/PeuqrBrnN22o1g3Wz1s4A=
+		BHIpJ87aMgEqrbaWv/GuywsUkMs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Info.plist</key>
 		<data>
-		ku0mXUiM5QUhyMXE7MPKBMtmKJU=
+		TzCJ2TWQnUVUJ+yxG81MEW1Xa7Q=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Modules/module.modulemap</key>
 		<data>
@@ -274,7 +274,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/SpotifyiOS</key>
 		<data>
-		cm0hT4mTTpUeJkYO7LWTURaBNlg=
+		d0XmMGlUjE0wBI8nlpOgQy8xfQg=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -525,11 +525,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Kj+zm7PGIYwZLO3nL5NfqmfXVXk=
+			JUqc0KVhD8vpZ0DZkUbN915UJjA=
 			</data>
 			<key>hash2</key>
 			<data>
-			I3Wuh5U8eLBeuTGWV/yJYUs5Atyxua9PVcNY/2cngUw=
+			wIKEKH7jinNNzRlWbADSOaAOY7ulVlvKtDemSXp61BQ=
 			</data>
 		</dict>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTLogin.h</key>
@@ -558,33 +558,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			F575KcNSsah0efQcJ9NxqhMj1XU=
+			tVp4YLErK1kUkS2Kh3Gxpwb3qa8=
 			</data>
 			<key>hash2</key>
 			<data>
-			oZRtWZZrHNdvliwGwMDUAH/E2Vm6ndbJY/bjqznGmMk=
+			wqgG1gJlHG+Qt4KNEnkEwUnjpdkUUins9U/Ld0D0tvM=
 			</data>
 		</dict>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTSession.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tlKyXr4cYHsmCVT1Pirrn7YD35M=
+			1LUreOg2FEVsSZvZJntprBecg4M=
 			</data>
 			<key>hash2</key>
 			<data>
-			vBWbY6+HvUhHlV9tJR+cTDCIm7PX7qYms/CZ4o6rdE8=
+			8xanUmclWO91KjfvjVAUfW4zTVK7E3U28B61nRZtVYE=
 			</data>
 		</dict>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTSessionManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ru7R1szm66XmkrDTW6C+oL8VPYQ=
+			jBP5h/OoLF5uMbXBusHi3XVN+vo=
 			</data>
 			<key>hash2</key>
 			<data>
-			o9lZ3nLbllUeppOrtRCVlg6ggQ2v0zqeYVq1qQdTgQY=
+			ZspZzsDn3/d7h7QejgACTgwD/IqN8L46Eu2ics9LeHA=
 			</data>
 		</dict>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SpotifyAppRemote.h</key>
@@ -602,22 +602,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			N5xvK/PeuqrBrnN22o1g3Wz1s4A=
+			BHIpJ87aMgEqrbaWv/GuywsUkMs=
 			</data>
 			<key>hash2</key>
 			<data>
-			6VHM2q0NuM4xt7wA7JA4jhYVgmYAHzPX2SrTrHHYLSA=
+			lgDUnbl0zwEgbGZZSLPF0QfdCZw37ZJYmv15Xuu6Zq4=
 			</data>
 		</dict>
 		<key>ios-arm64/SpotifyiOS.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ku0mXUiM5QUhyMXE7MPKBMtmKJU=
+			TzCJ2TWQnUVUJ+yxG81MEW1Xa7Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			UZnmJkFkXdrAYEEIQcADtsOP79e24t9wb2IeZUY+VNs=
+			UW0y+wabsgke89Mbni2yFsi0xtoUrtNvAqczkwwdp0U=
 			</data>
 		</dict>
 		<key>ios-arm64/SpotifyiOS.framework/Modules/module.modulemap</key>
@@ -646,11 +646,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4LRwj0iSO79uNfwQYfST5GlByS4=
+			63FAAqrydvowtujFf1n5h0PH89s=
 			</data>
 			<key>hash2</key>
 			<data>
-			bFmpS3Hvsp7EhlTZuSM17N94UuWSIhp/t5Xr95prDho=
+			t9FC2WNizg0DTopVTpD5ZauIOfyCOgGNj6axDLY9GN0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTAppRemote.h</key>
@@ -899,11 +899,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Kj+zm7PGIYwZLO3nL5NfqmfXVXk=
+			JUqc0KVhD8vpZ0DZkUbN915UJjA=
 			</data>
 			<key>hash2</key>
 			<data>
-			I3Wuh5U8eLBeuTGWV/yJYUs5Atyxua9PVcNY/2cngUw=
+			wIKEKH7jinNNzRlWbADSOaAOY7ulVlvKtDemSXp61BQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTLogin.h</key>
@@ -932,33 +932,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			F575KcNSsah0efQcJ9NxqhMj1XU=
+			tVp4YLErK1kUkS2Kh3Gxpwb3qa8=
 			</data>
 			<key>hash2</key>
 			<data>
-			oZRtWZZrHNdvliwGwMDUAH/E2Vm6ndbJY/bjqznGmMk=
+			wqgG1gJlHG+Qt4KNEnkEwUnjpdkUUins9U/Ld0D0tvM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTSession.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tlKyXr4cYHsmCVT1Pirrn7YD35M=
+			1LUreOg2FEVsSZvZJntprBecg4M=
 			</data>
 			<key>hash2</key>
 			<data>
-			vBWbY6+HvUhHlV9tJR+cTDCIm7PX7qYms/CZ4o6rdE8=
+			8xanUmclWO91KjfvjVAUfW4zTVK7E3U28B61nRZtVYE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTSessionManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ru7R1szm66XmkrDTW6C+oL8VPYQ=
+			jBP5h/OoLF5uMbXBusHi3XVN+vo=
 			</data>
 			<key>hash2</key>
 			<data>
-			o9lZ3nLbllUeppOrtRCVlg6ggQ2v0zqeYVq1qQdTgQY=
+			ZspZzsDn3/d7h7QejgACTgwD/IqN8L46Eu2ics9LeHA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SpotifyAppRemote.h</key>
@@ -976,22 +976,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			N5xvK/PeuqrBrnN22o1g3Wz1s4A=
+			BHIpJ87aMgEqrbaWv/GuywsUkMs=
 			</data>
 			<key>hash2</key>
 			<data>
-			6VHM2q0NuM4xt7wA7JA4jhYVgmYAHzPX2SrTrHHYLSA=
+			lgDUnbl0zwEgbGZZSLPF0QfdCZw37ZJYmv15Xuu6Zq4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ku0mXUiM5QUhyMXE7MPKBMtmKJU=
+			TzCJ2TWQnUVUJ+yxG81MEW1Xa7Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			UZnmJkFkXdrAYEEIQcADtsOP79e24t9wb2IeZUY+VNs=
+			UW0y+wabsgke89Mbni2yFsi0xtoUrtNvAqczkwwdp0U=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Modules/module.modulemap</key>
@@ -1020,11 +1020,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cm0hT4mTTpUeJkYO7LWTURaBNlg=
+			d0XmMGlUjE0wBI8nlpOgQy8xfQg=
 			</data>
 			<key>hash2</key>
 			<data>
-			w/cOUic/wBWxVgD/f1kOIoGPziEam4voNyTYZ0egmvY=
+			odQ891GTbRYt8ZBKrDWbzZFid8Fr1jggp1uGkfDOGDo=
 			</data>
 		</dict>
 	</dict>

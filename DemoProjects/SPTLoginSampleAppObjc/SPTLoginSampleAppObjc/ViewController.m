@@ -16,7 +16,7 @@
 #import "ViewController.h"
 
 static NSString * const SpotifyClientID = @"<#ClientID#>";
-static NSString * const SpotifyRedirectURLString = @"<#RedirectURI#>";
+static NSString * const SpotifyRedirectURLString = @"spotify-login-sdk-test-app-objc://spotify-login-callback";
 
 @interface ViewController ()
 @end
