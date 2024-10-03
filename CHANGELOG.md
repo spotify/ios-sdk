@@ -1,5 +1,11 @@
 # Changelog
 
+## Spotify iOS SDK v3.0.0
+
+What's New:
+
+- Remove `checkIfSpotifyAppIsActive`. It won't work with new versions of the Spotify iOS app.
+
 ## Spotify iOS SDK v2.1.7
 
 What's New:
@@ -7,6 +13,7 @@ What's New:
 - Add support for iOS 17.4 API for universal links in web authentication
 - Fix minor issues with the web authentication flow
 - Update demo apps project setup to use Xcodegen for managing Xcode project files
+
 
 ## Spotify iOS SDK v2.1.6
 
