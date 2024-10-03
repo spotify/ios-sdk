@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTAppRemote.h</key>
 		<data>
-		vnH9md9A+3U0vyvptdR1iXtwcSI=
+		eLO5G6ixqex9BgndCpLwWScIeDM=
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTAppRemoteAlbum.h</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Info.plist</key>
 		<data>
-		TzCJ2TWQnUVUJ+yxG81MEW1Xa7Q=
+		RTBnONo050REziDvbhgGOktTyCw=
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/Modules/module.modulemap</key>
 		<data>
@@ -138,11 +138,11 @@
 		</data>
 		<key>ios-arm64/SpotifyiOS.framework/SpotifyiOS</key>
 		<data>
-		63FAAqrydvowtujFf1n5h0PH89s=
+		Ua1Sanplbr6WSHfqYFNgtguXNPI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTAppRemote.h</key>
 		<data>
-		vnH9md9A+3U0vyvptdR1iXtwcSI=
+		eLO5G6ixqex9BgndCpLwWScIeDM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTAppRemoteAlbum.h</key>
 		<data>
@@ -262,7 +262,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Info.plist</key>
 		<data>
-		TzCJ2TWQnUVUJ+yxG81MEW1Xa7Q=
+		RTBnONo050REziDvbhgGOktTyCw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Modules/module.modulemap</key>
 		<data>
@@ -274,7 +274,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/SpotifyiOS</key>
 		<data>
-		d0XmMGlUjE0wBI8nlpOgQy8xfQg=
+		aSHmB6H0dXF1iLKZCaoJzR0qJ5g=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -283,11 +283,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vnH9md9A+3U0vyvptdR1iXtwcSI=
+			eLO5G6ixqex9BgndCpLwWScIeDM=
 			</data>
 			<key>hash2</key>
 			<data>
-			2MxPMlBvKIcvpMjeMcWXi7/TjyO97FUipLUGFgCuaJ4=
+			wZHKEQF9WpdzvB0k3hp7Gy64hCMdClir8rKnRNkimG4=
 			</data>
 		</dict>
 		<key>ios-arm64/SpotifyiOS.framework/Headers/SPTAppRemoteAlbum.h</key>
@@ -613,11 +613,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TzCJ2TWQnUVUJ+yxG81MEW1Xa7Q=
+			RTBnONo050REziDvbhgGOktTyCw=
 			</data>
 			<key>hash2</key>
 			<data>
-			UW0y+wabsgke89Mbni2yFsi0xtoUrtNvAqczkwwdp0U=
+			A5Xz4wNFTrzQ/Z4lperZs2rk/8CGwHEIgZdH0g2eiU0=
 			</data>
 		</dict>
 		<key>ios-arm64/SpotifyiOS.framework/Modules/module.modulemap</key>
@@ -646,22 +646,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			63FAAqrydvowtujFf1n5h0PH89s=
+			Ua1Sanplbr6WSHfqYFNgtguXNPI=
 			</data>
 			<key>hash2</key>
 			<data>
-			t9FC2WNizg0DTopVTpD5ZauIOfyCOgGNj6axDLY9GN0=
+			hg5S3NpvbW3sKtdbLgLeKBB5YaIbW9+7JPjYpi5HpBc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTAppRemote.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vnH9md9A+3U0vyvptdR1iXtwcSI=
+			eLO5G6ixqex9BgndCpLwWScIeDM=
 			</data>
 			<key>hash2</key>
 			<data>
-			2MxPMlBvKIcvpMjeMcWXi7/TjyO97FUipLUGFgCuaJ4=
+			wZHKEQF9WpdzvB0k3hp7Gy64hCMdClir8rKnRNkimG4=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Headers/SPTAppRemoteAlbum.h</key>
@@ -987,11 +987,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TzCJ2TWQnUVUJ+yxG81MEW1Xa7Q=
+			RTBnONo050REziDvbhgGOktTyCw=
 			</data>
 			<key>hash2</key>
 			<data>
-			UW0y+wabsgke89Mbni2yFsi0xtoUrtNvAqczkwwdp0U=
+			A5Xz4wNFTrzQ/Z4lperZs2rk/8CGwHEIgZdH0g2eiU0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SpotifyiOS.framework/Modules/module.modulemap</key>
@@ -1020,11 +1020,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			d0XmMGlUjE0wBI8nlpOgQy8xfQg=
+			aSHmB6H0dXF1iLKZCaoJzR0qJ5g=
 			</data>
 			<key>hash2</key>
 			<data>
-			odQ891GTbRYt8ZBKrDWbzZFid8Fr1jggp1uGkfDOGDo=
+			VsMkD6t9h0D50BaGp3DCbVxVyyySSaHhE0vg6CITMhk=
 			</data>
 		</dict>
 	</dict>

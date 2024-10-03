@@ -96,15 +96,6 @@ typedef NS_ENUM(NSUInteger, SPTAppRemoteLogLevel) {
 #pragma mark Class Methods
 
 /**
- * Checks if the Spotify app is active on the user's device. You can use this to determine if maybe you should prompt
- * the user to connect to Spotify (because you know they are already using Spotify if it is active). The Spotify app
- * will be considered active if music is playing or the app is active in the background.
- *
- * @param completion Completion block for determining the result of the check. YES if Spotify is active, othewise NO.
- */
-+ (void)checkIfSpotifyAppIsActive:(void (^)(BOOL active))completion;
-
-/**
  * Determine the current version of the Spotify App Remote
  *
  * @return The current version of the Spotify App Remote

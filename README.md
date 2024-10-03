@@ -163,31 +163,6 @@ Follow these steps to make sure you are prepared to start coding.
     #import <SpotifyiOS/SpotifyiOS.h>
     ```
 
-### Check if Spotify is Active
-
-If a user is already using Spotify, but has not authorized your application, you can use the following check to prompt them to
-start the authorization process.
-
-*Swift*
-    
-```swift
-SPTAppRemote.checkIfSpotifyAppIsActive { active in
-    if active {
-        // Prompt the user to connect Spotify here
-    }
-}
-```
-    
-*Objective-c*
-    
-```objective-c
-[SPTAppRemote checkIfSpotifyAppIsActive:^(BOOL active) {
-    if (active) {
-        // Prompt the user to connect Spotify here
-    }
-}];
-```
-
 ### Authorize Your Application
 
 To be able to use the playback control part of the SDK the user needs to authorize your application. If they haven't, the connection will fail with a `No token provided` error. To allow the user to authorize your app, you can use the built-in authorization flow.
