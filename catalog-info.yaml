@@ -4,4 +4,4 @@ metadata:
   name: ios-sdk
 spec:
   type: library
-  owner: rocket
+  owner: bridges
