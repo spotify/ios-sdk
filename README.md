@@ -1,5 +1,36 @@
 # Spotify iOS SDK
+## ✨ Modern Features
 
+- Modern Swift UI examples
+- Improved playback controller
+- Better authentication flow
+- Cleaner project structure
+- Optimized Spotify connection handling
+- Updated demo application interface
+- Enhanced developer documentation
+- Lightweight and faster SDK integration
+
+---
+
+## 🚀 Quick Start
+
+1. Clone the repository
+2. Open the Xcode project
+3. Add your Spotify Client ID
+4. Configure Redirect URI
+5. Run the demo application
+
+---
+
+## 📱 Improved Demo Experience
+
+The demo project now includes:
+
+- Real-time playback status
+- Improved connection indicators
+- Modern button styling
+- Cleaner user interface
+- Better state management
 ## Overview
 
 The Spotify iOS framework allows your application to interact with the Spotify app running in the background on a user's device. Capabilities include authorization, getting metadata for the currently playing track and context, as well as issuing playback commands.
