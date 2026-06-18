@@ -1,247 +1,149 @@
-import SpotifyiOS
 import UIKit
 
-class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
+class ViewController: UIViewController {
 
-    private let SpotifyClientID = "<#ClientID#>"
-    private let SpotifyRedirectURI = URL(string: "spotify-login-sdk-test-app-swift://spotify-login-callback")!
+    // MARK: - UI Elements
 
-    lazy var configuration: SPTConfiguration = {
-        let configuration = SPTConfiguration(clientID: SpotifyClientID, redirectURL: SpotifyRedirectURI)
-        // Set the playURI to a non-nil value so that Spotify plays music after authenticating and App Remote can connect
-        // otherwise another app switch will be required
-        configuration.playURI = ""
+    private let logoImage = UIImageView()
+    private let titleLabel = UILabel()
+    private let subtitleLabel = UILabel()
+    private let playButton = UIButton(type: .system)
+    private let stopButton = UIButton(type: .system)
+    private let statusView = UIView()
+    private let statusLabel = UILabel()
 
-        // Set these url's to your backend which contains the secret to exchange for an access token
-        // You can use the provided ruby script spotify_token_swap.rb for testing purposes
-        configuration.tokenSwapURL = URL(string: "http://localhost:1234/swap")
-        configuration.tokenRefreshURL = URL(string: "http://localhost:1234/refresh")
-        return configuration
-    }()
-
-    lazy var sessionManager: SPTSessionManager = {
-        let manager = SPTSessionManager(configuration: configuration, delegate: self)
-        return manager
-    }()
-
-    lazy var appRemote: SPTAppRemote = {
-        let appRemote = SPTAppRemote(configuration: configuration, logLevel: .debug)
-        appRemote.delegate = self
-        return appRemote
-    }()
-
-    private var lastPlayerState: SPTAppRemotePlayerState?
-
-    // MARK: - Subviews
-
-    private lazy var connectLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Connect your Spotify account"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private lazy var connectButton = ConnectButton(title: "CONNECT")
-    private lazy var disconnectButton = ConnectButton(title: "DISCONNECT")
-
-    private lazy var pauseAndPlayButton: UIButton = {
-        let button = UIButton()
-        button.addTarget(self, action: #selector(didTapPauseOrPlay), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    private lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-
-    private lazy var trackLabel: UILabel = {
-        let trackLabel = UILabel()
-        trackLabel.translatesAutoresizingMaskIntoConstraints = false
-        trackLabel.textAlignment = .center
-        return trackLabel
-    }()
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
 
-        view.addSubview(connectLabel)
-        view.addSubview(connectButton)
-        view.addSubview(disconnectButton)
-        view.addSubview(imageView)
-        view.addSubview(trackLabel)
-        view.addSubview(pauseAndPlayButton)
-
-        let constant: CGFloat = 16.0
-
-        connectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        connectButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-
-        disconnectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        disconnectButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
-
-        connectLabel.centerXAnchor.constraint(equalTo: connectButton.centerXAnchor).isActive = true
-        connectLabel.bottomAnchor.constraint(equalTo: connectButton.topAnchor, constant: -constant).isActive = true
-
-        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: trackLabel.topAnchor, constant: -constant).isActive = true
-
-        trackLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        trackLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: constant).isActive = true
-        trackLabel.bottomAnchor.constraint(equalTo: connectLabel.topAnchor, constant: -constant).isActive = true
-
-        pauseAndPlayButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        pauseAndPlayButton.topAnchor.constraint(equalTo: trackLabel.bottomAnchor, constant: constant).isActive = true
-        pauseAndPlayButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        pauseAndPlayButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        pauseAndPlayButton.sizeToFit()
-
-        connectButton.sizeToFit()
-        disconnectButton.sizeToFit()
-
-        connectButton.addTarget(self, action: #selector(didTapConnect(_:)), for: .touchUpInside)
-        disconnectButton.addTarget(self, action: #selector(didTapDisconnect(_:)), for: .touchUpInside)
-
-        updateViewBasedOnConnected()
+        setupUI()
+        setupConstraints()
     }
 
-    func update(playerState: SPTAppRemotePlayerState) {
-        if lastPlayerState?.track.uri != playerState.track.uri {
-            fetchArtwork(for: playerState.track)
-        }
-        lastPlayerState = playerState
-        trackLabel.text = playerState.track.name
-        if playerState.isPaused {
-            pauseAndPlayButton.setImage(UIImage(named: "play"), for: .normal)
-        } else {
-            pauseAndPlayButton.setImage(UIImage(named: "pause"), for: .normal)
-        }
+    // MARK: - Setup UI
+
+    private func setupUI() {
+        view.backgroundColor = UIColor.black
+
+        // Logo
+        logoImage.image = UIImage(systemName: "music.note")
+        logoImage.tintColor = .systemGreen
+        logoImage.contentMode = .scaleAspectFit
+        logoImage.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logoImage)
+
+        // Title
+        titleLabel.text = "Spotify Player"
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 34)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleLabel)
+
+        // Subtitle
+        subtitleLabel.text = "Swift iOS Demo Interface"
+        subtitleLabel.textColor = .lightGray
+        subtitleLabel.font = UIFont.systemFont(ofSize: 18)
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(subtitleLabel)
+
+        // Play Button
+        playButton.setTitle("▶ Play", for: .normal)
+        playButton.setTitleColor(.white, for: .normal)
+        playButton.backgroundColor = .systemGreen
+        playButton.layer.cornerRadius = 18
+        playButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        playButton.translatesAutoresizingMaskIntoConstraints = false
+        playButton.addTarget(self, action: #selector(playMusic), for: .touchUpInside)
+        view.addSubview(playButton)
+
+        // Stop Button
+        stopButton.setTitle("■ Stop", for: .normal)
+        stopButton.setTitleColor(.white, for: .normal)
+        stopButton.backgroundColor = .systemRed
+        stopButton.layer.cornerRadius = 18
+        stopButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        stopButton.translatesAutoresizingMaskIntoConstraints = false
+        stopButton.addTarget(self, action: #selector(stopMusic), for: .touchUpInside)
+        view.addSubview(stopButton)
+
+        // Status View
+        statusView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.4)
+        statusView.layer.cornerRadius = 16
+        statusView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(statusView)
+
+        // Status Label
+        statusLabel.text = "Status: Waiting"
+        statusLabel.textColor = .white
+        statusLabel.font = UIFont.systemFont(ofSize: 18)
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        statusView.addSubview(statusLabel)
     }
 
-    func updateViewBasedOnConnected() {
-        if appRemote.isConnected {
-            connectButton.isHidden = true
-            disconnectButton.isHidden = false
-            connectLabel.isHidden = true
-            imageView.isHidden = false
-            trackLabel.isHidden = false
-            pauseAndPlayButton.isHidden = false
-        } else {
-            disconnectButton.isHidden = true
-            connectButton.isHidden = false
-            connectLabel.isHidden = false
-            imageView.isHidden = true
-            trackLabel.isHidden = true
-            pauseAndPlayButton.isHidden = true
-        }
-    }
+    // MARK: - Constraints
 
-    func fetchArtwork(for track:SPTAppRemoteTrack) {
-        appRemote.imageAPI?.fetchImage(forItem: track, with: CGSize.zero, callback: { [weak self] image, error in
-            if let error {
-                print("Error fetching track image: " + error.localizedDescription)
-            } else if let image = image as? UIImage {
-                self?.imageView.image = image
-            }
-        })
-    }
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
 
-    func fetchPlayerState() {
-        appRemote.playerAPI?.getPlayerState { [weak self] playerState, error in
-            if let error {
-                print("Error getting player state:" + error.localizedDescription)
-            } else if let playerState = playerState as? SPTAppRemotePlayerState {
-                self?.update(playerState: playerState)
-            }
-        }
+            logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+            logoImage.widthAnchor.constraint(equalToConstant: 100),
+            logoImage.heightAnchor.constraint(equalToConstant: 100),
+
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 20),
+
+            subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+
+            playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            playButton.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 50),
+            playButton.widthAnchor.constraint(equalToConstant: 220),
+            playButton.heightAnchor.constraint(equalToConstant: 55),
+
+            stopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stopButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 20),
+            stopButton.widthAnchor.constraint(equalToConstant: 220),
+            stopButton.heightAnchor.constraint(equalToConstant: 55),
+
+            statusView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            statusView.topAnchor.constraint(equalTo: stopButton.bottomAnchor, constant: 40),
+            statusView.widthAnchor.constraint(equalToConstant: 280),
+            statusView.heightAnchor.constraint(equalToConstant: 70),
+
+            statusLabel.centerXAnchor.constraint(equalTo: statusView.centerXAnchor),
+            statusLabel.centerYAnchor.constraint(equalTo: statusView.centerYAnchor)
+        ])
     }
 
     // MARK: - Actions
 
-    @objc func didTapPauseOrPlay(_ button: UIButton) {
-        if let lastPlayerState, lastPlayerState.isPaused {
-            appRemote.playerAPI?.resume(nil)
-        } else {
-            appRemote.playerAPI?.pause(nil)
-        }
+    @objc private func playMusic() {
+        statusLabel.text = "Status: Playing Music"
+
+        let alert = UIAlertController(
+            title: "Music Started",
+            message: "The play button was pressed successfully.",
+            preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+        present(alert, animated: true)
     }
 
-    @objc func didTapDisconnect(_ button: UIButton) {
-        if appRemote.isConnected {
-            appRemote.disconnect()
-        }
-    }
+    @objc private func stopMusic() {
+        statusLabel.text = "Status: Music Stopped"
 
-    @objc func didTapConnect(_ button: UIButton) {
-        /*
-         Scopes let you specify exactly what types of data your application wants to
-         access, and the set of scopes you pass in your call determines what access
-         permissions the user is asked to grant.
-         For more information, see https://developer.spotify.com/web-api/using-scopes/.
-         */
-        let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
-        sessionManager.initiateSession(with: scope, options: .clientOnly, campaign: nil)
-    }
+        let alert = UIAlertController(
+            title: "Music Stopped",
+            message: "Playback has been stopped.",
+            preferredStyle: .alert
+        )
 
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel))
 
-    // MARK: - SPTSessionManagerDelegate
-
-    func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
-        presentAlertController(title: "Authorization Failed", message: error.localizedDescription, buttonTitle: "Bummer")
-    }
-
-    func sessionManager(manager: SPTSessionManager, didRenew session: SPTSession) {
-        presentAlertController(title: "Session Renewed", message: session.description, buttonTitle: "Sweet")
-    }
-
-    func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
-        appRemote.connectionParameters.accessToken = session.accessToken
-        appRemote.connect()
-    }
-
-    // MARK: - SPTAppRemoteDelegate
-
-    func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
-        updateViewBasedOnConnected()
-        appRemote.playerAPI?.delegate = self
-        appRemote.playerAPI?.subscribe(toPlayerState: { _, error in
-            if let error {
-                print("Error subscribing to player state:" + error.localizedDescription)
-            }
-        })
-        fetchPlayerState()
-    }
-
-    func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
-        updateViewBasedOnConnected()
-        lastPlayerState = nil
-    }
-
-    func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
-        updateViewBasedOnConnected()
-        lastPlayerState = nil
-    }
-
-    // MARK: - SPTAppRemotePlayerAPIDelegate
-
-    func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
-        update(playerState: playerState)
-    }
-
-    // MARK: - Private Helpers
-
-    private func presentAlertController(title: String, message: String, buttonTitle: String) {
-        DispatchQueue.main.async {
-            let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let action = UIAlertAction(title: buttonTitle, style: .default, handler: nil)
-            controller.addAction(action)
-            self.present(controller, animated: true)
-        }
+        present(alert, animated: true)
     }
 }
-
