@@ -3,12 +3,29 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The `SPTAppRemoteUserCapabilities` represents a set of capabilities the current user has in the Spotify app.
+ * Modern Spotify App Remote User Capabilities
+ * Enhanced interface example for learning purposes.
  */
+
 @protocol SPTAppRemoteUserCapabilities <NSObject>
 
-/// `YES` if the user can play songs on demand, otherwise `NO`. This will differ for premium and non-premium users
+/// Indicates whether the user can play songs on demand.
 @property (nonatomic, assign, readonly) BOOL canPlayOnDemand;
+
+/// Indicates whether offline playback is available.
+@property (nonatomic, assign, readonly) BOOL supportsOfflinePlayback;
+
+/// Indicates whether high quality streaming is enabled.
+@property (nonatomic, assign, readonly) BOOL supportsHighQualityStreaming;
+
+/// Indicates whether the user can control remote devices.
+@property (nonatomic, assign, readonly) BOOL canControlRemoteDevices;
+
+/// Current subscription type.
+@property (nonatomic, strong, readonly) NSString *subscriptionType;
+
+/// Current country code.
+@property (nonatomic, strong, readonly) NSString *countryCode;
 
 @end
 
